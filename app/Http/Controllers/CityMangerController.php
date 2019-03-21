@@ -14,8 +14,7 @@ class CityMangerController extends Controller
     public function index()
     {
         $city_manager = DB::table('managers')->where('role', 'city_manager');
-        // $city_manager = Manager::all();
-        return view('managers.index', [
+        return view('city_manager.index', [
             'managers'=>$city_manager
         ]);
     }
