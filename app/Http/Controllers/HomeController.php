@@ -37,5 +37,10 @@ class HomeController extends Controller
         // $permission = Permission::create(['name' => 'CRUD_city_gyms_manager']);
         return view('home');
     }
+
+    public function admin()
+    {
+        return view('admin/admin');
+    }
 }
 
