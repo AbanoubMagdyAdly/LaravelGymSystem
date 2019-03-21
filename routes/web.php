@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -29,5 +30,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 =======
 Route::get('/admin', 'HomeController@admin')->name('admin');
+Route::get('/admin/data', 'HomeController@data')->name('data');
+
 
 >>>>>>> 79506b4d391ea52b62dab5695ce35157e9336601
