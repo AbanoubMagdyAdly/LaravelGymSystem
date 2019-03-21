@@ -189,7 +189,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="admin/data" class="nav-link">
+                <a href="/citymanager/data" class="nav-link">
                   <i class="fa fa-eye nav-icon"></i>
                   <p>Show All</p>
                 </a>

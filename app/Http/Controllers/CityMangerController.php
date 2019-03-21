@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class CityMangerController extends Controller
 {
@@ -13,11 +14,16 @@ class CityMangerController extends Controller
      */
     public function index()
     {
-        $city_manager = DB::table('managers')->where('role', 'city_manager');
-        return view('city_manager.index', [
-            'managers'=>$city_manager
-        ]);
+        return datatables()->of(User::query())->toJson();
     }
+
+    public function index_view()
+    {
+        return view(
+            'admin/data'
+        );
+    }
+
 
     /**
      * Show the form for creating a new resource.
