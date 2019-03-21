@@ -14,7 +14,9 @@ class CreateCoachesSessionsTable extends Migration
     public function up()
     {
         Schema::create('coaches_sessions', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->unsignedBigInteger('gym_id');
+            $table->unsignedBigInteger('session_id');
+            $table->unsignedBigInteger('coach_id');
 
 //            $table->foreign('gym_id')->references('id')->on('gyms');
 //            $table->foreign('session_id')->references('id')->on('training_session');

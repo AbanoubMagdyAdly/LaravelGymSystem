@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePackagesPurchaseTable extends Migration
+class CreateTrainingPackagesPurchaseTable extends Migration
 {
     /**
      * Run the migrations.
@@ -17,15 +17,17 @@ class CreatePackagesPurchaseTable extends Migration
             $table->bigIncrements('id');
 
             $table->date('created_at');
-        });
-//        Schema::table('training_packages_purchase', function (Blueprint $table) {
-//
+            $table->unsignedBigInteger('trainee_id');
+            $table->unsignedBigInteger('package_id');
+            $table->unsignedBigInteger('gym_id');
+            $table->unsignedBigInteger('city_id');
+
 //            $table->foreign('trainee_id')->references('id')->on('trainee');
 //            $table->foreign('package_id')->references('id')->on('training_packages');
 //
 //            $table->foreign('gym_id')->references('id')->on('gyms');
 //            $table->foreign('city_id')->references('id')->on('cities');
-//        });
+        });
     }
 
     /**
