@@ -176,14 +176,20 @@
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-edit"></i>
+
+
+{{--              @if(auth()->user()->hasrole('admin'))--}}
               <p>
                 City manager
                 <i class="right fa fa-angle-left"></i>
               </p>
+                {{--@endif--}}
+
+
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../../index3.html" class="nav-link">
+                <a href="/citymanager/create" class="nav-link">
                   <i class="fa fa-plus-circle nav-icon"></i>
                   <p>Create</p>
                 </a>
@@ -316,27 +322,13 @@
                   </ul>
                 </li>
                 <li class="nav-item has-treeview">
-                  <a href="#" class="nav-link">
+                  <a href="/admin/buypackage" class="nav-link">
                     <i class="nav-icon fa fa-plus"></i>
                     <p>
                       Buy Package For User
                       <i class="right fa fa-angle-left"></i>
                     </p>
                   </a>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="../../index3.html" class="nav-link">
-                        <i class="fa fa-plus-circle nav-icon"></i>
-                        <p>Create</p>
-                      </a>
-                      <li class="nav-item">
-                        <a href="../../index.html" class="nav-link">
-                          <i class="fa fa-eye nav-icon"></i>
-                          <p>Show All</p>
-                        </a>
-                      </li>
-                    </li>
-                  </ul>
                 </li>
                 <li class="nav-item has-treeview">
                   <a href="#" class="nav-link">
