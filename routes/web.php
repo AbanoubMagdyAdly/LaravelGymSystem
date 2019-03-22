@@ -26,6 +26,10 @@ Route::get('/citymanager/dataAjax', 'CityManagerController@index')->name('CityMa
 Route::get('/citymanager/data', 'CityManagerController@index_view')->name('CityManager.index_view');
 Route::get('/citymanager/create', 'CityManagerController@create')->name('CityManager.create');
 Route::post('/citymanager/data', 'CityManagerController@store')->name('CityManager.store');
+Route::get('/citymanager/{id}/edit', 'CityManagerController@edit')->name('CityManager.edit');
+Route::put('/citymanager/{id}', 'CityManagerController@update')->name('CityManager.update');
+
+
 
 Route::get('/admin/buypackage', 'HomeController@show')->name('plans.index');
 Route::post('/admin/buypackage', 'HomeController@buy')->name('plans.show');
