@@ -26,7 +26,7 @@ class UsersController extends Controller
         User::create($request->all());
 
         return response()->json([
-            'message' => 'Post Created Successfully'
+            'message' => 'user Created Successfully'
         ],201);
     }
 
