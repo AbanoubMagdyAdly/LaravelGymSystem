@@ -20,6 +20,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin', 'HomeController@admin')->name('admin');
+Route::get('/admin/data', 'HomeController@data')->name('data');
+
 Route::get('/citymanager/dataAjax', 'CityMangerController@index')->name('CityManager.index');
 Route::get('/citymanager/data', 'CityMangerController@index_view')->name('CityManager.index_view');
 Route::get('/citymanager/create', 'CityMangerController@create')->name('CityManager.create');
