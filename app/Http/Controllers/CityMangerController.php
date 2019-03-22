@@ -32,7 +32,7 @@ class CityMangerController extends Controller
      */
     public function create()
     {
-        return view('city_manager.create');
+        return view('/managers/CityManagerCreate');
     }
 
     /**
@@ -43,8 +43,8 @@ class CityMangerController extends Controller
      */
     public function store(Request $request)
     {
-        Manager::create($request->all());
-        return redirect()->route('city_manager.index');
+        User::create($request->all());
+        return redirect()->route('CityManager.store');
     }
 
     /**
