@@ -13,12 +13,12 @@ class CityMangerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
         return datatables()->of(User::query())->toJson();
     }
 
     public function index_view()
-    {
+    {  
         return view(
             'admin/data'
         );
