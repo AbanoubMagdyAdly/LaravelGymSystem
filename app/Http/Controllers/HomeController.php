@@ -47,4 +47,26 @@ class HomeController extends Controller
     {
         return view('admin/data');
     }
+    public function buy($request)
+    {
+        // Set your secret key: remember to change this to your live secret key in production
+        // See your keys here: https://dashboard.stripe.com/account/apikeys
+       
+        \Stripe\Stripe::setApiKey("sk_test_ah8BPqY1IotKT7B8bfbOmQSX00I0BoDobX");
+        $data=request()->all();
+        $token = $data['stripeToken'];
+
+        $charge = \Stripe\Charge::create([
+            'amount' => 999,
+            'currency' => 'usd',
+            'description' => 'Example charge',
+            'source' => $token,
+        ]);
+        return view('/admin');
+    }
+    public function show()
+    {
+        return view('admin/buyPackage');
+    }
+
 }
