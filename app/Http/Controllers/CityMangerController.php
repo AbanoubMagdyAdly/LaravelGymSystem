@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\User;
 
@@ -13,12 +14,12 @@ class CityMangerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
         return datatables()->of(User::query())->toJson();
     }
 
     public function index_view()
-    {  
+    {
         return view(
             'admin/data'
         );
@@ -43,7 +44,11 @@ class CityMangerController extends Controller
      */
     public function store(Request $request)
     {
-        User::create($request->all());
+        User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password'])
+            ]);
         return redirect()->route('CityManager.store');
     }
 
