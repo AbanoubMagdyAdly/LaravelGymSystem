@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\User;
 
-class CityMangerController extends Controller
+class CityManagerController extends Controller
 {
     /**
      * Display a listing of the resource.
