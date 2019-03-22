@@ -1,9 +1,7 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-
+use App\User;
 class GymManagerController extends Controller
 {
     /**
@@ -11,9 +9,16 @@ class GymManagerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {    $gym_manager = DB::table('managers')->where('role', 'gym_manager');
-         return view('gym_manager.index',['managers'=>$gym_manager]);
+   public function index()
+    {
+        return datatables()->of(User::query())->toJson();
+    }
+
+    public function index_view()
+    {
+        return view(
+            'admin/data'
+        );
     }
 
     /**
