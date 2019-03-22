@@ -22,3 +22,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin', 'HomeController@admin')->name('admin');
 Route::get('/citymanager/dataAjax', 'CityMangerController@index')->name('CityManager.index');
 Route::get('/citymanager/data', 'CityMangerController@index_view')->name('CityManager.index_view');
+
+Route::get('/admin/buypackage', 'HomeController@show')->name('plans.index');
+Route::post('/admin/buypackage', 'HomeController@buy')->name('plans.show');
