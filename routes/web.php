@@ -19,18 +19,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-<<<<<<< HEAD
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-=======
 Route::get('/admin', 'HomeController@admin')->name('admin');
 Route::get('/admin/data', 'HomeController@data')->name('data');
 
-
->>>>>>> 79506b4d391ea52b62dab5695ce35157e9336601
+Route::get('/citymanager/dataAjax', 'CityMangerController@index')->name('CityManager.index');
+Route::get('/citymanager/data', 'CityMangerController@index_view')->name('CityManager.index_view');

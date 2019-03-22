@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAttendanceUsersTable extends Migration
+class CreateTrainingSessionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,16 @@ class CreateAttendanceUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('attendance_users', function (Blueprint $table) {
+        Schema::create('training_session', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('name', 100);
+            $table->time('start_time');
+            $table->time('finish_time');
+            $table->date('date_of_session');
 
+            $table->unsignedBigInteger('gym_id');
 
-//            $table->foreign('user_id')->references('id')->on('users');
-//            $table->foreign('session_id')->references('id')->on('training_session');
 //            $table->foreign('gym_id')->references('id')->on('gyms');
-//            $table->foreign('city_id')->references('id')->on('cities');
         });
     }
 
@@ -32,6 +33,6 @@ class CreateAttendanceUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('attendance_users');
+        Schema::dropIfExists('training_session');
     }
 }
