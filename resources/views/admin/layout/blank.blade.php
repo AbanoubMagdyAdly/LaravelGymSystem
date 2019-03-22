@@ -176,10 +176,16 @@
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-edit"></i>
+
+
+{{--              @if(auth()->user()->hasrole('admin'))--}}
               <p>
                 City manager
                 <i class="right fa fa-angle-left"></i>
               </p>
+                {{--@endif--}}
+
+
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
