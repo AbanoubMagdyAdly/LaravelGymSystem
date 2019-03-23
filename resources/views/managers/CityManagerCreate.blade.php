@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.layout.blank')
 
 @section('content')
             <!-- general form elements -->

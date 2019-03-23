@@ -18,7 +18,7 @@
                   <th>Email</th>
                   <th >Show</th>
                   <th>Edit</th>
-                  <th>Edit</th>
+                  <th>Delete</th>
 
                 </tr>
                 </thead>
@@ -48,10 +48,10 @@ $(document).ready( function () {
               return '<a class="btn btn-info btn-sm" href=/citymanager/show/' + row.id + '>' + 'Show' + '</a>';}
             },
             {"mRender": function(data, type,row ) {
-              return '<a class="btn btn-success btn-sm" href=/citymanager/' + row.id + '/edit'+ '>' + 'Edit' + '</a>';}
+              return '<a class="btn btn-warning btn-sm" href=/citymanager/' + row.id + '/edit'+ '>' + 'Edit' + '</a>';}
             },
             {"mRender": function(data, type,row ) {
-              return '<a class="btn btn-warning btn-sm" href=/citymanager/' + row.id + '>' + 'Delete' + '</a>';}
+              return '<a class="btn btn-danger btn-sm" href=/citymanager/' + row.id + '>' + 'Delete' + '</a>';}
             }
         ]
      } );

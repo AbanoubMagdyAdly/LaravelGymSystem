@@ -38,7 +38,7 @@ class AddForeignKeys extends Migration
         });
         Schema::table('training_packages_purchase', function (Blueprint $table) {
 
-            $table->foreign('trainee_id')->references('id')->on('trainee');
+            $table->foreign('trainee_id')->references('id')->on('trainees');
             $table->foreign('package_id')->references('id')->on('training_packages');
 
             $table->foreign('gym_id')->references('id')->on('gyms');

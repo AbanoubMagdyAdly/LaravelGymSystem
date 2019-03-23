@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTraineeTable extends Migration
+class CreateTraineesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,18 @@ class CreateTraineeTable extends Migration
      */
     public function up()
     {
-        Schema::create('trainee', function (Blueprint $table) {
+        Schema::create('trainees', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name', 100);
             $table->string('gender', 100);
             $table->date('date_of_birth');
             $table->string('email', 100);
+            $table->boolean('confirmed')->default(0);
             $table->string('password');
             $table->string('password_confirmation');
             $table->string('image');
+            $table->date('updated_at');
+            $table->date('created_at');
         });
     }
 
@@ -32,6 +35,6 @@ class CreateTraineeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('trainee');
+        Schema::dropIfExists('trainees');
     }
 }
