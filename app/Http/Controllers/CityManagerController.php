@@ -74,9 +74,9 @@ class CityManagerController extends Controller
      */
     public function edit($id)
     {
-        $city_manager = Manager::find($id);
-        return view('city_manager.edit', [
-                'city_manger'=>$city_manager
+        $city_manager = User::find($id);
+        return view('/managers/CityManagerEdit', [
+                'city_manager'=>$city_manager
         ]);
     }
 
@@ -89,9 +89,13 @@ class CityManagerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $city_manager = Manager::find($id);
-        $city_manager->update($request->all());
-        return redirect()->route('city_manager.index');
+        $city_manager = User::findorfail($id);
+        $city_manager->update([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password'])
+            ]);
+        return redirect()->route('CityManager.index_view');
     }
 
     /**
