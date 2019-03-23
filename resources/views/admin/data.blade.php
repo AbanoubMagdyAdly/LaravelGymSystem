@@ -6,11 +6,11 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Hover Data Table</h3>
+           
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <table id="myTable" class="table table-bordered table-hover">
+              <table id="myTable" class=" col-sm-11 row-sm-3 table table-bordered row- table-light text-dark table-hover">
                 <thead>
                 <tr>
                   <th>ID</th>
@@ -46,13 +46,13 @@ $(document).ready( function () {
             { "data": "name" },
             { "data": "email" },
             {"mRender": function(data, type, row) {
-              return '<a class="btn btn-info btn-sm" href=/citymanager/show/' + row.id + '>' + 'Show' + '</a>';}
+              return '<a class="btn btn-info btn-sm" href=/'+pathArray[1]+'/show/' + row.id + '>' + 'Show' + '</a>';}
             },
             {"mRender": function(data, type,row ) {
-              return '<a class="btn btn-warning btn-sm" href=/citymanager/' + row.id + '/edit'+ '>' + 'Edit' + '</a>';}
+              return '<a class="btn btn-warning btn-sm" href=/'+pathArray[1]+'/' + row.id + '/edit'+ '>' + 'Edit' + '</a>';}
             },
             {"mRender": function(data, type,row ) {
-              return '<a class="btn btn-danger btn-sm" href=/citymanager/' + row.id + '>' + 'Delete' + '</a>';}
+              return '<a class="btn btn-danger btn-sm" href=/'+pathArray[1]+'/' + row.id + '>' + 'Delete' + '</a>';}
             }
         ]
      } );
