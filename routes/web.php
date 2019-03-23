@@ -29,6 +29,8 @@ Route::get('/citymanager/{id}/edit', 'CityManagerController@edit')->name('CityMa
 Route::put('/citymanager/{id}', 'CityManagerController@update')->name('CityManager.update');
 
 
+Route::get('/gymmanager/dataAjax', 'GymManagerController@index')->name('GymManager.index');
+Route::get('/gymmanager/data', 'GymManagerController@index_view')->name('GymManager.index_view');
 
 Route::get('/admin/buypackage', 'HomeController@show')->name('plans.index');
 Route::post('/admin/buypackage', 'HomeController@buy')->name('plans.show');

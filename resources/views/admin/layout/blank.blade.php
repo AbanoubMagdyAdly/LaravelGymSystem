@@ -220,7 +220,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="../../index.html" class="nav-link">
+                  <a href="/gymmanager/data" class="nav-link">
                     <i class="fa fa-eye nav-icon"></i>
                     <p>Show All</p>
                   </a>
@@ -245,7 +245,7 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="../../index.html" class="nav-link">
+                    <a href="/cities/data" class="nav-link">
                       <i class="fa fa-eye nav-icon"></i>
                       <p>Show All</p>
                     </a>
@@ -268,7 +268,7 @@
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="../../index.html" class="nav-link">
+                      <a href="/gyms/data" class="nav-link">
                         <i class="fa fa-eye nav-icon"></i>
                         <p>Show All</p>
                       </a>
@@ -290,7 +290,7 @@
                         <p>Create</p>
                       </a>
                       <li class="nav-item">
-                        <a href="../../index.html" class="nav-link">
+                        <a href="/users/data" class="nav-link">
                           <i class="fa fa-eye nav-icon"></i>
                           <p>Show All</p>
                         </a>
@@ -346,7 +346,7 @@
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="../../index.html" class="nav-link">
+                      <a href="/coaches/data" class="nav-link">
                         <i class="fa fa-eye nav-icon"></i>
                         <p>Show All</p>
                       </a>
@@ -369,7 +369,7 @@
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="../../index.html" class="nav-link">
+                      <a href="/attendance/data" class="nav-link">
                         <i class="fa fa-eye nav-icon"></i>
                         <p>Show All</p>
                       </a>
@@ -386,7 +386,7 @@
                   </a>
                   <ul class="nav nav-treeview">
                     <li class="nav-item">
-                      <a href="../../index3.html" class="nav-link">
+                      <a href="/Revenue/data" class="nav-link">
                         <i class="fa fa-plus-circle nav-icon"></i>
                         <p>Create</p>
                       </a>

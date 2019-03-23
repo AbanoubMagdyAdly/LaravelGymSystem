@@ -35,10 +35,11 @@
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 <script>
 $(document).ready( function () {
+  var pathArray = window.location.pathname.split('/');
   $('#myTable').DataTable({
         "processing": true,
         "serverSide": true,
-        "ajax": "/citymanager/dataAjax",
+        "ajax": "/"+pathArray[1]+"/dataAjax",
         "type":"get",
         "columns": [
             { "data": "id" },
