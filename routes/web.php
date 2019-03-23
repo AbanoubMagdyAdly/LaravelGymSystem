@@ -17,7 +17,6 @@ Route::get('/', function () {
 
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin', 'HomeController@admin')->name('admin');
 Route::get('/admin/data', 'HomeController@data')->name('data');
@@ -33,3 +32,4 @@ Route::put('/citymanager/{id}', 'CityManagerController@update')->name('CityManag
 
 Route::get('/admin/buypackage', 'HomeController@show')->name('plans.index');
 Route::post('/admin/buypackage', 'HomeController@buy')->name('plans.show');
+Route::get('/citymanager/{id}', 'CityMangerController@destroy')->name('CityManager.destroy');

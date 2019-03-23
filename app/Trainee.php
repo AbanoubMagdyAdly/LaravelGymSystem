@@ -14,5 +14,7 @@ protected $fillable = [
     'password',
     'password_confirmation',
     'image',
+    'updated_at',
+    'created_at'
 ];
 }

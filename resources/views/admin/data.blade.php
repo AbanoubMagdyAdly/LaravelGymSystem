@@ -56,5 +56,10 @@ $(document).ready( function () {
         ]
      } );
 } );
+
+function delValidate(){
+          if (!confirm ('Do You Want to Delete this Post ?'))
+            event.preventDefault();
+        }
 </script>
       @endsection

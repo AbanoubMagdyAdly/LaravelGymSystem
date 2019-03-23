@@ -105,9 +105,8 @@ class CityManagerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        $city_manager = Manager::find($id);
-        $city_manager->delete();
-        return redirect()->route('city_manager.index');
+    {   
+        User::where('id',$id)->delete();
+        return view('admin/admin');
     }
 }
