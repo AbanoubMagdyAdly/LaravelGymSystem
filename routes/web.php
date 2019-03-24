@@ -18,54 +18,59 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/admin', 'HomeController@admin')->name('admin');
-Route::get('/admin/data', 'HomeController@data')->name('data');
 
-Route::get('/citymanager/dataAjax', 'CityManagerController@index')->name('CityManager.index');
-Route::get('/citymanager/data', 'CityManagerController@index_view')->name('CityManager.index_view');
-Route::get('/citymanager/create', 'CityManagerController@create')->name('CityManager.create');
-Route::post('/citymanager/data', 'CityManagerController@store')->name('CityManager.store');
-Route::get('/citymanager/{id}/edit', 'CityManagerController@edit')->name('CityManager.edit');
-Route::put('/citymanager/{id}', 'CityManagerController@update')->name('CityManager.update');
-Route::get('/citymanager/show/{id}', 'CityMangerController@show')->name('CityManager.show');
+Route::prefix('admin')->middleware('auth')->group(function() {
 
-
-Route::get('/gymmanager/dataAjax', 'GymManagerController@index')->name('GymManager.index');
-Route::get('/gymmanager/data', 'GymManagerController@index_view')->name('GymManager.index_view');
-Route::get('/gymmanager/show/{id}', 'GymManagerController@show')->name('GymManager.show');
-Route::get('/Gymmanager/{id}', 'GymMangerController@destroy')->name('GymManager.destroy');
-Route::get('/gymmanager/create', 'GymManagerController@create')->name('GymManager.create');
-Route::post('/gymmanager/data', 'GymManagerController@store')->name('GymManager.store');
-Route::get('/gymmanager/{id}/edit', 'GymManagerController@edit')->name('GymManager.edit');
-Route::put('/gymmanager/{id}', 'GymManagerController@update')->name('GymManager.update');
+    Route::get('', 'HomeController@admin')->name('admin');
+    Route::get('/data', 'HomeController@data')->name('data');
+    Route::get('/buypackage', 'HomeController@show')->name('plans.index');
+    Route::post('/buypackage', 'HomeController@buy')->name('plans.show');
+});
+Route::prefix('citymanager')->middleware('auth')->group(function(){
+    Route::get('/dataAjax', 'CityManagerController@index')->name('CityManager.index');
+    Route::get('/data', 'CityManagerController@index_view')->name('CityManager.index_view');
+    Route::get('/create', 'CityManagerController@create')->name('CityManager.create');
+    Route::post('/data', 'CityManagerController@store')->name('CityManager.store');
+    Route::get('/{id}/edit', 'CityManagerController@edit')->name('CityManager.edit');
+    Route::put('/{id}', 'CityManagerController@update')->name('CityManager.update');
+    Route::get('/show/{id}', 'CityMangerController@show')->name('CityManager.show');
+    Route::get('/citymanager/{id}', 'CityMangerController@destroy')->name('CityManager.destroy');
 
 
+});
+
+Route::prefix('gymmanager')->middleware('auth')->group(function(){
+    Route::get('/dataAjax', 'GymManagerController@index')->name('GymManager.index');
+    Route::get('/data', 'GymManagerController@index_view')->name('GymManager.index_view');
+    Route::get('/show/{id}', 'GymManagerController@show')->name('GymManager.show');
+    Route::get('/{id}', 'GymMangerController@destroy')->name('GymManager.destroy');
+    Route::get('/create', 'GymManagerController@create')->name('GymManager.create');
+    Route::post('/data', 'GymManagerController@store')->name('GymManager.store');
+    Route::get('/{id}/edit', 'GymManagerController@edit')->name('GymManager.edit');
+    Route::put('/{id}', 'GymManagerController@update')->name('GymManager.update');
+
+});
+Route::prefix('gyms')->middleware('auth')->group(function(){
+
+    Route::get('/dataAjax', 'GymController@index')->name('Gym.index');
+    Route::get('/data', 'GymController@index_view')->name('Gym.index_view');
+    Route::get('/create', 'GymController@create')->name('Gym.create');
+    Route::post('/data', 'GymController@store')->name('Gym.store');
+    Route::get('/show/{id}', 'GymController@show')->name('Gym.show');
+    Route::get('/{id}/edit', 'GymController@edit')->name('Gym.edit');
+    Route::put('/{id}', 'GymController@update')->name('Gym.update');
+});
 
 
+Route::prefix('trainingpackages')->middleware('auth')->group(function() {
 
+    Route::get('/dataAjax', 'TrainingPackagesController@index')->name('TrainingPackagesController.index');
+    Route::get('/all', 'TrainingPackagesController@index_view')->name('TrainingPackagesController.index_view');
+    Route::get('/create', 'TrainingPackagesController@create')->name('TrainingPackagesControlle.create');
+    Route::post('', 'TrainingPackagesController@store')->name('TrainingPackagesControlle.store');
+    Route::get('/{id}/edit', 'TrainingPackagesController@edit')->name('TrainingPackagesController.edit');
+    Route::put('/{id}', 'TrainingPackagesController@update')->name('TrainingPackagesController.update');
+    Route::get('/{id}', 'TrainingPackagesController@destroy')->name('TrainingPackagesController.destroy');
+});
 
-Route::get('/gyms/dataAjax', 'GymController@index')->name('Gym.index');
-Route::get('/gyms/data', 'GymController@index_view')->name('Gym.index_view');
-Route::get('/gyms/create', 'GymController@create')->name('Gym.create');
-Route::post('/gyms/data', 'GymController@store')->name('Gym.store');
-Route::get('/gyms/show/{id}', 'GymController@show')->name('Gym.show');
-Route::get('/gyms/{id}/edit', 'GymController@edit')->name('Gym.edit');
-Route::put('/gyms/{id}', 'GymController@update')->name('Gym.update');
-
-
-
-Route::get('/admin/buypackage', 'HomeController@show')->name('plans.index');
-Route::post('/admin/buypackage', 'HomeController@buy')->name('plans.show');
-
-
-Route::get('/trainingpackages/dataAjax', 'TrainingPackagesController@index')->name('TrainingPackagesController.index');
-Route::get('/trainingpackages/all', 'TrainingPackagesController@index_view')->name('TrainingPackagesController.index_view');
-Route::get('/trainingpackages/create', 'TrainingPackagesController@create')->name('TrainingPackagesControlle.create');
-Route::post('/trainingpackages', 'TrainingPackagesController@store')->name('TrainingPackagesControlle.store');
-Route::get('/trainingpackages/{id}/edit', 'TrainingPackagesController@edit')->name('TrainingPackagesController.edit');
-Route::put('/trainingpackages/{id}', 'TrainingPackagesController@update')->name('TrainingPackagesController.update');
-Route::get('/trainingpackages/{id}', 'TrainingPackagesController@destroy')->name('TrainingPackagesController.destroy');
-
-
-Route::get('/citymanager/{id}', 'CityMangerController@destroy')->name('CityManager.destroy');
 
