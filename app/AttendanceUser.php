@@ -9,7 +9,6 @@ class AttendanceUser extends Model
     protected $fillable = [
         'id',
         'name',
-        'email',
         'user_id',
         'session_id',
         'gym_id',

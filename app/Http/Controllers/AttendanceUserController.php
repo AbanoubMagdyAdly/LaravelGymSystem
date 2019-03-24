@@ -17,7 +17,7 @@ class AttendanceUserController extends Controller
     {
         // dd(datatables()->of(AttendanceUser::query())->toJson());
         return view(
-            'admin/data'
+            'attendance/data'
         );
     }
     public function create()
