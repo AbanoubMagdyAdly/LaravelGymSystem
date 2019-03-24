@@ -17,7 +17,7 @@ class TraineeResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'date__of_birth' => $this->date_of_birth,
+            'date_of_birth' => $this->date_of_birth,
             'gender' => $this->gender,
             'image' => $this->image,
 

@@ -10,7 +10,7 @@ class TraineeController extends Controller
 {
     public function index()
     {
-        // die();
+
         return TraineeResource::collection(Trainee::all());//see all posts
         // return TraineeResource::collection($trainee);//select only 3
      
@@ -23,7 +23,7 @@ class TraineeController extends Controller
     }
     public function store(Request $request)
     {
-        // dd($request->all());
+//         dd($request->all());
       //  Trainee::create($request->all());
          Trainee::create([
             'name' => $request['name'],
