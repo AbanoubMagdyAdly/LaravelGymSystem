@@ -35,3 +35,6 @@ Route::get('/gymmanager/data', 'GymManagerController@index_view')->name('GymMana
 Route::get('/admin/buypackage', 'HomeController@show')->name('plans.index');
 Route::post('/admin/buypackage', 'HomeController@buy')->name('plans.show');
 Route::get('/citymanager/{id}', 'CityMangerController@destroy')->name('CityManager.destroy');
+
+Route::get('/attendance/dataAjax', 'AttendanceUserController@index')->name('Attendance.index');
+Route::get('/attendance/data', 'AttendanceUserController@index_view')->name('Attendance.index_view');
