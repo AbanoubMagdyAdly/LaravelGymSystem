@@ -109,6 +109,7 @@ class TrainingPackagesController extends Controller
         TrainingPackage::where('id', $id)->delete();
         // $package=TrainingPackage::findorfail($id);
         // $package->delete();
-        return redirect()->route('TrainingPackagesController.index_view');
+        // return redirect()->route('packade/TrainingPackagesController.index_view');
+        return view('admin/admin');
     }
 }
