@@ -37,7 +37,7 @@ Route::get('/citymanager/show/{id}', 'CityMangerController@show')->name('CityMan
 
 Route::get('/admin/buypackage', 'HomeController@show')->name('plans.index');
 Route::post('/admin/buypackage', 'HomeController@buy')->name('plans.show');
-<<<<<<< HEAD
+
 
 Route::get('/trainingpackages/dataAjax', 'TrainingPackagesController@index')->name('TrainingPackagesController.index');
 Route::get('/trainingpackages/all', 'TrainingPackagesController@index_view')->name('TrainingPackagesController.index_view');
@@ -54,6 +54,6 @@ Route::delete('/trainingpackages/{id}', 'TrainingPackagesController@destroy')->n
 
 // Route::post('/trainingpackage/data', 'TrainingPackagesController@store')->name('TrainingPackagesController.store');
 
-=======
+
 Route::get('/citymanager/{id}', 'CityMangerController@destroy')->name('CityManager.destroy');
->>>>>>> 378ba95769e35a1d8fe6666f02d3ae1d4acbf8d9
+

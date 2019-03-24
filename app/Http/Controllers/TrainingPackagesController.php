@@ -44,7 +44,7 @@ class TrainingPackagesController extends Controller
         
             ]);
       
-        return redirect()->route('admin');
+        return redirect()->route('TrainingPackagesController.index_view');
 
     }
 
@@ -106,8 +106,9 @@ class TrainingPackagesController extends Controller
      */
     public function destroy($id)
     {
-        $package=TrainingPackage::findorfail($id);
-        $package->delete();
+        TrainingPackage::where('id', $id)->delete();
+        // $package=TrainingPackage::findorfail($id);
+        // $package->delete();
         return redirect()->route('TrainingPackagesController.index_view');
     }
 }

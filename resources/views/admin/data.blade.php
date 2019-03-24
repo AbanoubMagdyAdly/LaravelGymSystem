@@ -57,10 +57,8 @@ $(document).ready( function () {
         ]
      } );
 } );
-<<<<<<< HEAD
-=======
 
->>>>>>> 378ba95769e35a1d8fe6666f02d3ae1d4acbf8d9
+
 function delValidate(){
           if (!confirm ('Do You Want to Delete this Post ?'))
             event.preventDefault();
