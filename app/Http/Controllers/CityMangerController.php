@@ -1,15 +1,19 @@
 <?php
+
 namespace App\Http\Controllers;
+
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\User;
-class GymManagerController extends Controller
+
+class CityMangerController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-   public function index()
+    public function index()
     {
         return datatables()->of(User::query())->toJson();
     }
@@ -21,6 +25,7 @@ class GymManagerController extends Controller
         );
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -28,7 +33,7 @@ class GymManagerController extends Controller
      */
     public function create()
     {
-        return view('gym_manager.create');
+        return view('/managers/CityManagerCreate');
     }
 
     /**
@@ -39,8 +44,12 @@ class GymManagerController extends Controller
      */
     public function store(Request $request)
     {
-        Manager::create($request->all());
-        return redirect()->route('gym_manager.index');
+        User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password'])
+            ]);
+        return redirect()->route('CityManager.store');
     }
 
     /**
@@ -51,9 +60,9 @@ class GymManagerController extends Controller
      */
     public function show($id)
     {
-        $gym_manager = User::findorfail($id);
+        $city_manager = User::findorfail($id);
         return view('/managers/ManagerShow', [
-            'manager'=>$gym_manager
+            'manager'=>$city_manager
         ]);
     }
 
@@ -63,10 +72,11 @@ class GymManagerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Manager $gym_manager)
+    public function edit($id)
     {
-            return view('gym_manager.edit', [
-             'gym_manager' => $gym_manager
+        $city_manager = Manager::find($id);
+        return view('city_manager.edit', [
+                'city_manger'=>$city_manager
         ]);
     }
 
@@ -77,11 +87,11 @@ class GymManagerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$gym_manager)
+    public function update(Request $request, $id)
     {
-            $gym_manager= Manager::find($gym_manager);
-            $gym_manager -> update($request->all());
-            return redirect()->route('gym_manager.index');
+        $city_manager = Manager::find($id);
+        $city_manager->update($request->all());
+        return redirect()->route('city_manager.index');
     }
 
     /**
