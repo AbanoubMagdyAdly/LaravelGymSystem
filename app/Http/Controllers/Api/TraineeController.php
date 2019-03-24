@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\TraineeResource;
 use Illuminate\Support\Facades\Hash;
-class TraineeController extends Controller implements MustVerifyEmail
+class TraineeController extends Controller
 {
     public function index()
     {
@@ -47,21 +47,4 @@ class TraineeController extends Controller implements MustVerifyEmail
             'message' => 'delete Successfully'
         ]);
     }
-    public function update(Request $request,trainee $trainee)
-    {
-        dd($trainee);
-        // $request['name']=$request->name;
-        $trainee->update($request->all());
-        // dd($trainee->name);
-        return response()->json([
-            'message' => 'up Successfully'
-        ]);
-    }
 }
-// $this->ProductUserCheck($product);
-// $request['detail'] = $request->description;
-// unset($request['description']);
-// $product->update($request->all());
-// return response([
-//     'data' => new ProductResource($product)
-// ],Response::HTTP_CREATED);
