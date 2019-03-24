@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\TraineeResource;
 use Illuminate\Support\Facades\Hash;
-class TraineeController extends Controller
+class TraineeController extends Controller implements MustVerifyEmail
 {
     public function index()
     {
