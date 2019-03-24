@@ -54,14 +54,7 @@ Route::get('/trainingpackages/create', 'TrainingPackagesController@create')->nam
 Route::post('/trainingpackages', 'TrainingPackagesController@store')->name('TrainingPackagesControlle.store');
 Route::get('/trainingpackages/{id}/edit', 'TrainingPackagesController@edit')->name('TrainingPackagesController.edit');
 Route::put('/trainingpackages/{id}', 'TrainingPackagesController@update')->name('TrainingPackagesController.update');
-Route::delete('/trainingpackages/{id}', 'TrainingPackagesController@destroy')->name('TrainingPackagesController.destroy');
-
-// Route::get('/trainingpackages/create', function()
-// {
-//     return "eman";
-// });
-
-// Route::post('/trainingpackage/data', 'TrainingPackagesController@store')->name('TrainingPackagesController.store');
+Route::get('/trainingpackages/{id}', 'TrainingPackagesController@destroy')->name('TrainingPackagesController.destroy');
 
 
 Route::get('/citymanager/{id}', 'CityMangerController@destroy')->name('CityManager.destroy');
