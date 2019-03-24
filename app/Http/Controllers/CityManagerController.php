@@ -47,15 +47,24 @@ class CityManagerController extends Controller
      */
     public function store(StoreCityManagerRequest $request)
     {
-        $path = Storage::putFile('public/avatar_image', $request->file('avatar_image'));
-        User::create([
+        if ($request->hasFile("avatar_image")) {
+            $path = Storage::putFile('public/avatar_image', $request->file('avatar_image'));
+            User::create([
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
             'avatar_image'=>basename($path),
             ]);
+        } elseif (! $request->hasFile("avatar_image")) {
+            User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+             ]);
+        }
         return redirect()->route('CityManager.store')->with('message', 'Created Successfully!');
     }
+
 
 
     /**
@@ -95,14 +104,21 @@ class CityManagerController extends Controller
      */
     public function update(UpdateCityManagerRequest $request, $id)
     {
-        $path = Storage::putFile('public/avatar_image', $request->file('avatar_image'));
         $city_manager = User::findorfail($id);
-        $city_manager->update([
+        if ($request->hasFile("avatar_image")) {
+            $path = Storage::putFile('public/avatar_image', $request->file('avatar_image'));
+            $city_manager->update([
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
             'avatar_image'=>basename($path),
             ]);
+        } elseif (! $request->hasFile("avatar_image")) {
+            $city_manager->update([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+             ]);
         return redirect()->route('CityManager.index_view')->with('message', 'Updated Successfully!');
         ;
     }

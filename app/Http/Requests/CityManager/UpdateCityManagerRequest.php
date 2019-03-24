@@ -27,8 +27,6 @@ class UpdateCityManagerRequest extends FormRequest
         return [
             'name'=>'required',
             'email'=>'required|email|unique:users,email,' .$this->id,
-            'password'=>'required|min:6|',
-            'password_confirmation' => 'required|same:password',
             'avatar_image'=>'mimes:jpeg,jpg ',
         ];
     }
@@ -39,10 +37,6 @@ class UpdateCityManagerRequest extends FormRequest
         'name.required' => 'Please Fill out This Field!',
          'email.unique' => 'Sorry,This Email is already exist!',
          'email.email' => 'Please enter a valid Email',
-         'password.required' => 'Please Fill out This Field!',
-         'password.min' => 'Your password is too short',
-         'password_confirmation.required' => 'Please Fill out This Field!',
-         'password_confirmation.same' => 'Password confirmation does not match password!',
          'avatar_image.image'=>'Uploaded file is not a valid image. Only JPG and JPEG  files are allowed'
         ];
     }
