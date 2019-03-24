@@ -29,8 +29,7 @@ class StoreCityManagerRequest extends FormRequest
             'email'=>'required|unique:users|email',
             'password'=>'required|min:6|',
             'password_confirmation' => 'required|same:password',
-            'avatar_image'=>'image|mimes:jpeg,jpg ',
-
+            'avatar_image'=>'mimes:jpeg,jpg ',
         ];
     }
 

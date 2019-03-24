@@ -8,7 +8,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form"   action="{{route('CityManager.store')}}" method="POST">
+              <form role="form"   action="{{route('CityManager.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                     <div class="form-group">
@@ -31,29 +31,15 @@
                     <input type="password"   name="password_confirmation" class="form-control" id="exampleInputPassword2" placeholder="Confirm Password">
                         @if ($errors->has('password_confirmation')) <label class="alert alert-danger">{{ $errors->first('password_confirmation') }}</label> @endif
                 </div>
-                    {{-- <div class="form-group">
-                         <label for="exampleInputEmail1">National ID</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                  </div> --}}
-                  {{-- <div class="form-group">
-                    <label for="exampleInputFile">Upload Photo</label>
-                    <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                      </div>
-                      <div class="input-group-append">
-                        <span class="input-group-text" id="">Upload</span>
-                      </div>
-                    </div>
-                  </div> --}}
-
-
+                 <div class="form-group">
+                    <label for="image">Select Image to upload</label><br>
+                    <input type="file"  name="avatar_image" id="image" class='image'>
+                        @if ($errors->has('avatar_image')) <label class="alert alert-danger">{{ $errors->first('avatar_image') }}</label> @endif
+                </div>
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary">Create</button>
                 </div>
               </form>
             </div>
-            <!-- /.card -->
     @endsection
