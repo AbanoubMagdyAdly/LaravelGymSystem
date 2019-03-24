@@ -15,8 +15,10 @@
                 <tr>
                   <th>ID</th>
                   <th>Name</th>
-                  <th>Email</th>
-                  <th >Show</th>
+                  <th>price</th>
+                  <th>capacity</th>
+                  <th>created_at</th>
+
                   <th>Edit</th>
                   <th>Delete</th>
 
@@ -44,21 +46,20 @@ $(document).ready( function () {
         "columns": [
             { "data": "id" },
             { "data": "name" },
-            { "data": "email" },
-            {"mRender": function(data, type, row) {
-              return '<a class="btn btn-info btn-sm" href=/'+pathArray[1]+'/show/' + row.id + '>' + 'Show' + '</a>';}
-            },
+            { "data": "price" },
+            { "data": "capacity" },
+            { "data": "created_at" },
+
             {"mRender": function(data, type,row ) {
               return '<a class="btn btn-warning btn-sm" href=/'+pathArray[1]+'/' + row.id + '/edit'+ '>' + 'Edit' + '</a>';}
             },
+        
             {"mRender": function(data, type,row ) {
               return '<a class="btn btn-danger btn-sm" href=/'+pathArray[1]+'/' + row.id + '>' + 'Delete' + '</a>';}
             }
         ]
      } );
 } );
-
-
 function delValidate(){
           if (!confirm ('Do You Want to Delete this Post ?'))
             event.preventDefault();
