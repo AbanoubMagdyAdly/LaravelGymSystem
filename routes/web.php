@@ -17,7 +17,6 @@ Route::get('/', function () {
 
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin', 'HomeController@admin')->name('admin');
 Route::get('/admin/data', 'HomeController@data')->name('data');
@@ -30,9 +29,15 @@ Route::get('/citymanager/{id}/edit', 'CityManagerController@edit')->name('CityMa
 Route::put('/citymanager/{id}', 'CityManagerController@update')->name('CityManager.update');
 
 
+Route::get('/gymmanager/dataAjax', 'GymManagerController@index')->name('GymManager.index');
+Route::get('/gymmanager/data', 'GymManagerController@index_view')->name('GymManager.index_view');
+Route::get('/gymmanager/show/{id}', 'GymManagerController@show')->name('GymManager.show');
+Route::get('/Gymmanager/{id}', 'GymMangerController@destroy')->name('GymManager.destroy');
+Route::get('/citymanager/show/{id}', 'CityMangerController@show')->name('CityManager.show');
 
 Route::get('/admin/buypackage', 'HomeController@show')->name('plans.index');
 Route::post('/admin/buypackage', 'HomeController@buy')->name('plans.show');
+<<<<<<< HEAD
 
 Route::get('/trainingpackages/dataAjax', 'TrainingPackagesController@index')->name('TrainingPackagesController.index');
 Route::get('/trainingpackages/all', 'TrainingPackagesController@index_view')->name('TrainingPackagesController.index_view');
@@ -49,3 +54,6 @@ Route::delete('/trainingpackages/{id}', 'TrainingPackagesController@destroy')->n
 
 // Route::post('/trainingpackage/data', 'TrainingPackagesController@store')->name('TrainingPackagesController.store');
 
+=======
+Route::get('/citymanager/{id}', 'CityMangerController@destroy')->name('CityManager.destroy');
+>>>>>>> 378ba95769e35a1d8fe6666f02d3ae1d4acbf8d9

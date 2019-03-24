@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | Blank Page</title>
+  <title> Laravel Gym System </title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -220,7 +220,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="../../index.html" class="nav-link">
+                  <a href="/gymmanager/data" class="nav-link">
                     <i class="fa fa-eye nav-icon"></i>
                     <p>Show All</p>
                   </a>
@@ -245,7 +245,7 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="../../index.html" class="nav-link">
+                    <a href="/cities/data" class="nav-link">
                       <i class="fa fa-eye nav-icon"></i>
                       <p>Show All</p>
                     </a>
@@ -268,7 +268,7 @@
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="../../index.html" class="nav-link">
+                      <a href="/gyms/data" class="nav-link">
                         <i class="fa fa-eye nav-icon"></i>
                         <p>Show All</p>
                       </a>
@@ -290,7 +290,7 @@
                         <p>Create</p>
                       </a>
                       <li class="nav-item">
-                        <a href="../../index.html" class="nav-link">
+                        <a href="/users/data" class="nav-link">
                           <i class="fa fa-eye nav-icon"></i>
                           <p>Show All</p>
                         </a>
@@ -346,7 +346,7 @@
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="../../index.html" class="nav-link">
+                      <a href="/coaches/data" class="nav-link">
                         <i class="fa fa-eye nav-icon"></i>
                         <p>Show All</p>
                       </a>
@@ -369,7 +369,7 @@
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="../../index.html" class="nav-link">
+                      <a href="/attendance/data" class="nav-link">
                         <i class="fa fa-eye nav-icon"></i>
                         <p>Show All</p>
                       </a>
@@ -386,7 +386,7 @@
                   </a>
                   <ul class="nav nav-treeview">
                     <li class="nav-item">
-                      <a href="../../index3.html" class="nav-link">
+                      <a href="/Revenue/data" class="nav-link">
                         <i class="fa fa-plus-circle nav-icon"></i>
                         <p>Create</p>
                       </a>
@@ -413,7 +413,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Blank Page</h1>
+            <h1>LaraGym</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -428,7 +428,16 @@
     <!-- Main content -->
     <section class="content">
 
-      @yield('content')
+    @if(session()->has('message'))
+        <div class="alert alert-success alert-dismissible fade show">
+            {{ session()->get('message') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
+
+    @yield('content')
 
     </section>
     <!-- /.content -->
