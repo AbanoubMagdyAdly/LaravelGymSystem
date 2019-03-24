@@ -44,6 +44,16 @@ Route::put('/gymmanager/{id}', 'GymManagerController@update')->name('GymManager.
 
 
 
+Route::get('/gyms/dataAjax', 'GymController@index')->name('Gym.index');
+Route::get('/gyms/data', 'GymController@index_view')->name('Gym.index_view');
+Route::get('/gyms/create', 'GymController@create')->name('Gym.create');
+Route::post('/gyms/data', 'GymController@store')->name('Gym.store');
+Route::get('/gyms/show/{id}', 'GymController@show')->name('Gym.show');
+Route::get('/gyms/{id}/edit', 'GymController@edit')->name('Gym.edit');
+Route::put('/gyms/{id}', 'GymController@update')->name('Gym.update');
+
+
+
 Route::get('/admin/buypackage', 'HomeController@show')->name('plans.index');
 Route::post('/admin/buypackage', 'HomeController@buy')->name('plans.show');
 
