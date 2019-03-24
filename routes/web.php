@@ -33,3 +33,19 @@ Route::put('/citymanager/{id}', 'CityManagerController@update')->name('CityManag
 
 Route::get('/admin/buypackage', 'HomeController@show')->name('plans.index');
 Route::post('/admin/buypackage', 'HomeController@buy')->name('plans.show');
+
+Route::get('/trainingpackages/dataAjax', 'TrainingPackagesController@index')->name('TrainingPackagesController.index');
+Route::get('/trainingpackages/all', 'TrainingPackagesController@index_view')->name('TrainingPackagesController.index_view');
+Route::get('/trainingpackages/create', 'TrainingPackagesController@create')->name('TrainingPackagesControlle.create');
+Route::post('/trainingpackages', 'TrainingPackagesController@store')->name('TrainingPackagesControlle.store');
+Route::get('/trainingpackages/{id}/edit', 'TrainingPackagesController@edit')->name('TrainingPackagesController.edit');
+Route::put('/trainingpackages/{id}', 'TrainingPackagesController@update')->name('TrainingPackagesController.update');
+Route::delete('/trainingpackages/{id}', 'TrainingPackagesController@destroy')->name('TrainingPackagesController.destroy');
+
+// Route::get('/trainingpackages/create', function()
+// {
+//     return "eman";
+// });
+
+// Route::post('/trainingpackage/data', 'TrainingPackagesController@store')->name('TrainingPackagesController.store');
+
