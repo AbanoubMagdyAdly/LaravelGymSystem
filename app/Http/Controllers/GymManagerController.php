@@ -49,10 +49,11 @@ class GymManagerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Manager $gym_manager)
+    public function show($id)
     {
-            return view('gym_manager.show', [
-            'gym_manager' => $gym_manager
+        $gym_manager = User::findorfail($id);
+        return view('/managers/ManagerShow', [
+            'manager'=>$gym_manager
         ]);
     }
 
@@ -89,12 +90,9 @@ class GymManagerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($gym_manager)
-    {
-        $gym_manager= Manager::find($gym_manager);
-        $gym_manager -> delete();
-        return redirect()->route('gym_manager.index');
-
-
+    public function destroy($id)
+    {   
+        User::where('id',$id)->delete();
+        return view('admin/admin');
     }
 }

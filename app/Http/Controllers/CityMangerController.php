@@ -5,9 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\User;
-use App\Http\Requests\CityManager\StoreCityManagerRequest;
 
-class CityManagerController extends Controller
+class CityMangerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -43,14 +42,14 @@ class CityManagerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCityManagerRequest $request)
+    public function store(Request $request)
     {
         User::create([
             'name' => $request['name'],
             'email' => $request['email'],
-            'password' => Hash::make($request['password']),
+            'password' => Hash::make($request['password'])
             ]);
-        return redirect()->route('CityManager.store')->with('message', 'Created Successfully!');
+        return redirect()->route('CityManager.store');
     }
 
     /**
@@ -61,8 +60,8 @@ class CityManagerController extends Controller
      */
     public function show($id)
     {
-        $city_manager = Manager::findorfail($id);
-        return view('city_manager.show', [
+        $city_manager = User::findorfail($id);
+        return view('/managers/ManagerShow', [
             'manager'=>$city_manager
         ]);
     }
@@ -75,9 +74,9 @@ class CityManagerController extends Controller
      */
     public function edit($id)
     {
-        $city_manager = User::find($id);
-        return view('/managers/CityManagerEdit', [
-                'city_manager'=>$city_manager
+        $city_manager = Manager::find($id);
+        return view('city_manager.edit', [
+                'city_manger'=>$city_manager
         ]);
     }
 
@@ -90,13 +89,9 @@ class CityManagerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $city_manager = User::findorfail($id);
-        $city_manager->update([
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'password' => Hash::make($request['password'])
-            ]);
-        return redirect()->route('CityManager.index_view');
+        $city_manager = Manager::find($id);
+        $city_manager->update($request->all());
+        return redirect()->route('city_manager.index');
     }
 
     /**
@@ -106,8 +101,8 @@ class CityManagerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        User::where('id', $id)->delete();
+    {   
+        User::where('id',$id)->delete();
         return view('admin/admin');
     }
 }
