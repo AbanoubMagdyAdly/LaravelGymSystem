@@ -18,7 +18,7 @@ class CreateCoachesSessionsTable extends Migration
             $table->unsignedBigInteger('session_id');
             $table->unsignedBigInteger('coach_id');
 
-//            $table->foreign('gym_id')->references('id')->on('gyms');
+//            $table->foreign('gym_id')->references('id')->on('gym');
 //            $table->foreign('session_id')->references('id')->on('training_session');
 //            $table->foreign('coach_id')->references('id')->on('coaches');
         });

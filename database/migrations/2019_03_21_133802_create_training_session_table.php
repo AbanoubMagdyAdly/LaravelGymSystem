@@ -22,7 +22,7 @@ class CreateTrainingSessionTable extends Migration
 
             $table->unsignedBigInteger('gym_id');
 
-//            $table->foreign('gym_id')->references('id')->on('gyms');
+//            $table->foreign('gym_id')->references('id')->on('gym');
         });
     }
 

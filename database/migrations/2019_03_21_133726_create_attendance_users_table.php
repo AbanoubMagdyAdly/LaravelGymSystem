@@ -24,7 +24,7 @@ class CreateAttendanceUsersTable extends Migration
 
 //            $table->foreign('user_id')->references('id')->on('users');
 //            $table->foreign('session_id')->references('id')->on('training_session');
-//            $table->foreign('gym_id')->references('id')->on('gyms');
+//            $table->foreign('gym_id')->references('id')->on('gym');
 //            $table->foreign('city_id')->references('id')->on('cities');
         });
     }

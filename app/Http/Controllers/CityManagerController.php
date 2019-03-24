@@ -14,6 +14,7 @@ class CityManagerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         return datatables()->of(User::query())->toJson();
@@ -21,6 +22,8 @@ class CityManagerController extends Controller
 
     public function index_view()
     {
+//        $data=datatables()->of(User::query())->toJson();
+//        return $data;
         return view(
             'admin/data'
         );
