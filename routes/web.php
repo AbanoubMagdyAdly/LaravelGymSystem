@@ -58,3 +58,4 @@ Route::get('/trainingpackages/{id}', 'TrainingPackagesController@destroy')->name
 
 
 Route::get('/citymanager/{id}', 'CityMangerController@destroy')->name('CityManager.destroy');
+

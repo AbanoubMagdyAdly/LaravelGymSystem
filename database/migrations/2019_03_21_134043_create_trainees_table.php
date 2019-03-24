@@ -23,8 +23,8 @@ class CreateTraineesTable extends Migration
             $table->string('password');
             $table->string('password_confirmation');
             $table->string('image');
-            $table->date('updated_at');
-            $table->date('created_at');
+            $table->timestamps();
+
         });
     }
 

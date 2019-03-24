@@ -5,6 +5,7 @@ use App\Trainee;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\TraineeResource;
+use Illuminate\Support\Facades\Hash;
 class TraineeController extends Controller
 {
     public function index()
@@ -23,8 +24,17 @@ class TraineeController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
-        Trainee::create($request->all());
-        
+      //  Trainee::create($request->all());
+         Trainee::create([
+            'name' => $request['name'],
+            'gender'=> $request['gender'],
+            'date_of_birth'=> $request['date_of_birth'],
+            'email' => $request['email'],
+            'password_confirmation'=>Hash::make($request['password_confirmation']),
+            'password' => Hash::make($request['password']),
+            'image'=>$request['image'],
+
+            ]);
         return response()->json([
             'message' => 'trainee Created Successfully'
         ],201);
