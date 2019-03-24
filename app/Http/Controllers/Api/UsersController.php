@@ -30,6 +30,8 @@ class UsersController extends Controller
         ],201);
     }
 
+
+    
     public function destroy(User $user)
     {
         $user->delete();

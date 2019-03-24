@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\User;
 use App\Http\Requests\CityManager\StoreCityManagerRequest;
+use App\Http\Requests\CityManager\UpdateCityManagerRequest;
+use Illuminate\Support\Facades\Storage;
 
 class CityManagerController extends Controller
 {
@@ -48,13 +50,25 @@ class CityManagerController extends Controller
      */
     public function store(StoreCityManagerRequest $request)
     {
-        User::create([
+        if ($request->hasFile("avatar_image")) {
+            $path = Storage::putFile('public/avatar_image', $request->file('avatar_image'));
+            User::create([
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
+            'avatar_image'=>basename($path),
             ]);
+        } elseif (! $request->hasFile("avatar_image")) {
+            User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+             ]);
+        }
         return redirect()->route('CityManager.store')->with('message', 'Created Successfully!');
     }
+
+
 
     /**
      * Display the specified resource.
@@ -91,15 +105,25 @@ class CityManagerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateCityManagerRequest $request, $id)
     {
         $city_manager = User::findorfail($id);
-        $city_manager->update([
+        if ($request->hasFile("avatar_image")) {
+            $path = Storage::putFile('public/avatar_image', $request->file('avatar_image'));
+            $city_manager->update([
             'name' => $request['name'],
             'email' => $request['email'],
-            'password' => Hash::make($request['password'])
+            'password' => Hash::make($request['password']),
+            'avatar_image'=>basename($path),
             ]);
-        return redirect()->route('CityManager.index_view');
+        } elseif (! $request->hasFile("avatar_image")) {
+            $city_manager->update([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+             ]);
+        }
+        return redirect()->route('CityManager.index_view')->with('message', 'Updated Successfully!');
     }
 
     /**

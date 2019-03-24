@@ -19,6 +19,7 @@ class VerificationController extends Controller
     */
 
     use VerifiesEmails;
+    Auth::routes(['verify' => true]);
 
     /**
      * Where to redirect users after verification.
@@ -38,4 +39,35 @@ class VerificationController extends Controller
         $this->middleware('signed')->only('verify');
         $this->middleware('throttle:6,1')->only('verify', 'resend');
     }
+
+     public function verify(Request $request)
+    {
+        // ->route('id') gets route user id and getKey() gets current user id() 
+        // do not forget that you must send Authorization header to get the user from the request
+        if ($request->route('id') == $request->user()->getKey() &&
+            $request->user()->markEmailAsVerified()) {
+            event(new Verified($request->user()));
+        }
+
+        return response()->json('Email verified!');
+//        return redirect($this->redirectPath());
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 }

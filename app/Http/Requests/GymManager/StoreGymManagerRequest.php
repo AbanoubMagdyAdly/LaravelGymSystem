@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Requests\CityManager;
+namespace App\Http\Requests\GymManager;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\User;
 
-class StoreCityManagerRequest extends FormRequest
+class StoreGymManagerRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

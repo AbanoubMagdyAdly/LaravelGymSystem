@@ -5,7 +5,7 @@
     <script
       src="https://checkout.stripe.com/checkout.js" class="stripe-button"
       data-key="pk_test_wivGVUY4vBGCTN6KidhFwTj200umuNEDXx"
-      data-amount="999"
+      data-amount="9988"
       data-name="Stripe.com"
       data-description="Example charge"
       data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
