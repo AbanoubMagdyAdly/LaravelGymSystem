@@ -9,48 +9,29 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form"   action="{{route('CityManager.update',$city_manager->id)}}" method="POST">
+              <form role="form"   action="{{route('CityManager.update',$city_manager->id)}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method("PUT")
 
                 <div class="card-body">
                   <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
+                        <label for="exampleInputEmail1">Change Email address</label>
                         <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" value="{{$city_manager->email}}">
+                        @if ($errors->has('email')) <label  class="alert alert-danger">{{ $errors->first('email') }}</label> @endif
                   </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Name</label>
+                        <label for="exampleInputEmail1">Change Name</label>
                         <input type="name" name="name" class="form-control" id="exampleInputEmail1" placeholder="Enter name" value="{{$city_manager->name}}">
+                        @if ($errors->has('name')) <label  class="alert alert-danger">{{ $errors->first('name') }}</label> @endif
                     </div>
-                            {{-- <div class="form-group">
-                              <label for="exampleInputPassword1">Password</label>
-                              <input type="password"  name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                            </div> --}}
-                    {{-- <div class="form-group">
-                        <label for="exampleInputEmail1">National ID</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputFile">Upload Photo</label>
-                    <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                      </div>
-                      <div class="input-group-append">
-                        <span class="input-group-text" id="">Upload</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                  </div>
-                </div> --}}
-                <!-- /.card-body -->
+                    <div class="form-group">
+                        <label for="image">Change Avatar Image</label><br>
+                        <input type="file"  name="avatar_image" id="image" class='image'>
+                            @if ($errors->has('avatar_image')) <label class="alert alert-danger">{{ $errors->first('avatar_image') }}</label> @endif
+                </div>
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary">Update</button>
                 </div>
               </form>
             </div>
