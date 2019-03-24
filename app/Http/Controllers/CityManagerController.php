@@ -90,7 +90,7 @@ class CityManagerController extends Controller
     public function edit($id)
     {
         $city_manager = User::find($id);
-        return view('/managers/CityManagerEddssit', [
+        return view('/managers/CityManagerEdit', [
                 'city_manager'=>$city_manager
         ]);
     }
