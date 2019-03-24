@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\User;
+use App\Http\Requests\CityManager\StoreCityManagerRequest;
 
 class CityManagerController extends Controller
 {
@@ -42,14 +43,14 @@ class CityManagerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCityManagerRequest $request)
     {
         User::create([
             'name' => $request['name'],
             'email' => $request['email'],
-            'password' => Hash::make($request['password'])
+            'password' => Hash::make($request['password']),
             ]);
-        return redirect()->route('CityManager.store');
+        return redirect()->route('CityManager.store')->with('message', 'Created Successfully!');
     }
 
     /**
@@ -105,8 +106,8 @@ class CityManagerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {   
-        User::where('id',$id)->delete();
+    {
+        User::where('id', $id)->delete();
         return view('admin/admin');
     }
 }
