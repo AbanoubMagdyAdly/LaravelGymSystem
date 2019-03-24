@@ -18,6 +18,9 @@ class CreateTrainingPackagesTable extends Migration
             $table->string('name', 100);
             $table->bigInteger('price');
             $table->bigInteger('capacity');
+            $table->date('created_at');
+            $table->date('updated_at');
+
         });
     }
 

@@ -4,11 +4,11 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Create City Manager</h3>
+                <h3 class="card-title">Create Gym Manager</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form"   action="{{route('CityManager.store')}}" method="POST" enctype="multipart/form-data">
+              <form role="form"   action="{{route('GymManager.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                     <div class="form-group">
