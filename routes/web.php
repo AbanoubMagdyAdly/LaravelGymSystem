@@ -27,13 +27,22 @@ Route::get('/citymanager/create', 'CityManagerController@create')->name('CityMan
 Route::post('/citymanager/data', 'CityManagerController@store')->name('CityManager.store');
 Route::get('/citymanager/{id}/edit', 'CityManagerController@edit')->name('CityManager.edit');
 Route::put('/citymanager/{id}', 'CityManagerController@update')->name('CityManager.update');
+Route::get('/citymanager/show/{id}', 'CityMangerController@show')->name('CityManager.show');
 
 
 Route::get('/gymmanager/dataAjax', 'GymManagerController@index')->name('GymManager.index');
 Route::get('/gymmanager/data', 'GymManagerController@index_view')->name('GymManager.index_view');
 Route::get('/gymmanager/show/{id}', 'GymManagerController@show')->name('GymManager.show');
 Route::get('/Gymmanager/{id}', 'GymMangerController@destroy')->name('GymManager.destroy');
-Route::get('/citymanager/show/{id}', 'CityMangerController@show')->name('CityManager.show');
+Route::get('/gymmanager/create', 'GymManagerController@create')->name('GymManager.create');
+Route::post('/gymmanager/data', 'GymManagerController@store')->name('GymManager.store');
+Route::get('/gymmanager/{id}/edit', 'GymManagerController@edit')->name('GymManager.edit');
+Route::put('/gymmanager/{id}', 'GymManagerController@update')->name('GymManager.update');
+
+
+
+
+
 
 Route::get('/admin/buypackage', 'HomeController@show')->name('plans.index');
 Route::post('/admin/buypackage', 'HomeController@buy')->name('plans.show');
@@ -56,4 +65,3 @@ Route::delete('/trainingpackages/{id}', 'TrainingPackagesController@destroy')->n
 
 
 Route::get('/citymanager/{id}', 'CityMangerController@destroy')->name('CityManager.destroy');
-

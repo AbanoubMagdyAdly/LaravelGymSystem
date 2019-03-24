@@ -1,7 +1,13 @@
 <?php
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
+
 use App\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\GymManager\StoreGymManagerRequest;
+use App\Http\Requests\GymManager\UpdateGymManagerRequest;
+use Illuminate\Support\Facades\Storage;
+
 class GymManagerController extends Controller
 {
     /**
@@ -9,7 +15,7 @@ class GymManagerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-   public function index()
+    public function index()
     {
         return datatables()->of(User::query())->toJson();
     }
@@ -28,7 +34,7 @@ class GymManagerController extends Controller
      */
     public function create()
     {
-        return view('gym_manager.create');
+        return view('/managers/GymManagerCreate');
     }
 
     /**
@@ -37,11 +43,26 @@ class GymManagerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreGymManagerRequest $request)
     {
-        Manager::create($request->all());
-        return redirect()->route('gym_manager.index');
+        if ($request->hasFile("avatar_image")) {
+            $path = Storage::putFile('public/avatar_image', $request->file('avatar_image'));
+            User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+            'avatar_image'=>basename($path),
+            ]);
+        } elseif (! $request->hasFile("avatar_image")) {
+            User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+             ]);
+        }
+        return redirect()->route('GymManager.store')->with('message', 'Created Successfully!');
     }
+
 
     /**
      * Display the specified resource.
@@ -63,10 +84,11 @@ class GymManagerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Manager $gym_manager)
+    public function edit($id)
     {
-            return view('gym_manager.edit', [
-             'gym_manager' => $gym_manager
+        $gym_manager = User::find($id);
+        return view('/managers/GymManagerEdit', [
+                'gym_manager'=>$gym_manager
         ]);
     }
 
@@ -77,12 +99,28 @@ class GymManagerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$gym_manager)
+    public function update(UpdateGymManagerRequest $request, $id)
     {
-            $gym_manager= Manager::find($gym_manager);
-            $gym_manager -> update($request->all());
-            return redirect()->route('gym_manager.index');
+        $gym_manager = User::findorfail($id);
+        if ($request->hasFile("avatar_image")) {
+            $path = Storage::putFile('public/avatar_image', $request->file('avatar_image'));
+            $city_manager->update([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+            'avatar_image'=>basename($path),
+            ]);
+        } elseif (! $request->hasFile("avatar_image")) {
+            $gym_manager->update([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+             ]);
+        }
+        return redirect()->route('GymManager.index_view')->with('message', 'Updated Successfully!');
     }
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -91,8 +129,8 @@ class GymManagerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {   
-        User::where('id',$id)->delete();
+    {
+        User::where('id', $id)->delete();
         return view('admin/admin');
     }
 }

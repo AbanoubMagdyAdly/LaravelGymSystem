@@ -90,7 +90,7 @@ class CityManagerController extends Controller
     public function edit($id)
     {
         $city_manager = User::find($id);
-        return view('/managers/CityManagerEdit', [
+        return view('/managers/CityManagerEddssit', [
                 'city_manager'=>$city_manager
         ]);
     }
@@ -119,8 +119,8 @@ class CityManagerController extends Controller
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
              ]);
+        }
         return redirect()->route('CityManager.index_view')->with('message', 'Updated Successfully!');
-        ;
     }
 
     /**
