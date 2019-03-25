@@ -1,7 +1,6 @@
-@extends('layouts.app')
+@extends('admin.layout.blank')
 
 @section('content')
-<a href="{{route('admin')}}" class="btn btn-primary">admin</a>
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">

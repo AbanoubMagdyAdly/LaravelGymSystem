@@ -33,8 +33,8 @@ Route::prefix('citymanager')->middleware('auth')->group(function(){
     Route::post('/data', 'CityManagerController@store')->name('CityManager.store');
     Route::get('/{id}/edit', 'CityManagerController@edit')->name('CityManager.edit');
     Route::put('/{id}', 'CityManagerController@update')->name('CityManager.update');
-    Route::get('/show/{id}', 'CityMangerController@show')->name('CityManager.show');
-    Route::get('/citymanager/{id}', 'CityMangerController@destroy')->name('CityManager.destroy');
+    Route::get('/show/{id}', 'CityManagerController@show')->name('CityManager.show');
+    Route::get('/citymanager/{id}', 'CityManagerController@destroy')->name('CityManager.destroy');
 
 
 });
@@ -43,12 +43,11 @@ Route::prefix('gymmanager')->middleware('auth')->group(function(){
     Route::get('/dataAjax', 'GymManagerController@index')->name('GymManager.index');
     Route::get('/data', 'GymManagerController@index_view')->name('GymManager.index_view');
     Route::get('/show/{id}', 'GymManagerController@show')->name('GymManager.show');
-    Route::get('/{id}', 'GymMangerController@destroy')->name('GymManager.destroy');
+    Route::get('/{id}', 'GymManagerController@destroy')->name('GymManager.destroy');
     Route::get('/create', 'GymManagerController@create')->name('GymManager.create');
     Route::post('/data', 'GymManagerController@store')->name('GymManager.store');
     Route::get('/{id}/edit', 'GymManagerController@edit')->name('GymManager.edit');
     Route::put('/{id}', 'GymManagerController@update')->name('GymManager.update');
-
 });
 Route::prefix('gyms')->middleware('auth')->group(function(){
 
@@ -74,3 +73,5 @@ Route::prefix('trainingpackages')->middleware('auth')->group(function() {
 });
 
 
+Route::get('/attendance/dataAjax', 'AttendanceUserController@index')->name('Attendance.index');
+Route::get('/attendance/data', 'AttendanceUserController@index_view')->name('Attendance.index_view');
