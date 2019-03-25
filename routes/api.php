@@ -25,3 +25,4 @@ Route::PUT('/trainees/{trainee}','Api\TraineeController@update')->name('trainee.
 // {
 //     dd("ss");
 // });
+
