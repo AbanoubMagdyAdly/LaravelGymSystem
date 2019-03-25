@@ -17,7 +17,6 @@
                   <th>Name</th>
                   <th>price</th>
                   <th>capacity</th>
-                  <th>created_at</th>
 
                   <th>Edit</th>
                   <th>Delete</th>
@@ -48,7 +47,6 @@ $(document).ready( function () {
             { "data": "name" },
             { "data": "price" },
             { "data": "capacity" },
-            { "data": "created_at" },
 
             {"mRender": function(data, type,row ) {
               return '<a class="btn btn-warning btn-sm" href=/'+pathArray[1]+'/' + row.id + '/edit'+ '>' + 'Edit' + '</a>';}

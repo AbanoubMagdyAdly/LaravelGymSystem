@@ -78,8 +78,8 @@ class CityManagerController extends Controller
      */
     public function show($id)
     {
-        $city_manager = Manager::findorfail($id);
-        return view('city_manager.show', [
+        $city_manager = User::findorfail($id);
+        return view("managers/ManagerShow", [
             'manager'=>$city_manager
         ]);
     }
