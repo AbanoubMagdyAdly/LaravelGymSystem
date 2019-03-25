@@ -20,7 +20,9 @@ Route::get('/trainees', 'Api\TraineeController@index')->name('trainee.index');
 Route::get('/trainees/{trainee}','Api\TraineeController@show')->name('trainee.show');
 Route::post('/trainees','Api\TraineeController@store')->name('trainee.store');
 Route::DELETE('/trainees/{trainee}','Api\TraineeController@destroy')->name('trainee.destroy');
-Route::PUT('/trainees/{trainee}','Api\TraineeController@update')->name('trainee.update');
+// Route::get('/trainees/{trainee}/edit','Api\TraineeController@edit')->name('trainee.edit');//->middleware('auth:api');
+
+Route::PUT('/trainees/{trainee}','Api\TraineeController@update')->name('trainee.update');//->middleware('auth:api');
 // Route::PUT('/trainees/{trainee}',function()
 // {
 //     dd("ss");

@@ -1,11 +1,21 @@
 @extends('layouts.app')
 
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 @section('content')
+
 <a href="{{route('admin')}}" class="btn btn-primary">admin</a>
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Create pakage Manager</h3>
+                <h3 class="card-title">Create package Manager</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
