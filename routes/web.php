@@ -43,12 +43,13 @@ Route::prefix('gymmanager')->middleware('auth')->group(function(){
     Route::get('/dataAjax', 'GymManagerController@index')->name('GymManager.index');
     Route::get('/data', 'GymManagerController@index_view')->name('GymManager.index_view');
     Route::get('/show/{id}', 'GymManagerController@show')->name('GymManager.show');
-    Route::get('/{id}', 'GymManagerController@destroy')->name('GymManager.destroy');
     Route::get('/create', 'GymManagerController@create')->name('GymManager.create');
     Route::post('/data', 'GymManagerController@store')->name('GymManager.store');
     Route::get('/{id}/edit', 'GymManagerController@edit')->name('GymManager.edit');
+    Route::get('/{id}', 'GymManagerController@destroy')->name('GymManager.destroy');
     Route::put('/{id}', 'GymManagerController@update')->name('GymManager.update');
 });
+
 Route::prefix('gyms')->middleware('auth')->group(function(){
 
     Route::get('/dataAjax', 'GymController@index')->name('Gym.index');

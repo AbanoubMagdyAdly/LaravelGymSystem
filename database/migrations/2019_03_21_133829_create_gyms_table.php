@@ -13,10 +13,10 @@ class CreateGymsTable extends Migration
      */
     public function up()
     {
-        Schema::create('gym', function (Blueprint $table) {
+        Schema::create('gyms', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name', 100);
-            $table->string('image', 100);
+            $table->string('image', 100)->default("");
             $table->date('created_at');
             $table->unsignedBigInteger('manager_id');
             $table->unsignedBigInteger('city_id');

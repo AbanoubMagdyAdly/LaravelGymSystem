@@ -17,22 +17,22 @@ class AddForeignKeys extends Migration
 
             $table->foreign('user_id')->references('id')->on('trainees');
             $table->foreign('session_id')->references('id')->on('training_session');
-            $table->foreign('gym_id')->references('id')->on('gym');
+            $table->foreign('gym_id')->references('id')->on('gyms');
             $table->foreign('city_id')->references('id')->on('cities');
         });
         Schema::table('training_session', function (Blueprint $table) {
 
-            $table->foreign('gym_id')->references('id')->on('gym');
+            $table->foreign('gym_id')->references('id')->on('gyms');
 
         });
-        Schema::table('gym', function (Blueprint $table) {
+        Schema::table('gyms', function (Blueprint $table) {
 
         $table->foreign('manager_id')->references('id')->on('users');
         $table->foreign('city_id')->references('id')->on('cities');
         });
         Schema::table('coaches_sessions', function (Blueprint $table) {
 
-            $table->foreign('gym_id')->references('id')->on('gym');
+            $table->foreign('gym_id')->references('id')->on('gyms');
             $table->foreign('session_id')->references('id')->on('training_session');
             $table->foreign('coach_id')->references('id')->on('coaches');
         });
@@ -41,7 +41,7 @@ class AddForeignKeys extends Migration
             $table->foreign('trainee_id')->references('id')->on('trainees');
             $table->foreign('package_id')->references('id')->on('training_packages');
 
-            $table->foreign('gym_id')->references('id')->on('gym');
+            $table->foreign('gym_id')->references('id')->on('gyms');
             $table->foreign('city_id')->references('id')->on('cities');
         });
 

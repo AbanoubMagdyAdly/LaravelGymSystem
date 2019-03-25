@@ -34,7 +34,7 @@ class GymManagerController extends Controller
      */
     public function create()
     {
-        return view('/managers/GymManagerCreate');
+        return view('managers.GymManagerCreate');
     }
 
     /**

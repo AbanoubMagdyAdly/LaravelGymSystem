@@ -19,7 +19,7 @@
         <br>
         <label style="color:red;">Gym Added to the System at: </label>
         <br>
-        <label > {{$gym->created_at -> format('l js \of F Y h:i:s A')}} </label>
+        <label > {{$gym->created_at}} </label>
     </div>
     </body>
 @endsection

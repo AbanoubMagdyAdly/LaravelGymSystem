@@ -4,16 +4,21 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Gyms extends Model
+class Gym extends Model
 {
+
+    public $timestamps = false;
     protected $fillable=[
         'name',
         'created_at',
-        'manger_id',
+        'manager_id',
         'city_id'
     ];
-    public function Gyms(){
+    public function User(){
         return $this->belongsTo(User::class, 'id');
 
     }
+//    public function City(){
+//        return $this->belongsTo()
+//    }
 }
