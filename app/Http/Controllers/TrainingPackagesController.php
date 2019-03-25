@@ -127,4 +127,5 @@ class TrainingPackagesController extends Controller
         // return redirect()->route('packade/TrainingPackagesController.index_view');
         return view('admin/admin');
     }
+    
 }

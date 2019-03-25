@@ -16,6 +16,7 @@ class CityManagerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         return datatables()->of(User::query())->toJson();
@@ -23,6 +24,8 @@ class CityManagerController extends Controller
 
     public function index_view()
     {
+//        $data=datatables()->of(User::query())->toJson();
+//        return $data;
         return view(
             'admin/data'
         );
@@ -75,8 +78,8 @@ class CityManagerController extends Controller
      */
     public function show($id)
     {
-        $city_manager = Manager::findorfail($id);
-        return view('city_manager.show', [
+        $city_manager = User::findorfail($id);
+        return view("managers/ManagerShow", [
             'manager'=>$city_manager
         ]);
     }
@@ -119,8 +122,8 @@ class CityManagerController extends Controller
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
              ]);
+        }
         return redirect()->route('CityManager.index_view')->with('message', 'Updated Successfully!');
-        ;
     }
 
     /**

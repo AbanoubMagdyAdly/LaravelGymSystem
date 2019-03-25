@@ -1,24 +1,20 @@
 <?php
-
 namespace App\Http\Controllers;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
-
 use Illuminate\Http\Request;
-
 class HomeController extends Controller
 {
     /**
      * Create a new controller instance.
      *
      * @return void
-     * 
+     *
      */
     public function __construct()
     {
         $this->middleware('auth');
     }
-
     /**
      * Show the application dashboard.
      *
@@ -35,11 +31,8 @@ class HomeController extends Controller
 //         $permission = Permission::create(['name' => 'show_city_gyms']);
 //         $permission = Permission::create(['name' => 'CRUD_gyms']);
 //         $permission = Permission::create(['name' => 'CRUD_city_gyms_manager']);
-
-
         return view('home');
     }
-
     public function admin()
     {
         return view('admin/admin');
@@ -52,11 +45,10 @@ class HomeController extends Controller
     {
         // Set your secret key: remember to change this to your live secret key in production
         // See your keys here: https://dashboard.stripe.com/account/apikeys
-       
+
         \Stripe\Stripe::setApiKey("sk_test_ah8BPqY1IotKT7B8bfbOmQSX00I0BoDobX");
         $data=request()->all();
         $token = $data['stripeToken'];
-
         $charge = \Stripe\Charge::create([
             'amount' => 999,
             'currency' => 'usd',
@@ -69,6 +61,4 @@ class HomeController extends Controller
     {
         return view('admin/buyPackage');
     }
-
 }
-

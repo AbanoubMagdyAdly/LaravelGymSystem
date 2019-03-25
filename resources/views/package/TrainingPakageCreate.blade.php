@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.layout.blank')
 
 @if ($errors->any())
     <div class="alert alert-danger">
@@ -10,8 +10,6 @@
     </div>
 @endif
 @section('content')
-
-<a href="{{route('admin')}}" class="btn btn-primary">admin</a>
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
