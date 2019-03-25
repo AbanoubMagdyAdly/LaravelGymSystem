@@ -15,7 +15,7 @@
                 <tr>
                   <th>ID</th>
                   <th>Name</th>
-                  <th>price</th>
+                  <th >price</th>
                   <th>capacity</th>
 
                   <th>Edit</th>
@@ -63,4 +63,5 @@ function delValidate(){
             event.preventDefault();
         }
 </script>
+
 @endsection

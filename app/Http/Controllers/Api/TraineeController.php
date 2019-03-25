@@ -47,4 +47,16 @@ class TraineeController extends Controller
             'message' => 'delete Successfully'
         ]);
     }
+    public function update(Request $request,trainee $trainee)
+    {
+        $trainee->name=$request->name;
+
+        $trainee->update(['name'=>$request->name,'gender'=>$request->gender,'date_of_birth'=>$request->date_of_birth,'image'=>$request->image]);
+
+        // $trainee->update($request->all());
+        return  $trainee;
+        // return response()->json([
+        //     'message' => 'up Successfully'
+        // ]);
+    }
 }

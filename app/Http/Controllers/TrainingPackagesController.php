@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Requests\package\StorePackageRequest;
 use Illuminate\Http\Request;
 use App\TrainingPackage;
+use Illuminate\Http\Response;
+use Illuminate\Routing\Controller;
 class TrainingPackagesController extends Controller
 {
     public function index()
@@ -35,15 +37,21 @@ class TrainingPackagesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePackageRequest $request)
    {
+    // $request->validate([
+    //     'name' => 'require',
+    //     'price' => 'required|number',
+    //     'capacity' => 'required|number',
+    // ]);
+    
             TrainingPackage::create([
             'name' => $request['name'],
             'price' => $request['price'],
             'capacity' => $request['capacity'],
-        
             ]);
-      
+            
+            
         return redirect()->route('TrainingPackagesController.index_view');
 
     }
@@ -70,6 +78,7 @@ class TrainingPackagesController extends Controller
     //  */
     public function edit($id)
     {
+
         $package=TrainingPackage::findorfail($id);
         return view('package/trainingPackageedit',[
             
@@ -87,11 +96,17 @@ class TrainingPackagesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
+    {   
+        // 'title' => 'required|min:3|unique:posts,title,'.$this->post['id'],
+        // $request->validate([
+        //     'name' => 'required',
+        //     'price' => 'required|number',
+        //     'capacity' => 'required|number',
+        // ]); 
         $package=TrainingPackage::findorfail($id);
         $package->update([
             'name' => $request['name'],
-            'price' => $request['price'],
+            'price' => $request['price']*100,
             'capacity' => $request['capacity'],
             
             ]);

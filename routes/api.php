@@ -13,15 +13,16 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/trainee', function (Request $request) {
-    return $request->us;
+Route::post('login', 'ApiController@login');
+Route::post('register', 'ApiController@register');
+ 
+Route::group(['middleware' => 'auth.jwt'], function () {
+    Route::get('logout', 'ApiController@logout');
+    Route::get('user', 'ApiController@getAuthUser');
+ 
+
 });
-// Route::resource('Api/TraineeController');
-Route::get('/trainees', 'Api\TraineeController@index')->name('trainee.index');
-Route::get('/trainees/{trainee}','Api\TraineeController@show')->name('trainee.show');
-Route::post('/trainees','Api\TraineeController@store')->name('trainee.store');
-Route::DELETE('/trainees/{trainee}','Api\TraineeController@destroy')->name('trainee.destroy');
-Route::PUT('/trainees/{trainee}','Api\TraineeController@update')->name('trainee.update');
+
 // Route::PUT('/trainees/{trainee}',function()
 // {
 //     dd("ss");
