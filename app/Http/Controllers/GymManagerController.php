@@ -106,7 +106,7 @@ class GymManagerController extends Controller
         $gym_manager = User::findorfail($id);
         if ($request->hasFile("avatar_image")) {
             $path = Storage::putFile('public/avatar_image', $request->file('avatar_image'));
-            $city_manager->update([
+            $gym_manager->update([
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
