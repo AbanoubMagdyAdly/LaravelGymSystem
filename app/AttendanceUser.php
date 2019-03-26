@@ -14,4 +14,17 @@ class AttendanceUser extends Model
         'gym_id',
         'city_id',
     ];
+
+    public function gym(){
+        return $this->belongsTo('App\Gym');
+    }
+    public function user(){
+        return $this->belongsTo('App\Trainee');
+    }
+    public function session(){
+        return $this->belongsTo('App\TrainingSession');
+    }
+    // public function city(){
+    //     return $this->belongsTo('App\City');
+    // }
 }

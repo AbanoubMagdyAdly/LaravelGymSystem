@@ -47,9 +47,9 @@ $(document).ready( function () {
         "columns": [
             { "data": "id" },
             { "data": "name" },
-            {"data":'user_id', name: 'user->name'},
-            {"data":'session_id'},
-            {"data":'gym_id' },
+            {"data":'user.name'},
+            {"data":'session.name'},
+            {"data":'gym.name' },
             {"data": 'city_id'},
             {"mRender": function(data, type, row) {
               return '<a class="btn btn-info btn-sm" href=/'+pathArray[1]+'/show/' + row.id + '>' + 'Show' + '</a>';}

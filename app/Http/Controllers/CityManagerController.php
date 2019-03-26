@@ -57,12 +57,14 @@ class CityManagerController extends Controller
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
             'avatar_image'=>basename($path),
+            'role_id'=>'2',
             ]);
         } elseif (! $request->hasFile("avatar_image")) {
             User::create([
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
+            'role_id'=>'2',
              ]);
         }
         return redirect()->route('CityManager.store')->with('message', 'Created Successfully!');
