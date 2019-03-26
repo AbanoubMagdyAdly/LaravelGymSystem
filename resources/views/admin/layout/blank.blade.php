@@ -227,6 +227,7 @@
                 </li>
               </ul>
             </li>
+            
               <!-- Create icons to the links using the .nav-icon class
                    with font-awesome or any other icon font library -->
               <li class="nav-item has-treeview">
@@ -290,7 +291,7 @@
                         <p>Create</p>
                       </a>
                       <li class="nav-item">
-                        <a href="/users/data" class="nav-link">
+                        <a href="/users/all" class="nav-link">
                           <i class="fa fa-eye nav-icon"></i>
                           <p>Show All</p>
                         </a>
@@ -298,6 +299,24 @@
                     </li>
                   </ul>
                 </li>
+                <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fa fa-edit"></i>
+                <p>
+                  trainees
+                  <i class="right fa fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+          
+                <li class="nav-item">
+                  <a href="/trainee/all" class="nav-link">
+                    <i class="fa fa-eye nav-icon"></i>
+                    <p>Show All</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
                 <li class="nav-item has-treeview">
                   <a href="#" class="nav-link">
                     <i class="nav-icon fa fa-bicycle"></i>
