@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Gym;
 use Illuminate\Http\Request;
 use App\User;
-
+use App\City;
 class GymController extends Controller
 {
 
@@ -21,9 +21,13 @@ class GymController extends Controller
     public function create()
     {
         $gyms = Gym::all();
+        $managers = User::all();
+        $cities = City::all();
         //        dd($gyms[1]['id']);
         return view('gym.create', [
-            'gyms' => $gyms
+            'gyms' => $gyms,
+            'managers'=> $managers,
+            'cities'=> $cities,
         ]);
     }
 
