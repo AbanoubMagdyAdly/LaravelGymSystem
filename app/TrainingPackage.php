@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class TrainingPackage extends Model
 {
-	public $timestamps = false;
+//	public $timestamps = true;
 	
     protected $fillable = [
     	'name',
