@@ -49,7 +49,7 @@ class TrainingPackagesController extends Controller
             'name' => $request['name'],
             'price' => $request['price'],
             'capacity' => $request['capacity'],
-            ]);
+            ]); 
             
             
         return redirect()->route('TrainingPackagesController.index_view');
@@ -122,9 +122,12 @@ class TrainingPackagesController extends Controller
     public function destroy($id)
     {
         TrainingPackage::where('id', $id)->delete();
-        // $package=TrainingPackage::findorfail($id);
         // $package->delete();
+<<<<<<< HEAD
+        // return view('admin/admin');
+=======
         // return redirect()->route('packade/TrainingPackagesController.index_view');
+>>>>>>> 2bd13480ef9ce3d7787935c19ca2e73a0378da90
         return redirect()->route('TrainingPackagesController.index_view');
     }
     

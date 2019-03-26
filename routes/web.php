@@ -72,9 +72,17 @@ Route::prefix('trainingpackages')->middleware('auth')->group(function () {
 });
 
 
+
 Route::get('/attendance/dataAjax', 'AttendanceUserController@index')->name('Attendance.index');
 Route::get('/attendance/data', 'AttendanceUserController@index_view')->name('Attendance.index_view');
 
+
+Route::prefix('trainee')->middleware('auth')->group(function() {
+
+    Route::get('/dataAjax', 'TraineesController@index')->name('TraineesController.index');
+    Route::get('/all', 'TraineesController@index_view')->name('TraineesController.index_view');
+    Route::get('/{id}', 'TraineesController@destroy')->name('TraineesController.destroy');
+});
 Route::prefix('trainingsession')->middleware('auth')->group(function () {
 
     Route::get('/dataAjax', 'TrainingSessionController@index')->name('TrainingSession.index');
