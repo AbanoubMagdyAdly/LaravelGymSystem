@@ -37,22 +37,22 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="manager_id">Manager Id</label>
+                    <label for="manager_id">Manager</label>
                     <select  name="manager_id" class="form-control" id="manager_id">
-                        @foreach($gyms as $gym)
-                            <option value={{$gym->user['id']}}>
-                                {{$gym->user['name']}}
+                        @foreach($managers as $manager)
+                            <option value={{$manager->id}}>
+                                {{$manager->name}}
                             </option>
                         @endforeach
                     </select>
                     @if ($errors->has('manager_id')) <label class="alert alert-danger">{{ $errors->first('manager_id') }}</label> @endif
                 </div>
                 <div class="form-group">
-                    <label for="city_id">City Id</label>
+                    <label for="city_id">City</label>
                     <select  name="city_id" class="form-control" id="city_id">
-                        @foreach($gyms as $gym)
-                        <option value="{{$gym->city_id}}">
-                            {{$gym->city_id}}
+                        @foreach($cities as $city)
+                        <option value="{{$city->id}}">
+                            {{$city->name}}
                             {{--//will be changed to city name and change type to string--}}
                         </option>
                             @endforeach

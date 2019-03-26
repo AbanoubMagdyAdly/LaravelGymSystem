@@ -21,17 +21,19 @@ open the file then install vendor by :
 composer install 
 ```
 
-And then 
-
+And then setup your env file.
+```
+.env
+```
+Make migartions of Database 
 ```
 php artisn migarte
 ```
 
 
-## Running the tests
+## Run the System
 
-Explain how to run the automated tests for this system
 ```
 php artisn serve
 ```
-and have Fun
+and have Fun....

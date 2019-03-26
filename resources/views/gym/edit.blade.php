@@ -32,30 +32,29 @@
                     {{--</div>--}}
                     {{--</div>--}}
                     <div class="form-group">
-                        <label for="created_at">Creted At</label>
+                        <label for="created_at">Created At</label>
                         <input type="date" name="created_at" class="form-control" id="created_at" placeholder="Enter Name" value="{{$gym->created_at}}">
                         @if ($errors->has('created_at')) <label class="alert alert-danger">{{ $errors->first('created_at') }}</label> @endif
                     </div>
 
                     <div class="form-group">
-                        <label for="manager_id">Manager Id</label>
+                        <label for="manager_id">Manager</label>
                         <select  name="manager_id" class="form-control" id="manager_id" >
-                            @foreach($gyms as $single_gym)
-
-                            <option>
-                                    {{$single_gym->manager_id}}
+                            @foreach($managers as $manager)
+                            <option value={{$manager->id}} >
+                                    {{$manager->name}}
                                 </option>
                                 @endforeach
                         </select>
                         @if ($errors->has('manager_id')) <label class="alert alert-danger">{{ $errors->first('manager_id') }}</label> @endif
                     </div>
                     <div class="form-group">
-                        <label for="city_id">City Id</label>
+                        <label for="city_id">City</label>
                         <select  name="city_id" class="form-control" id="city_id">
-                            @foreach($gyms as $single_gym)
+                            @foreach($cities as $city)
 
-                            <option>
-                                    {{$single_gym->city_id}}
+                            <option value={{$city->id}}>
+                                    {{$city->name}}
                                 </option>
                             @endforeach
 

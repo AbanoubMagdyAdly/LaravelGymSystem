@@ -38,6 +38,7 @@ $(document).ready( function () {
   var pathArray = window.location.pathname.split('/');
   $('#myTable').DataTable({
         "processing": true,
+        "paging": true,
         "serverSide": true,
         "ajax": "/"+pathArray[1]+"/dataAjax",
         "type":"get",

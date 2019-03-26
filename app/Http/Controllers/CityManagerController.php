@@ -19,7 +19,7 @@ class CityManagerController extends Controller
 
     public function index()
     {
-        return datatables()->of(User::query())->toJson();
+        return datatables()->of(User::query()->role("city_manager"))->toJson();
     }
 
     public function index_view()
@@ -52,21 +52,20 @@ class CityManagerController extends Controller
     {
         if ($request->hasFile("avatar_image")) {
             $path = Storage::putFile('public/avatar_image', $request->file('avatar_image'));
-            User::create([
+            $User=User::create([
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
             'avatar_image'=>basename($path),
-            'role_id'=>'2',
             ]);
         } elseif (! $request->hasFile("avatar_image")) {
-            User::create([
+            $User=User::create([
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
-            'role_id'=>'2',
              ]);
         }
+        $User->assignRole('city_manager');
         return redirect()->route('CityManager.store')->with('message', 'Created Successfully!');
     }
 

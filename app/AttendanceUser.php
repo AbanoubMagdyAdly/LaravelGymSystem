@@ -26,7 +26,7 @@ class AttendanceUser extends Model
     public function session(){
         return $this->belongsTo('App\TrainingSession');
     }
-    // public function city(){
-    //     return $this->belongsTo('App\City');
-    // }
+    public function city(){
+        return $this->belongsTo('App\City');
+    }
 }

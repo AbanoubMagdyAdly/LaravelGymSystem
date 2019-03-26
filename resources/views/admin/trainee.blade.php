@@ -13,14 +13,11 @@
               <table id="myTable" class=" col-sm-11 row-sm-3 table table-bordered row- table-light text-dark table-hover">
                 <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>User</th>
-                  <th>Session</th>
-                  <th>Gym</th>
-                  <th>City</th>
-                  <th >Show</th>
-                  <th>Edit</th>
+                  <th>usr_ID</th>
+                  <th>user_Name</th>
+                  <th>Email</th>
+                  <th >gender</th>
+                  <th>date_of_birth</th>
                   <th>Delete</th>
 
                 </tr>
@@ -40,26 +37,18 @@
 $(document).ready( function () {
   var pathArray = window.location.pathname.split('/');
   $('#myTable').DataTable({
-        processing: true,
-        "paging": true,
-        serverSide: true,
-        "searching" : true,
-        "ordering":true,
+        "processing": true,
+        "serverSide": true,
         "ajax": "/"+pathArray[1]+"/dataAjax",
         "type":"get",
         "columns": [
             { "data": "id" },
             { "data": "name" },
-            {"data":'user.name'},
-            {"data":'session.name'},
-            {"data":'gym.name' },
-            {"data": 'city.name'},
-            {"mRender": function(data, type, row) {
-              return '<a class="btn btn-info btn-sm" href=/'+pathArray[1]+'/show/' + row.id + '>' + 'Show' + '</a>';}
-            },
-            {"mRender": function(data, type,row ) {
-              return '<a class="btn btn-warning btn-sm" href=/'+pathArray[1]+'/' + row.id + '/edit'+ '>' + 'Edit' + '</a>';}
-            },
+            { "data": "email" },
+        
+            { "data": "gender" },
+            { "data": "date_of_birth" },
+
             {"mRender": function(data, type,row ) {
               return '<a class="btn btn-danger btn-sm" href=/'+pathArray[1]+'/' + row.id + '>' + 'Delete' + '</a>';}
             }
@@ -67,9 +56,10 @@ $(document).ready( function () {
      } );
 } );
 
+
 function delValidate(){
           if (!confirm ('Do You Want to Delete this Post ?'))
             event.preventDefault();
         }
 </script>
-      @endsection
+@endsection
