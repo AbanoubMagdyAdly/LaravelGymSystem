@@ -13,7 +13,7 @@
           </div>
         </div>
         <div class="card-body">
-          Start creating your amazing application!
+          <div class="card card-primary">
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
@@ -22,5 +22,4 @@
         <!-- /.card-footer-->
       </div>
       <!-- /.card -->
-
       @endsection
