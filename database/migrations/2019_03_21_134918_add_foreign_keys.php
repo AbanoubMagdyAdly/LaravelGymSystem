@@ -39,9 +39,7 @@ class AddForeignKeys extends Migration
             $table->foreign('city_id')->references('id')->on('cities');
         });
 
-        Schema::table('users', function (Blueprint $table) {
-            $table->foreign('role_id')->references('id')->on('roles');
-        });
+
     }
 
 }
