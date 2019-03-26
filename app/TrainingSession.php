@@ -8,9 +8,15 @@ class TrainingSession extends Model
 {
     public $timestamps = false;
 
+
+
+
+
     protected $fillable = [
-        'id','name', 'user_id', 'session_id' ,'gym_id', 'city_id'
+        'name',
+         'start_time',
+          'finish_time',
+           'date_of_session',
+            'gym_id'
     ];
-
-
 }
