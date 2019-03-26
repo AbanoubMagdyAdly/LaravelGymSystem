@@ -40,8 +40,11 @@
 $(document).ready( function () {
   var pathArray = window.location.pathname.split('/');
   $('#myTable').DataTable({
-        "processing": true,
-        "serverSide": true,
+        processing: true,
+        "paging": true,
+        serverSide: true,
+        "searching" : true,
+        "ordering":true,
         "ajax": "/"+pathArray[1]+"/dataAjax",
         "type":"get",
         "columns": [
@@ -50,7 +53,7 @@ $(document).ready( function () {
             {"data":'user.name'},
             {"data":'session.name'},
             {"data":'gym.name' },
-            {"data": 'city_id'},
+            {"data": 'city.name'},
             {"mRender": function(data, type, row) {
               return '<a class="btn btn-info btn-sm" href=/'+pathArray[1]+'/show/' + row.id + '>' + 'Show' + '</a>';}
             },

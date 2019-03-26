@@ -6,6 +6,7 @@ use App\Gym;
 use Illuminate\Http\Request;
 use App\User;
 use App\City;
+use Illuminate\Queue\Capsule\Manager;
 class GymController extends Controller
 {
 
@@ -21,7 +22,7 @@ class GymController extends Controller
     public function create()
     {
         $gyms = Gym::all();
-        $managers = User::all();
+        $managers = User::role("gym_manager");
         $cities = City::all();
         //        dd($gyms[1]['id']);
         return view('gym.create', [
@@ -54,12 +55,14 @@ class GymController extends Controller
     }
     public function edit($id)
     {
-        $gyms = Gym::all();
+        $city= City::all();
+        $managers= User::role("gym_manager")->get();
+        // dd($managers);
         $gym = Gym::find($id);
         return view('gym.edit', [
             'gym' => $gym,
-            'gyms' => $gyms
-
+            'managers' => $managers,
+            'cities' => $city,
         ]);
     }
     public function update(Request $request, $id)

@@ -45,4 +45,3 @@ class AddForeignKeys extends Migration
     }
 
 }
-}
