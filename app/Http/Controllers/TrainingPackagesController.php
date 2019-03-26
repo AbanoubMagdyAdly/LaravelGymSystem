@@ -28,7 +28,7 @@ class TrainingPackagesController extends Controller
      */
     public function create()
     {
-        return view('/package/TrainingPakageCreate');
+        return view('/package/TrainingPackageCreate');
     }
 
     /**
@@ -125,7 +125,7 @@ class TrainingPackagesController extends Controller
         // $package=TrainingPackage::findorfail($id);
         // $package->delete();
         // return redirect()->route('packade/TrainingPackagesController.index_view');
-        return view('admin/admin');
+        return redirect()->route('TrainingPackagesController.index_view');
     }
     
 }

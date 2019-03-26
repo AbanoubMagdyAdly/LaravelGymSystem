@@ -10,7 +10,8 @@ class AttendanceUserController extends Controller
 {
     public function index()
     {
-        return datatables()->of(AttendanceUser::query())->toJson();
+
+        return datatables()->of(AttendanceUser::with(['gym','user','session']))->toJson();
     }
 
     public function index_view()

@@ -18,6 +18,11 @@ class Gym extends Model
         return $this->belongsTo(User::class, 'id');
 
     }
+    public function TrainingSession() {
+
+        return $this->hasMany('TrainingSession');
+    
+            }
 //    public function City(){
 //        return $this->belongsTo()
 //    }

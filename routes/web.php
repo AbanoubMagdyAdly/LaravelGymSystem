@@ -19,14 +19,14 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::prefix('admin')->middleware('auth')->group(function() {
+Route::prefix('admin')->middleware('auth')->group(function () {
 
     Route::get('', 'HomeController@admin')->name('admin');
     Route::get('/data', 'HomeController@data')->name('data');
     Route::get('/buypackage', 'HomeController@show')->name('plans.index');
     Route::post('/buypackage', 'HomeController@buy')->name('plans.show');
 });
-Route::prefix('citymanager')->middleware('auth')->group(function(){
+Route::prefix('citymanager')->middleware('auth')->group(function () {
     Route::get('/dataAjax', 'CityManagerController@index')->name('CityManager.index');
     Route::get('/data', 'CityManagerController@index_view')->name('CityManager.index_view');
     Route::get('/create', 'CityManagerController@create')->name('CityManager.create');
@@ -35,11 +35,9 @@ Route::prefix('citymanager')->middleware('auth')->group(function(){
     Route::put('/{id}', 'CityManagerController@update')->name('CityManager.update');
     Route::get('/show/{id}', 'CityManagerController@show')->name('CityManager.show');
     Route::get('/citymanager/{id}', 'CityManagerController@destroy')->name('CityManager.destroy');
-
-
 });
 
-Route::prefix('gymmanager')->middleware('auth')->group(function(){
+Route::prefix('gymmanager')->middleware('auth')->group(function () {
     Route::get('/dataAjax', 'GymManagerController@index')->name('GymManager.index');
     Route::get('/data', 'GymManagerController@index_view')->name('GymManager.index_view');
     Route::get('/show/{id}', 'GymManagerController@show')->name('GymManager.show');
@@ -50,7 +48,7 @@ Route::prefix('gymmanager')->middleware('auth')->group(function(){
     Route::put('/{id}', 'GymManagerController@update')->name('GymManager.update');
 });
 
-Route::prefix('gyms')->middleware('auth')->group(function(){
+Route::prefix('gyms')->middleware('auth')->group(function () {
 
     Route::get('/dataAjax', 'GymController@index')->name('Gym.index');
     Route::get('/data', 'GymController@index_view')->name('Gym.index_view');
@@ -62,12 +60,12 @@ Route::prefix('gyms')->middleware('auth')->group(function(){
 });
 
 
-Route::prefix('trainingpackages')->middleware('auth')->group(function() {
+Route::prefix('trainingpackages')->middleware('auth')->group(function () {
 
     Route::get('/dataAjax', 'TrainingPackagesController@index')->name('TrainingPackagesController.index');
     Route::get('/all', 'TrainingPackagesController@index_view')->name('TrainingPackagesController.index_view');
-    Route::get('/create', 'TrainingPackagesController@create')->name('TrainingPackagesControlle.create');
-    Route::post('', 'TrainingPackagesController@store')->name('TrainingPackagesControlle.store');
+    Route::get('/create', 'TrainingPackagesController@create')->name('TrainingPackagesController.create');
+    Route::post('', 'TrainingPackagesController@store')->name('TrainingPackagesController.store');
     Route::get('/{id}/edit', 'TrainingPackagesController@edit')->name('TrainingPackagesController.edit');
     Route::put('/{id}', 'TrainingPackagesController@update')->name('TrainingPackagesController.update');
     Route::get('/{id}', 'TrainingPackagesController@destroy')->name('TrainingPackagesController.destroy');
@@ -77,13 +75,15 @@ Route::prefix('trainingpackages')->middleware('auth')->group(function() {
 Route::get('/attendance/dataAjax', 'AttendanceUserController@index')->name('Attendance.index');
 Route::get('/attendance/data', 'AttendanceUserController@index_view')->name('Attendance.index_view');
 
-Route::prefix('trainingsession')->middleware('auth')->group(function() {
+Route::prefix('trainingsession')->middleware('auth')->group(function () {
 
-    Route::get('/dataAjax', 'TrainingSessionController@index')->name('TrainingSessionController.index');
-    Route::get('/all', 'TrainingSessionController@index_view')->name('TrainingSessionController.index_view');
-    Route::get('/create', 'TrainingSessionController@create')->name('TrainingSessionControlle.create');
-    Route::post('', 'TrainingSessionController@store')->name('TrainingSessionControlle.store');
-    Route::get('/{id}/edit', 'TrainingSessionController@edit')->name('TrainingSessionController.edit');
-    Route::put('/{id}', 'TrainingSessionController@update')->name('TrainingSessionController.update');
-    Route::get('/{id}', 'TrainingSessionController@destroy')->name('TrainingSessionController.destroy');
+    Route::get('/dataAjax', 'TrainingSessionController@index')->name('TrainingSession.index');
+    Route::get('/all', 'TrainingSessionController@index_view')->name('TrainingSession.index_view');
+    Route::get('/create', 'TrainingSessionController@create')->name('TrainingSession.create');
+    Route::post('', 'TrainingSessionController@store')->name('TrainingSession.store');
+    Route::get('/{id}/edit', 'TrainingSessionController@edit')->name('TrainingSession.edit');
+    Route::put('/{id}', 'TrainingSessionController@update')->name('TrainingSession.update');
+    Route::get('show/{id}', 'TrainingSessionController@show')->name('TrainingSession.show');
+    Route::get('/{id}', 'TrainingSessionController@destroy')->name('TrainingSession.destroy');
 });
+

@@ -40,8 +40,8 @@
                     <label for="manager_id">Manager Id</label>
                     <select  name="manager_id" class="form-control" id="manager_id">
                         @foreach($gyms as $gym)
-                            <option>
-                                {{$gym->user['id']}} //will be changed to user name and change type of table to string
+                            <option value={{$gym->user['id']}}>
+                                {{$gym->user['name']}}
                             </option>
                         @endforeach
                     </select>
@@ -51,8 +51,9 @@
                     <label for="city_id">City Id</label>
                     <select  name="city_id" class="form-control" id="city_id">
                         @foreach($gyms as $gym)
-                        <option>
-                            {{$gym->city_id}} //will be changed to city name and change type to string
+                        <option value="{{$gym->city_id}}">
+                            {{$gym->city_id}}
+                            {{--//will be changed to city name and change type to string--}}
                         </option>
                             @endforeach
                     </select>
