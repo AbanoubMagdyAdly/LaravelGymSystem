@@ -245,54 +245,11 @@
                     <i class="fa fa-plus-circle nav-icon"></i>
                     <p>Create</p>
                   </a>
-<<<<<<< HEAD
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="../../index3.html" class="nav-link">
-                        <i class="fa fa-plus-circle nav-icon"></i>
-                        <p>Create</p>
-                      </a>
-                      <li class="nav-item">
-                        <a href="/users/all" class="nav-link">
-                          <i class="fa fa-eye nav-icon"></i>
-                          <p>Show All</p>
-                        </a>
-                      </li>
-                    </li>
-                  </ul>
-                </li>
-                <li class="nav-item has-treeview">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fa fa-edit"></i>
-                <p>
-                  trainees
-                  <i class="right fa fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-          
-                <li class="nav-item">
-                  <a href="/trainee/all" class="nav-link">
-                    <i class="fa fa-eye nav-icon"></i>
-                    <p>Show All</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-                <li class="nav-item has-treeview">
-                  <a href="#" class="nav-link">
-                    <i class="nav-icon fa fa-bicycle"></i>
-                    <p>
-                      training Packages
-                      <i class="right fa fa-angle-left"></i>
-                    </p>
-=======
                 </li>
                 <li class="nav-item">
                   <a href="/cities/data" class="nav-link">
                     <i class="fa fa-eye nav-icon"></i>
                     <p>Show All</p>
->>>>>>> 2bd13480ef9ce3d7787935c19ca2e73a0378da90
                   </a>
                 </li>
               </ul>
