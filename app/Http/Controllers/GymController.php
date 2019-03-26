@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Gym;
 use Illuminate\Http\Request;
+use App\User;
 
 class GymController extends Controller
 {
@@ -66,7 +67,7 @@ class GymController extends Controller
             'manager_id' => $request['manager_id'],
             'city_id' => $request['city_id'],
         ]);
-        return redirect()->route('gym.index_view');
+        return view('gym.data');
     }
 
     public function destroy($id)
