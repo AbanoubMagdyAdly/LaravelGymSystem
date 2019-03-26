@@ -52,12 +52,14 @@ class GymManagerController extends Controller
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
             'avatar_image'=>basename($path),
+            'role_id'=>'3',
             ]);
         } elseif (! $request->hasFile("avatar_image")) {
             User::create([
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
+            'role_id'=>'2',
              ]);
         }
         return redirect()->route('GymManager.store')->with('message', 'Created Successfully!');
