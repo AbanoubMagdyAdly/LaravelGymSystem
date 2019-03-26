@@ -61,9 +61,9 @@ class ApiController extends Controller
         // $input['password']= bcrypt($input['password']);
        // dd($input);
         $jwt_token = null;
-        // $token=auth('api')->attempt($input); 
-        // dd($token);
-       // dd(JWTAuth::attempt($input));
+         $token=auth('api')->attempt($input);
+         dd($token);
+        dd(JWTAuth::attempt($input));
         if (!$jwt_token = auth('api')->attempt($input)) {
             return response()->json([
                 'success' => false,
