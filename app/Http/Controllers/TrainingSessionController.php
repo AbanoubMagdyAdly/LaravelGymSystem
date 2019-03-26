@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\TrainingSession;
+use App\Gym;
 
 class TrainingSessionController extends Controller
 {
@@ -15,27 +16,26 @@ class TrainingSessionController extends Controller
     public function index_view()
     {
         return view(
-            'trainingsession/data'
+            'trainingsession.data'
         );
     }
     public function create()
     {
-        $trainingsessions=TrainingSession::all();
-//        dd($gyms[1]['id']);
-        return view('trainingsession.create',[
-            'trainingsessions'=>$trainingsessions
+        $gyms = Gym::all();
+        return view('trainingsession.create', [
+            'gyms' => $gyms
         ]);
     }
 
     public function store(Request $request)
     {
         TrainingSession::create([
-            'id'=>$request['id'],
+            'id' => $request['id'],
             'name' => $request['name'],
-            'image'=>$request['image'],
-            'created_at' => $request['created_at'],
-            'manager_id' => $request['manager_id'],
-            'city_id' =>$request['city_id'],
+            'start_time' => $request['start_time'],
+            'finish_time' => $request['finish_time'],
+            'date_of_session' => $request['date_of_session'],
+            'gym_id' => $request['gym_id'],
 
         ]);
         return view('trainingsession.data');
@@ -43,18 +43,18 @@ class TrainingSessionController extends Controller
 
     public function show($id)
     {
-        $trainingsession = TrainingSession::findorfail($id);
+        $trainingsession = TrainingSession::find($id);
         return view('trainingsession.show', [
-            'trainingsession'=>$trainingsession
+            'trainingsession' => $trainingsession
         ]);
     }
     public function edit($id)
     {
-        $trainingsessions=TrainingSession::all();
+        $trainingsessions = TrainingSession::all();
         $trainingsession = TrainingSession::find($id);
         return view('trainingsession.edit', [
-            'trainingsession'=>$trainingsession,
-            'trainingsessions'=>$trainingsessions
+            'trainingsession' => $trainingsession,
+            'trainingsessions' => $trainingsessions
 
         ]);
     }
@@ -65,14 +65,14 @@ class TrainingSessionController extends Controller
             'name' => $request['name'],
             'created_at' => $request['created_at'],
             'manager_id' => $request['manager_id'],
-            'city_id' =>$request['city_id'],
+            'city_id' => $request['city_id'],
         ]);
         return redirect()->route('trainingsession.index_view');
     }
 
     public function destroy($id)
     {
-        TrainingSession::where('id',$id)->delete();
-        return view('admin/admin');
+        TrainingSession::where('id', $id)->delete();
+        return redirect()->route('trainingsession.index_view');
     }
 }

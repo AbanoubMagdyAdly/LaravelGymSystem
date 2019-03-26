@@ -17,7 +17,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form"   action="{{route('TrainingPackagesControlle.store')}}" method="POST">
+              <form role="form"   action="{{route('TrainingPackagesController.store')}}" method="POST">
                 @csrf
                 <div class="card-body">
                   <div class="form-group">

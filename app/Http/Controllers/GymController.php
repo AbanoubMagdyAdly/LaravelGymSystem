@@ -13,28 +13,28 @@ class GymController extends Controller
         return datatables()->of(Gym::query())->toJson();
     }
 
-        public function index_view()
-        {
-          return view('gym.data');
-        }
+    public function index_view()
+    {
+        return view('gym.data');
+    }
     public function create()
     {
-        $gyms=Gym::all();
-//        dd($gyms[1]['id']);
-        return view('gym.create',[
-            'gyms'=>$gyms
+        $gyms = Gym::all();
+        //        dd($gyms[1]['id']);
+        return view('gym.create', [
+            'gyms' => $gyms
         ]);
     }
 
     public function store(Request $request)
     {
         Gym::create([
-            'id'=>$request['id'],
+            'id' => $request['id'],
             'name' => $request['name'],
-            'image'=>$request['image'],
+            'image' => $request['image'],
             'created_at' => $request['created_at'],
             'manager_id' => $request['manager_id'],
-            'city_id' =>$request['city_id'],
+            'city_id' => $request['city_id'],
 
         ]);
         return view('gym.data');
@@ -44,16 +44,16 @@ class GymController extends Controller
     {
         $gym = Gym::findorfail($id);
         return view('gym.show', [
-            'gym'=>$gym
+            'gym' => $gym
         ]);
     }
     public function edit($id)
     {
-        $gyms=Gym::all();
+        $gyms = Gym::all();
         $gym = Gym::find($id);
         return view('gym.edit', [
-            'gym'=>$gym,
-            'gyms'=>$gyms
+            'gym' => $gym,
+            'gyms' => $gyms
 
         ]);
     }
@@ -64,15 +64,14 @@ class GymController extends Controller
             'name' => $request['name'],
             'created_at' => $request['created_at'],
             'manager_id' => $request['manager_id'],
-            'city_id' =>$request['city_id'],
+            'city_id' => $request['city_id'],
         ]);
         return redirect()->route('gym.index_view');
     }
 
     public function destroy($id)
     {
-        Gym::where('id',$id)->delete();
+        Gym::where('id', $id)->delete();
         return view('admin/admin');
     }
-
 }
