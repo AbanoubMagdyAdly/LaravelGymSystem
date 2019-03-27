@@ -20,7 +20,6 @@ class Trainee extends Authenticatable implements JWTSubject
     'password',
     'password_confirmation',
     'image',
-    'trainee_token',
     'last_login',
 
 ];

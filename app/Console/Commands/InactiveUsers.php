@@ -40,7 +40,6 @@ class InactiveUsers extends Command
      */
     public function handle()
     {
-<<<<<<< HEAD
         // $traniees =  Trinee::all();
         // $time_now = Carbon::now()->$table->timestamp;
         // foreach ($traniees as $trainees) {
@@ -51,7 +50,6 @@ class InactiveUsers extends Command
         //         //do some logic to send mail notification here
         //     }
         // }
-=======
         $traniees =  Trinee::all();
         $time_now = Carbon::now()->timestamp;
         foreach ($traniees as $trainee) {
@@ -62,6 +60,5 @@ class InactiveUsers extends Command
                 $trainee->notify(new MailNotifier());
             }
         }
->>>>>>> 81ff8fa9d1297b0a29f1da8e5bf1e1a55501c3ac
     }
 }

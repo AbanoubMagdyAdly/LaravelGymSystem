@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 use App\AttendanceUser;
+use App\PackagePurchase;
 use App\Trainee;
+use App\TrainingPackagePurchase;
 use App\TrainingSession;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -72,7 +74,9 @@ class TraineeController extends Controller
     public function create(Request $request, $id)
     {
         $dateNow = Carbon::today();
-        dd($request->user());
+//        dd(auth()->user()->id);
+        $package=TrainingPackagePurchase::where('trainee_id',auth()->user()->id)->get();
+        dd($package->original);
         if (TrainingSession::find($id)  ) {
             if (TrainingSession::find($id)->date_of_session < $dateNow) {
                 $attendance = new AttendanceUser();

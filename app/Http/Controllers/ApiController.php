@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
  
 use App\Http\Requests\RegisterAuthRequest;
 use App\Trainee;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use JWTAuth;
 use Illuminate\Support\Facades\Hash;
@@ -19,10 +20,7 @@ class ApiController extends Controller
     public $loginAfterSignUp = true;
     public function register(RegisterAuthRequest $request)
     {   
-<<<<<<< HEAD
-=======
 
->>>>>>> 81ff8fa9d1297b0a29f1da8e5bf1e1a55501c3ac
         $user = new Trainee();
         $user->name = $request->name;
         $user->email = $request->email;
@@ -30,15 +28,12 @@ class ApiController extends Controller
         $user->gender = $request->gender;        
         $user->password_confirmation = Hash::make($request->password);
         $user->password = Hash::make($request->password_confirmation);
-<<<<<<< HEAD
-//        $user->trainee_token=str_random(60);
         if ($user) {
             $path = Storage::putFile('public/trainees', $request->file('image'));
             $user->image = $path;
 
             $user->save();
         }
-=======
 
         if ($user){
         $path = Storage::putFile('public/trainees', $request->file('image'));
@@ -46,8 +41,6 @@ class ApiController extends Controller
         $user->save();
     }
 
-        
->>>>>>> 81ff8fa9d1297b0a29f1da8e5bf1e1a55501c3ac
         return response()->json([
             'success' => true,
             'data' => $user
@@ -57,22 +50,16 @@ class ApiController extends Controller
 
  
     public function login(Request $request)
-    {  // 
+    {  //
         $input = $request->only('email', 'password');
         if(auth('api')->attempt([
             'email'=>$request->input('email'),
             'password'=>$request->input('password')
         ])){
-<<<<<<< HEAD
             $user=auth('api')->user();
-            dd($user);
-            // dd($user->trainee_token);
-            $user->trainee_token=auth('api')->attempt($input);
-=======
-
-            $user=auth('api')->user();
+            $user->last_login=Carbon::now();
             $jwt_token=auth('api')->attempt($input);
->>>>>>> 81ff8fa9d1297b0a29f1da8e5bf1e1a55501c3ac
+
             $user->save();
             return response()->json([
                     'success'=>true,
@@ -80,12 +67,6 @@ class ApiController extends Controller
                     'token'=>$jwt_token,
             ]);
         }
-<<<<<<< HEAD
-        $input = $request->only('email', 'password');
-        $jwt_token = null;
-=======
-      
->>>>>>> 81ff8fa9d1297b0a29f1da8e5bf1e1a55501c3ac
         if (!$jwt_token = auth('api')->attempt($input)) {
             return response()->json([
                 'success' => false,
@@ -93,7 +74,6 @@ class ApiController extends Controller
             ], 401);
         }
     }
- 
     public function logout(Request $request)
     {
         try{

@@ -29,8 +29,8 @@ class LogSuccessfulLogin
      */
     public function handle(Login $event)
     {
-        // $trainee = $event->user;
-        // $trainee->last_login =Carbon::now()->timestamp;
-        // $trainee->save();
+         $trainee = $event->user;
+         $trainee->last_login =Carbon::now()->timestamp;
+         $trainee->save();
     }
 }
