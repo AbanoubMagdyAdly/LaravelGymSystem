@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Http\Requests\package\StorePackageRequest;
 use Illuminate\Http\Request;
 use App\TrainingPackage;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+
 class TrainingPackagesController extends Controller
 {
     public function index()
@@ -38,22 +40,21 @@ class TrainingPackagesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(StorePackageRequest $request)
-   {
-    // $request->validate([
-    //     'name' => 'require',
-    //     'price' => 'required|number',
-    //     'capacity' => 'required|number',
-    // ]);
-    
-            TrainingPackage::create([
+    {
+        // $request->validate([
+        //     'name' => 'require',
+        //     'price' => 'required|number',
+        //     'capacity' => 'required|number',
+        // ]);
+
+        TrainingPackage::create([
             'name' => $request['name'],
             'price' => $request['price'],
             'capacity' => $request['capacity'],
-            ]); 
-            
-            
-        return redirect()->route('TrainingPackagesController.index_view');
+            ]);
 
+
+        return redirect()->route('TrainingPackagesController.index_view');
     }
 
     /**
@@ -78,14 +79,14 @@ class TrainingPackagesController extends Controller
     //  */
     public function edit($id)
     {
-
         $package=TrainingPackage::findorfail($id);
-        return view('package/trainingPackageedit',[
-            
+        return view(
+            'package/trainingPackageedit',
+            [
+
                 'package'=>$package
         ]
         );
-  
     }
 
     /**
@@ -96,19 +97,19 @@ class TrainingPackagesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {   
+    {
         // 'title' => 'required|min:3|unique:posts,title,'.$this->post['id'],
         // $request->validate([
         //     'name' => 'required',
         //     'price' => 'required|number',
         //     'capacity' => 'required|number',
-        // ]); 
+        // ]);
         $package=TrainingPackage::findorfail($id);
         $package->update([
             'name' => $request['name'],
             'price' => $request['price']*100,
             'capacity' => $request['capacity'],
-            
+
             ]);
         return redirect()->route('TrainingPackagesController.index_view');
     }
@@ -123,12 +124,7 @@ class TrainingPackagesController extends Controller
     {
         TrainingPackage::where('id', $id)->delete();
         // $package->delete();
-<<<<<<< HEAD
-        // return view('admin/admin');
-=======
         // return redirect()->route('packade/TrainingPackagesController.index_view');
->>>>>>> 2bd13480ef9ce3d7787935c19ca2e73a0378da90
         return redirect()->route('TrainingPackagesController.index_view');
     }
-    
 }

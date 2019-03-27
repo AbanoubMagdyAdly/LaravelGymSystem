@@ -7,10 +7,11 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class Trainee  extends Authenticatable implements JWTSubject{
-	    use Notifiable;
+class Trainee extends Authenticatable implements JWTSubject
+{
+    use Notifiable;
 
-protected $fillable = [
+    protected $fillable = [
     'id',
     'name',
     'email',
@@ -20,6 +21,7 @@ protected $fillable = [
     'password_confirmation',
     'image',
     'trainee_token',
+    'last_login',
 
 ];
 
@@ -28,9 +30,13 @@ protected $fillable = [
         return $this->getKey();
     }
 
-        public function getJWTCustomClaims()
+    public function getJWTCustomClaims()
     {
         return [];
     }
 
+    public function routeNotificationForMail($notification)
+    {
+        return $this->email_address;
+    }
 }
