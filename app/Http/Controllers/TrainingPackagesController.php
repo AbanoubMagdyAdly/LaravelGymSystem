@@ -9,12 +9,19 @@ use Illuminate\Routing\Controller;
 class TrainingPackagesController extends Controller
 {
     public function index()
+    
     {
-        return datatables()->of(TrainingPackage::query())->toJson();
+
+    //    $train=TrainingPackage::all();
+    //    dd($train);
+        return datatables()->of(TrainingPackage::all())->toJson();
     }
 
     public function index_view()
     {
+
+        // dd(TrainingPackage::find(price));
+        // dd(datatables()->of(TrainingPackage::all('price')));
         return view(
             'admin/package'
         );
@@ -65,10 +72,11 @@ class TrainingPackagesController extends Controller
     public function show($id)
     {
         $package = TrainingPackage::findorfail($id);
-        return view('TrainingPackage.show', [
+        return view('package/show', [
             'package'=>$package
         ]);
     }
+    
 
     // /**
     //  * Show the form for editing the specified resource.
@@ -123,11 +131,7 @@ class TrainingPackagesController extends Controller
     {
         TrainingPackage::where('id', $id)->delete();
         // $package->delete();
-<<<<<<< HEAD
-        // return view('admin/admin');
-=======
         // return redirect()->route('packade/TrainingPackagesController.index_view');
->>>>>>> 2bd13480ef9ce3d7787935c19ca2e73a0378da90
         return redirect()->route('TrainingPackagesController.index_view');
     }
     

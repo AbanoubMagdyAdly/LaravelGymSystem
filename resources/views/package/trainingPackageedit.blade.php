@@ -20,10 +20,10 @@
                   </div>
                     <div class="form-group">
                         <label for="exampleInputprice">price</label>
-                        <input type="number" name="price" class="form-control" id="exampleInputprice" placeholder="Enter price" value="{{$package->price}}">
+                        <input type="number" name="price" class="form-control" id="exampleInputprice" placeholder="Enter price" value="{{$package->price/100}}">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputcapacity">capzcity</label>
+                        <label for="exampleInputcapacity">capcity</label>
                         <input type="number" name="capacity" class="form-control" id="exampleInputcapacity" placeholder="Enter capacity" value="{{$package->capacity}}">
                     </div>
                            

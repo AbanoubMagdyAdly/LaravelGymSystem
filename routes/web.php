@@ -64,6 +64,8 @@ Route::prefix('trainingpackages')->middleware('auth')->group(function () {
 
     Route::get('/dataAjax', 'TrainingPackagesController@index')->name('TrainingPackagesController.index');
     Route::get('/all', 'TrainingPackagesController@index_view')->name('TrainingPackagesController.index_view');
+    Route::get('/show/{id}', 'TrainingPackagesController@show')->name('TrainingPackagesController.show');
+    
     Route::get('/create', 'TrainingPackagesController@create')->name('TrainingPackagesController.create');
     Route::post('', 'TrainingPackagesController@store')->name('TrainingPackagesController.store');
     Route::get('/{id}/edit', 'TrainingPackagesController@edit')->name('TrainingPackagesController.edit');
@@ -82,6 +84,11 @@ Route::prefix('trainee')->middleware('auth')->group(function() {
     Route::get('/dataAjax', 'TraineesController@index')->name('TraineesController.index');
     Route::get('/all', 'TraineesController@index_view')->name('TraineesController.index_view');
     Route::get('/{id}', 'TraineesController@destroy')->name('TraineesController.destroy');
+    Route::get('/{id}/edit', 'TraineesController@edit')->name('TraineesController.edit');
+    Route::put('/{id}', 'TraineesController@update')->name('TraineesController.update');
+
+
+
 });
 Route::prefix('trainingsession')->middleware('auth')->group(function () {
 
