@@ -50,6 +50,33 @@ class HomeController extends Controller
         // $role1->givePermissionTo($permission);
         // $permission = Permission::create(['name' => 'CRUD_city_managers']);
         // $role->givePermissionTo($permission);
+        // auth()->user()->assignRole('admin');
+        // $permission = Permission::create(['name' => 'CRUD_cities']);
+        // $role = Role::findByName('admin');
+        // $role->givePermissionTo('CRUD_training_sessions');
+        // $role->givePermissionTo('assign_coaches_to_sessions');
+        // $role->givePermissionTo('buy_sessions_to_users');
+        // $role->givePermissionTo('show_city_gyms');
+        // $role->givePermissionTo('CRUD_gyms');
+        // $role->givePermissionTo('CRUD_city_gyms_manager');
+        // $role->givePermissionTo('CRUD_city_managers');
+        // $role->givePermissionTo('CRUD_cities');
+        // $user=auth()->user();
+        // $permission = Permission::create(['name' => 'attendance']);
+        // $user->givePermissionTo('CRUD_city_managers');
+        // $permission = Permission::create(['name' => 'revenue']);
+        // $user->givePermissionTo($permission);
+        // $user->givePermissionTo('assign_coaches_to_sessions');
+        // $user->givePermissionTo('buy_sessions_to_users');
+        // $user->givePermissionTo('show_city_gyms');
+        // $user->givePermissionTo('CRUD_gyms');
+        // $user->givePermissionTo('CRUD_city_gyms_manager');
+        // $user->givePermissionTo('CRUD_city_managers');
+        // $user->givePermissionTo('CRUD_cities');
+
+
+
+
 
 
         return view('home');

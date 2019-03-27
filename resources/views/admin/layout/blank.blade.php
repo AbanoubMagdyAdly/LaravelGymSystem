@@ -175,262 +175,278 @@
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Create icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+              @can('CRUD_city_managers')
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
                 <i class="nav-icon fa fa-edit"></i>
-
-
-                {{--              @if(auth()->user()->hasrole('admin'))--}}
                 <p>
                   City manager
                   <i class="right fa fa-angle-left"></i>
                 </p>
-                {{--@endif--}}
-
-
-              </a>
-              <ul class="nav nav-treeview">
+            </a>
+            <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="/citymanager/create" class="nav-link">
-                    <i class="fa fa-plus-circle nav-icon"></i>
-                    <p>Create</p>
-                  </a>
+                    <a href="/citymanager/create" class="nav-link">
+                        <i class="fa fa-plus-circle nav-icon"></i>
+                        <p>Create</p>
+                    </a>
                 </li>
                 <li class="nav-item">
-                  <a href="/citymanager/data" class="nav-link">
-                    <i class="fa fa-eye nav-icon"></i>
-                    <p>Show All</p>
-                  </a>
+                    <a href="/citymanager/data" class="nav-link">
+                        <i class="fa fa-eye nav-icon"></i>
+                        <p>Show All</p>
+                    </a>
                 </li>
-              </ul>
+            </ul>
             </li>
+            @endcan
             <!-- Create icons to the links using the .nav-icon class
-                 with font-awesome or any other icon font library -->
-            <li class="nav-item has-treeview">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fa fa-edit"></i>
-                <p>
-                  Gym manager
-                  <i class="right fa fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href='/gymmanager/create' class="nav-link">
-                    <i class="fa fa-plus-circle nav-icon"></i>
-                    <p>Create</p>
-                  </a>
+                with font-awesome or any other icon font library -->
+                @can('CRUD_city_gyms_manager')
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fa fa-edit"></i>
+                        <p>
+                            Gym manager
+                            <i class="right fa fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href='/gymmanager/create' class="nav-link">
+                                <i class="fa fa-plus-circle nav-icon"></i>
+                                <p>Create</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/gymmanager/data" class="nav-link">
+                                <i class="fa fa-eye nav-icon"></i>
+                                <p>Show All</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
-                <li class="nav-item">
-                  <a href="/gymmanager/data" class="nav-link">
-                    <i class="fa fa-eye nav-icon"></i>
-                    <p>Show All</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <!-- Create icons to the links using the .nav-icon class
-                   with font-awesome or any other icon font library -->
-            <li class="nav-item has-treeview">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fa fa-edit"></i>
-                <p>
-                  Cities
-                  <i class="right fa fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="../../index3.html" class="nav-link">
-                    <i class="fa fa-plus-circle nav-icon"></i>
-                    <p>Create</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="/cities/data" class="nav-link">
-                    <i class="fa fa-eye nav-icon"></i>
-                    <p>Show All</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item has-treeview">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fa fa-edit"></i>
-                <p>
-                  Gyms
-                  <i class="right fa fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="/gyms/create" class="nav-link">
-                    <i class="fa fa-plus-circle nav-icon"></i>
-                    <p>Create</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="/gyms/data" class="nav-link">
-                    <i class="fa fa-eye nav-icon"></i>
-                    <p>Show All</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item has-treeview">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fa fa-user"></i>
-                <p>
+                @endcan
+                <!-- Create icons to the links using the .nav-icon class
+                    with font-awesome or any other icon font library -->
+                    @can('CRUD_cities')
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-edit"></i>
+                            <p>
+                                Cities
+                                <i class="right fa fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="../../index3.html" class="nav-link">
+                                    <i class="fa fa-plus-circle nav-icon"></i>
+                                    <p>Create</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/cities/data" class="nav-link">
+                                    <i class="fa fa-eye nav-icon"></i>
+                                    <p>Show All</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    @endcan
+                    @can('CRUD_gyms')
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-edit"></i>
+                            <p>
+                                Gyms
+                                <i class="right fa fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/gyms/create" class="nav-link">
+                                    <i class="fa fa-plus-circle nav-icon"></i>
+                                    <p>Create</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/gyms/data" class="nav-link">
+                                    <i class="fa fa-eye nav-icon"></i>
+                                    <p>Show All</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    @endcan
+                    @can('CRUD_users')
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-user"></i>
+                            <p>
                   Users
                   <i class="right fa fa-angle-left"></i>
                 </p>
-              </a>
-              <ul class="nav nav-treeview">
+            </a>
+            <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="../../index3.html" class="nav-link">
-                    <i class="fa fa-plus-circle nav-icon"></i>
-                    <p>Create</p>
-                  </a>
+                    <a href="../../index3.html" class="nav-link">
+                        <i class="fa fa-plus-circle nav-icon"></i>
+                        <p>Create</p>
+                    </a>
                 </li>
                 <li class="nav-item">
                   <a href="/users/data" class="nav-link">
                     <i class="fa fa-eye nav-icon"></i>
                     <p>Show All</p>
-                  </a>
+                </a>
                 </li>
             </li>
-          </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-bicycle"></i>
-              <p>
+        </ul>
+    </li>
+    @endcan
+    @can('CRUD_trainingPackage')
+    <li class="nav-item has-treeview">
+        <a href="#" class="nav-link">
+            <i class="nav-icon fa fa-bicycle"></i>
+            <p>
                 training Packages
                 <i class="right fa fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
+            </p>
+        </a>
+        <ul class="nav nav-treeview">
+            <li class="nav-item">
                 <a href="../../trainingpackages/create" class="nav-link">
-                  <i class="fa fa-plus-circle nav-icon"></i>
-                  <p>Create</p>
+                    <i class="fa fa-plus-circle nav-icon"></i>
+                    <p>Create</p>
                 </a>
-              </li>
-              <a href="../../trainingpackages/all" class="nav-link">
+            </li>
+            <a href="../../trainingpackages/all" class="nav-link">
                 <i class="fa fa-eye nav-icon"></i>
                 <p>Show All</p>
-              </a>
-          </li>
-          <li class="nav-item">
-            </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-gamepad"></i>
-              <p>
+            </a>
+        </li>
+        <li class="nav-item">
+        </ul>
+    </li>
+    @endcan
+    @can('CRUD_training_sessions')
+    <li class="nav-item has-treeview">
+        <a href="#" class="nav-link">
+            <i class="nav-icon fa fa-gamepad"></i>
+            <p>
                 training Sessions
                 <i class="right fa fa-angle-left"></i>
-              </p>
+            </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../../trainingsession/create" class="nav-link">
-                  <i class="fa fa-plus-circle nav-icon"></i>
-                  <p>Create</p>
+                <li class="nav-item">
+                    <a href="../../trainingsession/create" class="nav-link">
+                        <i class="fa fa-plus-circle nav-icon"></i>
+                        <p>Create</p>
+                    </a>
+                </li>
+                <a href="../../trainingsession/all" class="nav-link">
+                    <i class="fa fa-eye nav-icon"></i>
+                    <p>Show All</p>
                 </a>
-              </li>
-              <a href="../../trainingsession/all" class="nav-link">
-                <i class="fa fa-eye nav-icon"></i>
-                <p>Show All</p>
-              </a>
-          </li>
-          <li class="nav-item">
+            </li>
+            <li class="nav-item">
             </ul>
-          </li>
-          <li class="nav-item has-treeview">
+        </li>
+        @endcan
+        @can('buy_sessions_to_users')
+        <li class="nav-item has-treeview">
             <a href="/admin/buypackage" class="nav-link">
-              <i class="nav-icon fa fa-plus"></i>
-              <p>
-                Buy Package For User
-                <i class="right fa fa-angle-left"></i>
-              </p>
+                <i class="nav-icon fa fa-plus"></i>
+                <p>
+                    Buy Package For User
+                    <i class="right fa fa-angle-left"></i>
+                </p>
             </a>
-          </li>
-          <li class="nav-item has-treeview">
+        </li>
+        @endcan
+        @can('assign_coaches_to_sessions')
+        <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-user-secret"></i>
-              <p>
-                Coaches
-                <i class="right fa fa-angle-left"></i>
-              </p>
+                <i class="nav-icon fa fa-user-secret"></i>
+                <p>
+                    Coaches
+                    <i class="right fa fa-angle-left"></i>
+                </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../../index3.html" class="nav-link">
-                  <i class="fa fa-plus-circle nav-icon"></i>
-                  <p>Create</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/coaches/data" class="nav-link">
-                  <i class="fa fa-eye nav-icon"></i>
-                  <p>Show All</p>
-                </a>
-              </li>
+                <li class="nav-item">
+                    <a href="../../index3.html" class="nav-link">
+                        <i class="fa fa-plus-circle nav-icon"></i>
+                        <p>Create</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/coaches/data" class="nav-link">
+                        <i class="fa fa-eye nav-icon"></i>
+                        <p>Show All</p>
+                    </a>
+                </li>
             </ul>
-          </li>
-          <li class="nav-item has-treeview">
+        </li>
+        @endcan
+        @can('attendance')
+        <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-users"></i>
               <p>
-                Attendance
-                <i class="right fa fa-angle-left"></i>
-              </p>
+                  Attendance
+                  <i class="right fa fa-angle-left"></i>
+                </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/attendance/data" class="nav-link">
-                  <i class="fa fa-eye nav-icon"></i>
-                  <p>Show All</p>
-                </a>
-              </li>
+                <li class="nav-item">
+                    <a href="/attendance/data" class="nav-link">
+                        <i class="fa fa-eye nav-icon"></i>
+                        <p>Show All</p>
+                    </a>
+                </li>
             </ul>
-          </li>
-          <li class="nav-item has-treeview">
+        </li>
+        @endcan
+        @can('revenue')
+        <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-line-chart"></i>
-              <p>
-                Revenue
-                <i class="right fa fa-angle-left"></i>
-              </p>
+                <i class="nav-icon fa fa-line-chart"></i>
+                <p>
+                    Revenue
+                    <i class="right fa fa-angle-left"></i>
+                </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../../index.html" class="nav-link">
-                  <i class="fa fa-eye nav-icon"></i>
-                  <p>Show All</p>
+                  <a href="../../index.html" class="nav-link">
+                    <i class="fa fa-eye nav-icon"></i>
+                    <p>Show All</p>
                 </a>
-              </li>
-            </ul>
-          </li>
-          </ul>
-        </nav>
-        <!-- /.sidebar-menu -->
-      </div>
-      <!-- /.sidebar -->
-    </aside>
+            </li>
+        </ul>
+    </li>
+    @endcan
+</ul>
+</nav>
+<!-- /.sidebar-menu -->
+</div>
+<!-- /.sidebar -->
+</aside>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-      <!-- Content Header (Page header) -->
-      <section class="content-header">
-        <div class="container-fluid">
-          <div class="row mb-2">
-            <div class="col-sm-6">
-              <h1>LaraGym</h1>
-            </div>
-            <div class="col-sm-6">
-              <ol class="breadcrumb float-sm-right">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>LaraGym</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item active">Blank Page</li>
               </ol>
