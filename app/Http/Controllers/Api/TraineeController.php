@@ -18,13 +18,13 @@ class TraineeController extends Controller
     {
 
         return TraineeResource::collection(Trainee::all());//see all posts
-        // return TraineeResource::collection($trainee);//select only 3
+        // return TraineeResource::collection($trainees);//select only 3
 
     }
 
     public function show($trainee)
     {
-        // dd($trainee);
+        // dd($trainees);
         $trainee = Trainee::findOrFail($trainee);
         return new TraineeResource($trainee);
     }
@@ -44,7 +44,7 @@ class TraineeController extends Controller
 
         ]);
         return response()->json([
-            'message' => 'trainee Created Successfully'
+            'message' => 'trainees Created Successfully'
         ], 201);
     }
 
@@ -62,7 +62,7 @@ class TraineeController extends Controller
 
         $trainee->update(['name' => $request->name, 'gender' => $request->gender, 'date_of_birth' => $request->date_of_birth, 'image' => $request->image]);
 
-        // $trainee->update($request->all());
+        // $trainees->update($request->all());
         return $trainee;
         // return response()->json([
         //     'message' => 'up Successfully'

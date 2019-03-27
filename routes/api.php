@@ -24,7 +24,7 @@ Route::post('login', 'ApiController@login');//->middleware('verified');
 //     	    Route::put('trainees/update', 'ApiController@update');
 // 	});
 
-// Route::PUT('/trainees/{trainee}',function()
+// Route::PUT('/trainees/{trainees}',function()
 // {
 //     dd("ss");
 // });

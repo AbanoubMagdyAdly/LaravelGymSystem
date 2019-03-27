@@ -14,7 +14,7 @@ class TraineesController extends Controller
     public function index_view()
     {
         return view(
-            'admin/trainee'
+            'admin/trainees'
         );
     }
     public function destroy($id)

@@ -25,7 +25,7 @@ class AddEmailVerifiedAtToTraineeTable extends Migration
      */
     public function down()
     {
-        Schema::table('trainee', function (Blueprint $table) {
+        Schema::table('trainees', function (Blueprint $table) {
             //
         });
     }

@@ -77,7 +77,7 @@ Route::get('/attendance/dataAjax', 'AttendanceUserController@index')->name('Atte
 Route::get('/attendance/data', 'AttendanceUserController@index_view')->name('Attendance.index_view');
 
 
-Route::prefix('trainee')->middleware('auth')->group(function() {
+Route::prefix('trainees')->middleware('auth')->group(function() {
 
     Route::get('/dataAjax', 'TraineesController@index')->name('TraineesController.index');
     Route::get('/all', 'TraineesController@index_view')->name('TraineesController.index_view');

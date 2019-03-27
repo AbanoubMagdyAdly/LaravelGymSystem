@@ -19,7 +19,7 @@ class ApiController extends Controller
     public $loginAfterSignUp = true;
     public function register(RegisterAuthRequest $request)
     {   
-        //dd($request);
+//        dd($request);
         $user = new Trainee();
         $user->name = $request->name;
         $user->email = $request->email;
@@ -28,10 +28,16 @@ class ApiController extends Controller
         $user->password_confirmation = Hash::make($request->password);
         $user->password = Hash::make($request->password_confirmation);
         $user->trainee_token=str_random(60);
-        if ($user){
-        $path = Storage::putFile('public/trainees', $request->file('image'));
-        $user->image = $path;
-        $user->save();}
+        if ($user) {
+//            dd($request->file('image'));
+            $path = Storage::putFile('public/trainees', $request->file('image'));
+//            dd($user);
+
+            $user->image = $path;
+
+            $user->save();
+        }
+
  
         // if ($this->loginAfterSignUp) {
         //     return $this->login($request);

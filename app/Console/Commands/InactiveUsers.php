@@ -41,8 +41,8 @@ class InactiveUsers extends Command
     {
         // $traniees =  Trinee::all();
         // $time_now = Carbon::now()->$table->timestamp;
-        // foreach ($traniees as $trainee) {
-        //     $last_login = $trainee->last_login;
+        // foreach ($traniees as $trainees) {
+        //     $last_login = $trainees->last_login;
         //     $time_difference = $time_now -$last_login;
         //     $time_in_days = $time_difference /(24*60*60);
         //     if ($time_in_days >30) {
