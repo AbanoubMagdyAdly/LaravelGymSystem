@@ -40,13 +40,12 @@ class InactiveUsers extends Command
      */
     public function handle()
     {
-        $traniees =  Trinee::all();
+        $traniees =  Trainee::all();
         $time_now = Carbon::now();
         foreach ($traniees as $trainee) {
-            $last_login = $trainee->last_login;
+            $last_login_from_db = $trainee->last_login;
+            $last_login = Carbon::parse($last_login_from_db);
             $days = $last_login->diffInDays($time_now);
-            // $time_difference = $time_now - $last_login;
-            // $time_in_days = $time_difference /(24*60*60);
             if ($days >30) {
                 $trainee->notify(new MailNotifier());
             }
