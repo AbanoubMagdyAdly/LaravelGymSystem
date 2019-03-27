@@ -19,7 +19,6 @@ class ApiController extends Controller
     public $loginAfterSignUp = true;
     public function register(RegisterAuthRequest $request)
     {   
-//        dd($request);
         $user = new Trainee();
         $user->name = $request->name;
         $user->email = $request->email;
@@ -27,22 +26,13 @@ class ApiController extends Controller
         $user->gender = $request->gender;        
         $user->password_confirmation = Hash::make($request->password);
         $user->password = Hash::make($request->password_confirmation);
-        $user->trainee_token=str_random(60);
+//        $user->trainee_token=str_random(60);
         if ($user) {
-//            dd($request->file('image'));
             $path = Storage::putFile('public/trainees', $request->file('image'));
-//            dd($user);
-
             $user->image = $path;
 
             $user->save();
         }
-
- 
-        // if ($this->loginAfterSignUp) {
-        //     return $this->login($request);
-        // }
-        
         return response()->json([
             'success' => true,
             'data' => $user
@@ -54,28 +44,19 @@ class ApiController extends Controller
     public function login(Request $request)
     {
         $input = $request->only('email', 'password');
-        // dd(auth('api')->attempt($input));
         if(auth('api')->attempt([
             'email'=>$request->input('email'),
             'password'=>$request->input('password')
         ])){
             $user=auth('api')->user();
+            dd($user);
             // dd($user->trainee_token);
             $user->trainee_token=auth('api')->attempt($input);
-            // dd($user->trainee_token);
-
-            // dd($user);
             $user->save();
             return $user;
         }
         $input = $request->only('email', 'password');
-         // dd($input);
-        // $input['password']= bcrypt($input['password']);
-       // dd($input);
         $jwt_token = null;
-        // $token=auth('api')->attempt($input); 
-        // dd($token);
-       // dd(JWTAuth::attempt($input));
         if (!$jwt_token = auth('api')->attempt($input)) {
             return response()->json([
                 'success' => false,
