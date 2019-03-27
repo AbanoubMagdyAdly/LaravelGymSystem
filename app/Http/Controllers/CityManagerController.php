@@ -66,6 +66,15 @@ class CityManagerController extends Controller
              ]);
         }
         $User->assignRole('city_manager');
+        $User->givePermissionTo('CRUD_training_sessions');
+        $User->givePermissionTo('assign_coaches_to_sessions');
+        $User->givePermissionTo('buy_sessions_to_users');
+        $User->givePermissionTo('show_city_gyms');
+        $User->givePermissionTo('CRUD_gyms');
+        $User->givePermissionTo('CRUD_city_gyms_manager');
+
+
+
         return redirect()->route('CityManager.store')->with('message', 'Created Successfully!');
     }
 

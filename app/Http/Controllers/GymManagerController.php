@@ -61,6 +61,10 @@ class GymManagerController extends Controller
              ]);
         }
         $User->assignRole('gym_manager');
+        $User->givePermissionTo('CRUD_training_sessions');
+        $User->givePermissionTo('assign_coaches_to_sessions');
+        $User->givePermissionTo('buy_sessions_to_users');
+
         return redirect()->route('GymManager.store')->with('message', 'Created Successfully!');
     }
 
@@ -139,7 +143,7 @@ class GymManagerController extends Controller
             'password' => Hash::make($request['password']),
              ]);
         }
-        
+
         return redirect()->route('GymManager.index_view')->with('message', 'Updated Successfully!');
     }
 
