@@ -9,7 +9,8 @@ use JWTAuth;
 use Illuminate\Support\Facades\Hash;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Illuminate\Support\Facades\Storage;
-
+use Illuminate\Support\Facades\Mail;
+use App\Mail\LaraMail;
 
  
 class ApiController extends Controller
@@ -27,14 +28,14 @@ class ApiController extends Controller
         $user->gender = $request->gender;        
         $user->password_confirmation = Hash::make($request->password);
         $user->password = Hash::make($request->password_confirmation);
-
         if ($user){
         $path = Storage::putFile('public/trainees', $request->file('image'));
         $user->image = $path;
         $user->save();
     }
 
-        
+        $email = $user->email;
+        Mail::to($email)->send(new LaraMail());
         return response()->json([
             'success' => true,
             'data' => $user
