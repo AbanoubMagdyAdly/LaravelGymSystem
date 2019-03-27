@@ -105,12 +105,7 @@ class TrainingPackagesController extends Controller
      */
     public function update(Request $request, $id)
     {   
-        // 'title' => 'required|min:3|unique:posts,title,'.$this->post['id'],
-        // $request->validate([
-        //     'name' => 'required',
-        //     'price' => 'required|number',
-        //     'capacity' => 'required|number',
-        // ]); 
+
         $package=TrainingPackage::findorfail($id);
         $package->update([
             'name' => $request['name'],

@@ -34,7 +34,9 @@ Route::prefix('citymanager')->middleware('auth')->group(function () {
     Route::get('/{id}/edit', 'CityManagerController@edit')->name('CityManager.edit');
     Route::put('/{id}', 'CityManagerController@update')->name('CityManager.update');
     Route::get('/show/{id}', 'CityManagerController@show')->name('CityManager.show');
-    Route::get('/citymanager/{id}', 'CityManagerController@destroy')->name('CityManager.destroy');
+    Route::get('/ban/{id}', 'CityManagerController@ban')->name('CityManager.ban');
+    Route::get('/unban/{id}', 'CityManagerController@unban')->name('CityManager.unban');
+    Route::get('/{id}', 'CityManagerController@destroy')->name('CityManager.destroy');
 });
 
 Route::prefix('gymmanager')->middleware('auth')->group(function () {
@@ -46,6 +48,8 @@ Route::prefix('gymmanager')->middleware('auth')->group(function () {
     Route::get('/{id}/edit', 'GymManagerController@edit')->name('GymManager.edit');
     Route::get('/{id}', 'GymManagerController@destroy')->name('GymManager.destroy');
     Route::put('/{id}', 'GymManagerController@update')->name('GymManager.update');
+    Route::get('/ban/{id}', 'GymManagerController@ban')->name('GymManager.ban');
+    Route::get('/unban/{id}', 'GymManagerController@unban')->name('GymManager.unban'); 
 });
 
 Route::prefix('gyms')->middleware('auth')->group(function () {
@@ -102,3 +106,17 @@ Route::prefix('trainingsession')->middleware('auth')->group(function () {
     Route::get('/{id}', 'TrainingSessionController@destroy')->name('TrainingSession.destroy');
 });
 
+
+
+Route::prefix('coaches')->middleware('auth')->group(function () {
+    Route::get('/dataAjax', 'CoachesController@index')->name('Coaches.index');
+    Route::get('/data', 'CoachesController@index_view')->name('Coaches.index_view');
+    Route::get('/create', 'CoachesController@create')->name('Coaches.create');
+    Route::post('/data', 'CoachesController@store')->name('Coaches.store');
+    Route::get('/{id}/edit', 'CoachesController@edit')->name('Coaches.edit');
+    Route::put('/{id}', 'CoachesController@update')->name('Coaches.update');
+    Route::get('/show/{id}', 'CoachesController@show')->name('Coaches.show');
+    Route::get('/ban/{id}', 'CoachesController@ban')->name('Coaches.ban');
+    Route::get('/unban/{id}', 'CoachesController@unban')->name('Coaches.unban');
+    Route::get('/{id}', 'CoachesController@destroy')->name('Coaches.destroy');
+});

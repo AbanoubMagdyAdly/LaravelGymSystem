@@ -74,11 +74,32 @@ class GymManagerController extends Controller
     public function show($id)
     {
         $gym_manager = User::findorfail($id);
+        $ban=$gym_manager->isBanned();
+        $unban=$gym_manager->isNotBanned();
         return view('/managers/ManagerShow', [
-            'manager'=>$gym_manager
+            'manager'=>$gym_manager,
+            'bann'=>$ban,
+            'unban'=>$unban
         ]);
     }
 
+    public function ban($id)
+    {
+     
+        $city_manager = User::findorfail($id);
+        
+        $sban=$city_manager->ban();
+        // dd($sban);
+        // $sban=$city_manager->ban();
+        // User::create([ 'banned_at'=>$sban ]);
+        return redirect()->route('CityManager.index_view');
+    }
+    public function unban($id)
+    {
+        $city_manager = User::findorfail($id);
+        $city_manager->unban();
+        return redirect()->route('CityManager.index_view');
+    }
     /**
      * Show the form for editing the specified resource.
      *

@@ -16,6 +16,9 @@
                   <th>ID</th>
                   <th>Name</th>
                   <th>Email</th>
+                  
+                  <th >Ban</th>
+                  <th >UNBan</th>
                   <th >Show</th>
                   <th>Edit</th>
                   <th>Delete</th>
@@ -46,6 +49,12 @@ $(document).ready( function () {
             { "data": "id" },
             { "data": "name" },
             { "data": "email" },
+            {"mRender": function(data, type, row) {
+              return '<a class="btn btn-danger btn-sm" href=/'+pathArray[1]+'/ban/' + row.id + '>' + 'ban' + '</a>';}
+            },
+            {"mRender": function(data, type, row) {
+              return '<a class="btn btn-primary btn-sm" href=/'+pathArray[1]+'/unban/' + row.id + '>' + 'unban' + '</a>';}
+            },
             {"mRender": function(data, type, row) {
               return '<a class="btn btn-info btn-sm" href=/'+pathArray[1]+'/show/' + row.id + '>' + 'Show' + '</a>';}
             },
