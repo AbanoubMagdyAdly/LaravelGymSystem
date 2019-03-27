@@ -8,34 +8,42 @@ use Illuminate\Http\Request;
 use JWTAuth;
 use Illuminate\Support\Facades\Hash;
 use Tymon\JWTAuth\Exceptions\JWTException;
+use Illuminate\Support\Facades\Storage;
+
+
  
 class ApiController extends Controller
 {
     
 
     public $loginAfterSignUp = true;
- 
     public function register(RegisterAuthRequest $request)
-    {
+    {   
+        //dd($request);
         $user = new Trainee();
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->image = $request->image;
         $user->date_of_birth = $request->date_of_birth;
         $user->gender = $request->gender;        
         $user->password_confirmation = Hash::make($request->password);
         $user->password = Hash::make($request->password_confirmation);
-        $user->save();
+        $user->trainee_token=str_random(60);
+        if ($user){
+        $path = Storage::putFile('public/trainees', $request->file('image'));
+        $user->image = $path;
+        $user->save();}
  
-        if ($this->loginAfterSignUp) {
-            return $this->login($request);
-        }
- 
+        // if ($this->loginAfterSignUp) {
+        //     return $this->login($request);
+        // }
+        
         return response()->json([
             'success' => true,
             'data' => $user
         ], 200);
     }
+
+
  
     public function login(Request $request)
     {
@@ -54,16 +62,14 @@ class ApiController extends Controller
             $user->save();
             return $user;
         }
-
         $input = $request->only('email', 'password');
-                // dd($input);
-
+         // dd($input);
         // $input['password']= bcrypt($input['password']);
        // dd($input);
         $jwt_token = null;
-         $token=auth('api')->attempt($input);
-         dd($token);
-        dd(JWTAuth::attempt($input));
+        // $token=auth('api')->attempt($input); 
+        // dd($token);
+       // dd(JWTAuth::attempt($input));
         if (!$jwt_token = auth('api')->attempt($input)) {
             return response()->json([
                 'success' => false,
@@ -102,9 +108,26 @@ class ApiController extends Controller
         $this->validate($request, [
             'token' => 'required'
         ]);
- 
         $user = JWTAuth::authenticate($request->token);
  
         return response()->json(['trainees' => $user]);
     }
+    public function update(Request $request)
+    {   dd(auth('api')->user());
+        $trainee = Trainee::findOrFail($id);
+       if (!$trainee) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Your Data Cannot be Updated'], 400); }
+        $input = $request->only('name', 'image');
+        $updated = $trainee->fill($input)->save();
+        if ($updated) {
+            return response()->json([
+                'success' => true
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+            'message' => 'Your Data Cannot be Updated'], 500);
+        }}
 }
