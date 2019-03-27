@@ -123,11 +123,7 @@ class TrainingPackagesController extends Controller
     {
         TrainingPackage::where('id', $id)->delete();
         // $package->delete();
-<<<<<<< HEAD
-        // return view('admin/admin');
-=======
         // return redirect()->route('packade/TrainingPackagesController.index_view');
->>>>>>> 2bd13480ef9ce3d7787935c19ca2e73a0378da90
         return redirect()->route('TrainingPackagesController.index_view');
     }
     
