@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddTraineeTokenColoumnToTraineesTable extends Migration
+class AddPackagesAndAttendedSessionsToTraineesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,13 @@ class AddTraineeTokenColoumnToTraineesTable extends Migration
      */
     public function up()
     {
-<<<<<<< HEAD
-//        Schema::table('trainees', function (Blueprint $table) {
-//            $table->text('trainee_token')->default(null);
-//
-//        });
-=======
         // Schema::table('trainees', function (Blueprint $table) {
-        //     $table->text('trainee_token')->default(null);
+        //     $table->unsignedBigInteger('package_id');
+        //     $table->unsignedInteger('attended_sessions');
+        //     $table->foreign('package_id')->references('id')->on('training_packages');
+
 
         // });
->>>>>>> 81ff8fa9d1297b0a29f1da8e5bf1e1a55501c3ac
     }
 
     /**
