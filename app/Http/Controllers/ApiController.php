@@ -19,7 +19,7 @@ class ApiController extends Controller
     public $loginAfterSignUp = true;
     public function register(RegisterAuthRequest $request)
     {   
-        //dd($request);
+
         $user = new Trainee();
         $user->name = $request->name;
         $user->email = $request->email;
@@ -27,15 +27,13 @@ class ApiController extends Controller
         $user->gender = $request->gender;        
         $user->password_confirmation = Hash::make($request->password);
         $user->password = Hash::make($request->password_confirmation);
-        $user->trainee_token=str_random(60);
+
         if ($user){
         $path = Storage::putFile('public/trainees', $request->file('image'));
         $user->image = $path;
-        $user->save();}
- 
-        // if ($this->loginAfterSignUp) {
-        //     return $this->login($request);
-        // }
+        $user->save();
+    }
+
         
         return response()->json([
             'success' => true,
@@ -46,61 +44,46 @@ class ApiController extends Controller
 
  
     public function login(Request $request)
-    {
+    {  // 
         $input = $request->only('email', 'password');
-        // dd(auth('api')->attempt($input));
         if(auth('api')->attempt([
             'email'=>$request->input('email'),
             'password'=>$request->input('password')
         ])){
-            $user=auth('api')->user();
-            // dd($user->trainee_token);
-            $user->trainee_token=auth('api')->attempt($input);
-            // dd($user->trainee_token);
 
-            // dd($user);
+            $user=auth('api')->user();
+            $jwt_token=auth('api')->attempt($input);
             $user->save();
-            return $user;
+            return response()->json([
+                    'success'=>true,
+                    'user'=>$user,
+                    'token'=>$jwt_token,
+            ]);
         }
-        $input = $request->only('email', 'password');
-         // dd($input);
-        // $input['password']= bcrypt($input['password']);
-       // dd($input);
-        $jwt_token = null;
-        // $token=auth('api')->attempt($input); 
-        // dd($token);
-       // dd(JWTAuth::attempt($input));
+      
         if (!$jwt_token = auth('api')->attempt($input)) {
             return response()->json([
                 'success' => false,
                 'message' => 'Invalid Email or Password',
             ], 401);
         }
-        return response()->json([
-            'success' => true,
-            'token' => $jwt_token,
-        ]);
     }
  
     public function logout(Request $request)
     {
-        $this->validate($request, [
-            'token' => 'required'
-        ]);
- 
-        try {
-            JWTAuth::invalidate($request->token);
- 
-            return response()->json([
-                'success' => true,
-                'message' => 'User logged out successfully'
-            ]);
-        } catch (JWTException $exception) {
+        try{
+            auth()->logout();
+        }catch (JWTException $exception) {
             return response()->json([
                 'success' => false,
                 'message' => 'Sorry, the user cannot be logged out'
             ], 500);
         }
+     return response()->json([
+                'success' => true,
+                'message' => 'User logged out successfully'
+            ]);
+    
     }
  
     public function getAuthUser(Request $request)
@@ -112,9 +95,10 @@ class ApiController extends Controller
  
         return response()->json(['trainees' => $user]);
     }
+
     public function update(Request $request)
-    {   dd(auth('api')->user());
-        $trainee = Trainee::findOrFail($id);
+    {  
+            $trainee = auth('api')->user();
        if (!$trainee) {
             return response()->json([
                 'success' => false,

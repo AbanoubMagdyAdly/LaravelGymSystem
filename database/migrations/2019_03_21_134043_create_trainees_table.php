@@ -17,6 +17,8 @@ class CreateTraineesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name', 100);
             $table->string('gender', 100);
+            $table->unsignedInteger('attended_sessions')->default(0);
+
             $table->date('date_of_birth');
             $table->string('email', 100);
             $table->boolean('confirmed')->default(0);

@@ -13,13 +13,13 @@ class AddPackagesAndAttendedSessionsToTraineesTable extends Migration
      */
     public function up()
     {
-        Schema::table('trainees', function (Blueprint $table) {
-            $table->unsignedBigInteger('package_id');
-            $table->unsignedInteger('attended_sessions');
-            $table->foreign('package_id')->references('id')->on('training_packages');
+        // Schema::table('trainees', function (Blueprint $table) {
+        //     $table->unsignedBigInteger('package_id');
+        //     $table->unsignedInteger('attended_sessions');
+        //     $table->foreign('package_id')->references('id')->on('training_packages');
 
 
-        });
+        // });
     }
 
     /**

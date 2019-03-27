@@ -13,10 +13,10 @@ class AddTraineeTokenColoumnToTraineesTable extends Migration
      */
     public function up()
     {
-        Schema::table('trainees', function (Blueprint $table) {
-            $table->text('trainee_token')->default(null);
+        // Schema::table('trainees', function (Blueprint $table) {
+        //     $table->text('trainee_token')->default(null);
 
-        });
+        // });
     }
 
     /**
