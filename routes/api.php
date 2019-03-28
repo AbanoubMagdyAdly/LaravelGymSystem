@@ -18,14 +18,12 @@ Route::post('login', 'ApiController@login');
 Route::post('register', 'ApiController@register');
 
 Route::group(['middleware' => 'auth:api'], function () {
-    	    Route::put('trainees/update', 'ApiController@update');
-            Route::get('logout', 'ApiController@logout');
-            Route::post('me/create/{id}', 'Api\TraineeController@create');
-Route::post('login', 'ApiController@login')->middleware('verified');
-//Route::post('register', 'ApiController@register');
+    Route::put('trainees/update', 'ApiController@update');
+    Route::get('logout', 'ApiController@logout');
+    Route::post('me/create/{id}', 'Api\TraineeController@create');
+    Route::get('/me/show' ,'Api\TraineeController@show');
 
-
+//    Route::post('login', 'ApiController@login')->middleware('verified');
 });
 
-//Route::post('me/create/{id}', 'Api\TraineeController@create');
 

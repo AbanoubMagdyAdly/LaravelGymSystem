@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 use App\AttendanceUser;
 use App\PackagePurchase;
 use App\Trainee;
+use App\TrainingPackage;
 use App\TrainingPackagePurchase;
 use App\TrainingSession;
 use Illuminate\Http\Request;
@@ -24,12 +25,12 @@ class TraineeController extends Controller
 
     }
 
-    public function show($trainee)
-    {
-        // dd($trainees);
-        $trainee = Trainee::findOrFail($trainee);
-        return new TraineeResource($trainee);
-    }
+//    public function show($trainee)
+//    {
+//        // dd($trainees);
+//        $trainee = Trainee::findOrFail($trainee);
+//        return new TraineeResource($trainee);
+//    }
 
     public function store(Request $request)
     {
@@ -95,6 +96,19 @@ class TraineeController extends Controller
         } else {
             return response()->json(['message' => 'Error Session ID']);
         }
+    }
+
+    public function show(){
+        $trainee=\auth()->user();
+        $purchasedPackage=TrainingPackagePurchase::where('trainee_id',$trainee->id)->first()->package_id;
+        $packageCapacity=TrainingPackage::where('id',$purchasedPackage)->first()->capacity;
+        $remainingSessions=$packageCapacity-$trainee->attended_sessions;
+        return response()->json([
+            'message'=>'Welcome '.$trainee->name,
+            'attendes_sessions'=>$trainee->attended_sessions,
+            'remaining_sessions'=>$remainingSessions,
+        ]);
+
     }
 }
 

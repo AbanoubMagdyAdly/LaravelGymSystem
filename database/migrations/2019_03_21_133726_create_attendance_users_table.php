@@ -22,10 +22,6 @@ class CreateAttendanceUsersTable extends Migration
             $table->unsignedBigInteger('gym_id');
             $table->unsignedBigInteger('city_id');
 
-//            $table->foreign('user_id')->references('id')->on('users');
-//            $table->foreign('session_id')->references('id')->on('training_session');
-//            $table->foreign('gym_id')->references('id')->on('gym');
-//            $table->foreign('city_id')->references('id')->on('cities');
         });
     }
 

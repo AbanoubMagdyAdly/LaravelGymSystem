@@ -21,9 +21,6 @@ class CreateGymsTable extends Migration
             $table->unsignedBigInteger('manager_id');
             $table->unsignedBigInteger('city_id');
 
-//            $table->foreign('manager_id')->references('id')->on('users');
-//            $table->foreign('session_id')->references('id')->on('training_session');
-//            $table->foreign('city_id')->references('id')->on('cities');
         });
     }
 

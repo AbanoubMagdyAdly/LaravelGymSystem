@@ -22,11 +22,6 @@ class CreateTrainingPackagesPurchaseTable extends Migration
             $table->unsignedBigInteger('gym_id');
             $table->unsignedBigInteger('city_id');
 
-//            $table->foreign('trainee_id')->references('id')->on('trainees');
-//            $table->foreign('package_id')->references('id')->on('training_packages');
-//
-//            $table->foreign('gym_id')->references('id')->on('gym');
-//            $table->foreign('city_id')->references('id')->on('cities');
         });
     }
 
