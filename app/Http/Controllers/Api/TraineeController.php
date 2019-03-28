@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 use App\AttendanceUser;
+use App\Gym;
 use App\PackagePurchase;
 use App\Trainee;
 use App\TrainingPackage;
@@ -106,6 +107,31 @@ class TraineeController extends Controller
         return response()->json([
             'total_sessions'=>$packageCapacity,
             'remaining_sessions'=>$remainingSessions,
+        ]);
+
+    }
+
+    public function showHistory(){
+        $trainee=\auth()->user();
+        $attendedSessions=AttendanceUser::where('user_id',$trainee->id)->get()->toArray();
+        foreach ($attendedSessions as $session){
+            $attandanceDate[]=$session['attendance_date'];
+        }
+        foreach ($attendedSessions as $session){
+            $attandanceTime[]=$session['attendance_time'];
+
+        }
+        foreach ($attendedSessions as $session){
+            $sessionsName[]=TrainingSession::where('id',$session['session_id'])->first()['name'];
+        }
+        foreach ($attendedSessions as $session){
+            $gymsName[]=Gym::where('id',$session['gym_id'])->first()['name'];
+        }
+        return response()->json([
+            'sessions_name'=>$sessionsName,
+            'gym_name'=>$gymsName,
+            'attandance_date'=>$attandanceDate,
+            'attandance_time'=>$attandanceTime,
         ]);
 
     }

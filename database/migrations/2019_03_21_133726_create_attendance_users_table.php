@@ -21,6 +21,8 @@ class CreateAttendanceUsersTable extends Migration
             $table->unsignedBigInteger('session_id');
             $table->unsignedBigInteger('gym_id');
             $table->unsignedBigInteger('city_id');
+            $table->time('attendence_time');
+            $table->date('attendence_date');
 
         });
     }

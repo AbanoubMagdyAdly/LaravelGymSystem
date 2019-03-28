@@ -22,6 +22,10 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::get('logout', 'ApiController@logout');
     Route::post('me/create/{id}', 'Api\TraineeController@create');
     Route::get('/me/show' ,'Api\TraineeController@show');
+    Route::get('/me/show/' ,'Api\TraineeController@show');
+    Route::get('/me/show/history' ,'Api\TraineeController@showHistory');
+
+
 
 //    Route::post('login', 'ApiController@login')->middleware('verified');
 });
