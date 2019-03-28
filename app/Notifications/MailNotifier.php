@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use App\Trainee;
 
 class MailNotifier extends Notification
 {
@@ -16,9 +17,10 @@ class MailNotifier extends Notification
      *
      * @return void
      */
-    public function __construct()
+    private $trainee;
+    public function __construct(Trainee $trainee)
     {
-        //
+        $this->trainee = $trainee;
     }
 
     /**
@@ -42,10 +44,10 @@ class MailNotifier extends Notification
     {
         return (new MailMessage)
                     ->subject('Grab Your Dumbbells Again!')
-                    ->greeting('Hello ..')
+                    ->greeting('Hello '.$this->trainee->name. ',,, ')
                     ->line('We are miss YOU  in our Gym for 30 days ')
                     ->line('When you want to give up, remember why you started')
-                    ->action('WorkOut Now', url('/'))
+                    ->action('WorkOut Now', url(''))
                     ->line('See you soon!');
     }
 
