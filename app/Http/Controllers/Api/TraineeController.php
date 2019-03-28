@@ -104,8 +104,7 @@ class TraineeController extends Controller
         $packageCapacity=TrainingPackage::where('id',$purchasedPackage)->first()->capacity;
         $remainingSessions=$packageCapacity-$trainee->attended_sessions;
         return response()->json([
-            'message'=>'Welcome '.$trainee->name,
-            'attendes_sessions'=>$trainee->attended_sessions,
+            'total_sessions'=>$packageCapacity,
             'remaining_sessions'=>$remainingSessions,
         ]);
 
