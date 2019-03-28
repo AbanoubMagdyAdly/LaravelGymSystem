@@ -11,12 +11,19 @@ use Illuminate\Routing\Controller;
 class TrainingPackagesController extends Controller
 {
     public function index()
+    
     {
-        return datatables()->of(TrainingPackage::query())->toJson();
+
+    //    $train=TrainingPackage::all();
+    //    dd($train);
+        return datatables()->of(TrainingPackage::all())->toJson();
     }
 
     public function index_view()
     {
+
+        // dd(TrainingPackage::find(price));
+        // dd(datatables()->of(TrainingPackage::all('price')));
         return view(
             'admin/package'
         );
@@ -66,10 +73,11 @@ class TrainingPackagesController extends Controller
     public function show($id)
     {
         $package = TrainingPackage::findorfail($id);
-        return view('TrainingPackage.show', [
+        return view('package/show', [
             'package'=>$package
         ]);
     }
+    
 
     // /**
     //  * Show the form for editing the specified resource.
@@ -97,6 +105,10 @@ class TrainingPackagesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
+<<<<<<< HEAD
+    {   
+
+=======
     {
         // 'title' => 'required|min:3|unique:posts,title,'.$this->post['id'],
         // $request->validate([
@@ -104,6 +116,7 @@ class TrainingPackagesController extends Controller
         //     'price' => 'required|number',
         //     'capacity' => 'required|number',
         // ]);
+>>>>>>> 0367f6f7c7669b538254ca7f54d943a9a2d614fc
         $package=TrainingPackage::findorfail($id);
         $package->update([
             'name' => $request['name'],

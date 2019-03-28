@@ -33,6 +33,10 @@ class Trainee extends Authenticatable implements JWTSubject
     {
         return [];
     }
+       public function verifyUser()
+    {
+        return $this->hasOne('App\VerifyUser');
+    }
 
     public function routeNotificationForMail($notification)
     {

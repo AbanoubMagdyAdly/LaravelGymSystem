@@ -2,13 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9387cb1-7659-47ee-be22-3246f0205223" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/CoachesController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Mail/LaraMail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2017_03_04_000000_create_bans_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_03_27_171513_add_banned_at_column_to_users_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/emails/email.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/package/show.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/trainee/traineeedit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Console/Commands/InactiveUsers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/InactiveUsers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/TraineeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/TraineeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ApiController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Listeners/LogSuccessfulLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Listeners/LogSuccessfulLogin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CityManagerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CityManagerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GymManagerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GymManagerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TraineesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TraineesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TrainingPackagesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TrainingPackagesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/RegisterAuthRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/RegisterAuthRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Trainee.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Trainee.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/TrainingPackage.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/TrainingPackage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/data.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/data.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/layout/blank.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layout/blank.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/package.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/package.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/trainee.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/trainee.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/gym/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/gym/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/managers/ManagerShow.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/managers/ManagerShow.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/package/TrainingPackageCreate.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/package/TrainingPackageCreate.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/package/trainingPackageedit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/package/trainingPackageedit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,11 +47,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/TraineeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="77" column="43" lean-forward="true" selection-start-line="77" selection-start-column="43" selection-end-line="77" selection-end-column="43" />
+            <state>
+              <caret line="68" column="22" lean-forward="true" selection-start-line="68" selection-start-column="22" selection-end-line="68" selection-end-column="22" />
               <folding>
                 <element signature="e#43#66#0#PHP" expanded="true" />
               </folding>
@@ -36,17 +62,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4">
-              <caret line="6" column="9" lean-forward="true" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+            <state relative-caret-position="319">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Console/Commands/InactiveUsers.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="62" selection-start-line="62" selection-end-line="62" />
+            <state relative-caret-position="780">
+              <caret line="55" selection-start-line="55" selection-end-line="55" />
             </state>
           </provider>
         </entry>
@@ -136,14 +162,14 @@
         <option value="$PROJECT_DIR$/database/migrations/2019_03_26_200747_add_packages_and_attended_sessions_to_trainees_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_03_21_134043_create_trainees_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_03_25_162108_add_trainee_token_coloumn_to_trainees_table.php" />
-        <option value="$PROJECT_DIR$/app/Console/Commands/InactiveUsers.php" />
         <option value="$PROJECT_DIR$/app/Listeners/LogSuccessfulLogin.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ApiController.php" />
         <option value="$PROJECT_DIR$/app/Trainee.php" />
-        <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/app/TrainingPackage.php" />
         <option value="$PROJECT_DIR$/app/PackagePurchase.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/TraineeController.php" />
+        <option value="$PROJECT_DIR$/routes/api.php" />
+        <option value="$PROJECT_DIR$/app/Console/Commands/InactiveUsers.php" />
       </list>
     </option>
   </component>
@@ -330,12 +356,12 @@
       <workItem from="1553434876459" duration="14680000" />
       <workItem from="1553594708411" duration="11963000" />
       <workItem from="1553691485094" duration="4982000" />
-      <workItem from="1553699414075" duration="4401000" />
+      <workItem from="1553699414075" duration="5095000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77720000" />
+    <option name="totallyTimeSpent" value="78414000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="730" extended-state="6" />
@@ -655,13 +681,6 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Middleware/Authenticate.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4">
-          <caret line="6" column="9" lean-forward="true" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/TrainingSession.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
@@ -672,13 +691,6 @@
     <entry file="file://$PROJECT_DIR$/app/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-360" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Console/Commands/InactiveUsers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="62" selection-start-line="62" selection-end-line="62" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/TrainingPackage.php">
@@ -707,11 +719,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/TraineeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="77" column="43" lean-forward="true" selection-start-line="77" selection-start-column="43" selection-end-line="77" selection-end-column="43" />
+        <state>
+          <caret line="68" column="22" lean-forward="true" selection-start-line="68" selection-start-column="22" selection-end-line="68" selection-end-column="22" />
           <folding>
             <element signature="e#43#66#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Console/Commands/InactiveUsers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
         </state>
       </provider>
     </entry>

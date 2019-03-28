@@ -1,36 +1,35 @@
 <?php
- 
+
 namespace App\Http\Controllers;
- 
+
 use App\Http\Requests\RegisterAuthRequest;
 use App\Trainee;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use JWTAuth;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\LaraMail;
 
-
- 
 class ApiController extends Controller
 {
-    
-
     public $loginAfterSignUp = true;
     public function register(RegisterAuthRequest $request)
-    {   
-
+    {
         $user = new Trainee();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->date_of_birth = $request->date_of_birth;
-        $user->gender = $request->gender;        
+        $user->gender = $request->gender;
         $user->password_confirmation = Hash::make($request->password);
         $user->password = Hash::make($request->password_confirmation);
         if ($user) {
             $path = Storage::putFile('public/trainees', $request->file('image'));
             $user->image = $path;
+<<<<<<< HEAD
 
             $user->save();
         }
@@ -41,6 +40,13 @@ class ApiController extends Controller
         $user->save();
     }
 
+=======
+            $user->save();
+        }
+
+        $email = $user->email;
+        Mail::to($email)->send(new LaraMail());
+>>>>>>> 8abdeea610dedd8ea4e382069a6f0620d61c367f
         return response()->json([
             'success' => true,
             'data' => $user
@@ -48,14 +54,18 @@ class ApiController extends Controller
     }
 
 
- 
+
     public function login(Request $request)
     {  //
         $input = $request->only('email', 'password');
-        if(auth('api')->attempt([
+        if (auth('api')->attempt([
             'email'=>$request->input('email'),
             'password'=>$request->input('password')
+<<<<<<< HEAD
         ])){
+=======
+        ])) {
+>>>>>>> 8abdeea610dedd8ea4e382069a6f0620d61c367f
             $user=auth('api')->user();
             $user->last_login=Carbon::now();
             $jwt_token=auth('api')->attempt($input);
@@ -67,6 +77,10 @@ class ApiController extends Controller
                     'token'=>$jwt_token,
             ]);
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8abdeea610dedd8ea4e382069a6f0620d61c367f
         if (!$jwt_token = auth('api')->attempt($input)) {
             return response()->json([
                 'success' => false,
@@ -74,40 +88,44 @@ class ApiController extends Controller
             ], 401);
         }
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8abdeea610dedd8ea4e382069a6f0620d61c367f
     public function logout(Request $request)
     {
-        try{
+        try {
             auth()->logout();
-        }catch (JWTException $exception) {
+        } catch (JWTException $exception) {
             return response()->json([
                 'success' => false,
                 'message' => 'Sorry, the user cannot be logged out'
             ], 500);
         }
-     return response()->json([
+        return response()->json([
                 'success' => true,
                 'message' => 'User logged out successfully'
             ]);
-    
     }
- 
+
     public function getAuthUser(Request $request)
     {
         $this->validate($request, [
             'token' => 'required'
         ]);
         $user = JWTAuth::authenticate($request->token);
- 
+
         return response()->json(['trainees' => $user]);
     }
 
     public function update(Request $request)
-    {  
-            $trainee = auth('api')->user();
-       if (!$trainee) {
+    {
+        $trainee = auth('api')->user();
+        if (!$trainee) {
             return response()->json([
                 'success' => false,
-                'message' => 'Your Data Cannot be Updated'], 400); }
+                'message' => 'Your Data Cannot be Updated'], 400);
+        }
         $input = $request->only('name', 'image');
         $updated = $trainee->fill($input)->save();
         if ($updated) {
@@ -118,5 +136,6 @@ class ApiController extends Controller
             return response()->json([
                 'success' => false,
             'message' => 'Your Data Cannot be Updated'], 500);
-        }}
+        }
+    }
 }

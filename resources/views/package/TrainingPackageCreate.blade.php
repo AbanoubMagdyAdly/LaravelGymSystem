@@ -1,5 +1,7 @@
 @extends('admin.layout.blank')
 
+@section('content')
+
 @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -9,7 +11,6 @@
         </ul>
     </div>
 @endif
-@section('content')
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
@@ -41,5 +42,6 @@
                 </div>
               </form>
             </div>
+   
             <!-- /.card -->
     @endsection

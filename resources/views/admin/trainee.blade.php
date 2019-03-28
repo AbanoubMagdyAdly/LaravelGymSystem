@@ -18,6 +18,7 @@
                   <th>Email</th>
                   <th >gender</th>
                   <th>date_of_birth</th>
+                  <th>update</th>
                   <th>Delete</th>
 
                 </tr>
@@ -48,6 +49,9 @@ $(document).ready( function () {
         
             { "data": "gender" },
             { "data": "date_of_birth" },
+            {"mRender": function(data, type,row ) {
+              return '<a class="btn btn-warning btn-sm" href=/'+pathArray[1]+'/' + row.id + '/edit'+ '>' + 'Edit' + '</a>';}
+            },
 
             {"mRender": function(data, type,row ) {
               return '<a class="btn btn-danger btn-sm" href=/'+pathArray[1]+'/' + row.id + '>' + 'Delete' + '</a>';}

@@ -89,10 +89,32 @@ class CityManagerController extends Controller
     public function show($id)
     {
         $city_manager = User::findorfail($id);
+        $ban=$city_manager->isBanned();
+        $unban=$city_manager->isNotBanned();
         return view("managers/ManagerShow", [
-            'manager'=>$city_manager
+            'manager'=>$city_manager,
+            'bann'=>$ban,
+            'unban'=>$unban
         ]);
     }
+    public function ban($id)
+    {
+     
+        $city_manager = User::findorfail($id);
+        
+        $sban=$city_manager->ban();
+        // dd($sban);
+        // $sban=$city_manager->ban();
+        // User::create([ 'banned_at'=>$sban ]);
+        return redirect()->route('CityManager.index_view');
+    }
+    public function unban($id)
+    {
+        $city_manager = User::findorfail($id);
+        $city_manager->unban();
+        return redirect()->route('CityManager.index_view');
+    }
+
 
     /**
      * Show the form for editing the specified resource.
