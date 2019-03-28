@@ -302,38 +302,6 @@
                 </a>
                 </li>
             </li>
-<<<<<<< HEAD
-          </ul>
-          </li>
-          <li class="nav-item has-treeview">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fa fa-user"></i>
-                <p>
-                  Trainees
-                  <i class="right fa fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="../../index3.html" class="nav-link">
-                    <i class="fa fa-plus-circle nav-icon"></i>
-                    <p>Create</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="/trainee/all" class="nav-link">
-                    <i class="fa fa-eye nav-icon"></i>
-                    <p>Show All</p>
-                  </a>
-                </li>
-            </li>
-          </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-bicycle"></i>
-              <p>
-=======
         </ul>
     </li>
     @endcan
@@ -342,7 +310,6 @@
         <a href="#" class="nav-link">
             <i class="nav-icon fa fa-bicycle"></i>
             <p>
->>>>>>> 0367f6f7c7669b538254ca7f54d943a9a2d614fc
                 training Packages
                 <i class="right fa fa-angle-left"></i>
             </p>

@@ -22,7 +22,7 @@ Route::group(['middleware' => 'auth:api'], function () {
             Route::get('logout', 'ApiController@logout');
             Route::post('me/create/{id}', 'Api\TraineeController@create');
 Route::post('login', 'ApiController@login')->middleware('verified');
-Route::post('register', 'ApiController@register');
+//Route::post('register', 'ApiController@register');
 
 
 });
