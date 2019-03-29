@@ -104,7 +104,6 @@ class ApiController extends Controller
                 $verifyUser->user->confirmed = 1;
                 $verifyUser->user->save();
                 $status = "Your e-mail is verified. You can now login.";
-                
                 $user->notify(new WelcomeNewUser());
                 return response()->json([
                 'status' => $status,], 201); 
