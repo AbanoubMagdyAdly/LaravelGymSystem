@@ -132,7 +132,7 @@ class CoachesController extends Controller
     public function update(UpdateCoacheRequest $request, $id)
     {
         $coache = Coache::findorfail($id);
-        $package->update([
+        $coache->update([
             'name' => $request['name'],
             'gender' => $request['gender'],
             'email' => $request['email'],
