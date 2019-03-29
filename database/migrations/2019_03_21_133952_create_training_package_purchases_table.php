@@ -14,7 +14,7 @@ class CreateTrainingPackagesPurchaseTable extends Migration
     public function up()
     {
         Schema::create('training_packages_purchase', function (Blueprint $table) {
-            $table->bigInteger('id');
+            $table->bigIncrements('id')->unique();
 
             $table->date('created_at');
             $table->unsignedBigInteger('trainee_id');

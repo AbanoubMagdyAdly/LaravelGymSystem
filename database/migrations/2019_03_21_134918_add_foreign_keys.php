@@ -14,7 +14,7 @@ class AddForeignKeys extends Migration
     public function up()
     {
         Schema::table('attendance_users', function (Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('trainees');
+            $table->foreign('trainee_id')->references('id')->on('trainees');
             $table->foreign('session_id')->references('id')->on('training_sessions');
             $table->foreign('gym_id')->references('id')->on('gyms');
             $table->foreign('city_id')->references('id')->on('cities');

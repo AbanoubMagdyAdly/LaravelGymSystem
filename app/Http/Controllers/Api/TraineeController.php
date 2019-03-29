@@ -29,43 +29,7 @@ class TraineeController extends Controller
 
     }
 
-//    public function show($trainee)
-//    {
-//        // dd($trainees);
-//        $trainee = Trainee::findOrFail($trainee);
-//        return new TraineeResource($trainee);
-//    }
-
-    public function store(Request $request)
-    {
-//         dd($request->all());
-        //  Trainee::create($request->all());
-        Trainee::create([
-            'name' => $request['name'],
-            'gender' => $request['gender'],
-            'date_of_birth' => $request['date_of_birth'],
-            'email' => $request['email'],
-            'password_confirmation' => Hash::make($request['password_confirmation']),
-            'password' => Hash::make($request['password']),
-            'image' => $request['image'],
-
-        ]);
-        return response()->json([
-            'message' => 'trainees Created Successfully'
-        ], 201);
-    }
-
-    public function destroy(trainee $trainee)
-    {
-        $trainee->delete();
-        return response()->json([
-            'message' => 'delete Successfully'
-        ]);
-    }
-
-
-
-    public function create(Request $request, $id)
+    public function create($id)
     {
         $dateNow = Carbon::today();
         $trainee=\auth()->user();
@@ -95,7 +59,7 @@ class TraineeController extends Controller
                     ]);
                 }else {
                     return response()->json([
-                        'message' => 'You have to buy package'
+                        'message' => 'You have to buy training session'
                     ]);
                 }
             }else {
