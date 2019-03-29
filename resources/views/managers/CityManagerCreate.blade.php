@@ -31,6 +31,17 @@
                     <input type="password"   name="password_confirmation" class="form-control" id="exampleInputPassword2" placeholder="Confirm Password">
                         @if ($errors->has('password_confirmation')) <label class="alert alert-danger">{{ $errors->first('password_confirmation') }}</label> @endif
                 </div>
+                <div class="form-group">
+                  <label for="city_id">City</label>
+                  <select name="city_id" class="form-control" id="city_id">
+                      @foreach($cities as $city)
+                      <option value="{{$city->id}}">
+                          {{$city->name}}
+                      </option>
+                          @endforeach
+                  </select>
+                  @if ($errors->has('city_id')) <label class="alert alert-danger">{{ $errors->first('city_id') }}</label> @endif
+                </div>
                  <div class="form-group">
                     <label for="image">Select Image to upload</label><br>
                     <input type="file"  name="avatar_image" id="image" class='image'>
@@ -41,5 +52,5 @@
                   <button type="submit" class="btn btn-primary">Create</button>
                 </div>
               </form>
-            </div>
+          </div>
     @endsection

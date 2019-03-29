@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Hash;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\LaraMail;
 use App\Mail\VerifyMail;
+use App\Notifications\WelcomeNewUser;
 
 class ApiController extends Controller
 {
@@ -34,7 +34,6 @@ class ApiController extends Controller
         if ($user) {
             $path = Storage::putFile('public/trainees', $request->file('image'));
             $user->image = $path;
-
             $user->save();
             $verifyUser = VerifyUser::create([
             'user_id' => $user->id,
@@ -105,19 +104,16 @@ class ApiController extends Controller
                 $verifyUser->user->confirmed = 1;
                 $verifyUser->user->save();
                 $status = "Your e-mail is verified. You can now login.";
-            }else{
-                $status = "Your e-mail is already verified. You can now login.";
-            }
-        }else{
-            
-             if (!$jwt_token = auth('api')->attempt($input)) {
-                 return response()->json([
-                'success' => false,
-                'message' => 'Sorry your email cannot be identified'], 401); }      
-             }
-
+                $user->notify(new WelcomeNewUser());
                 return response()->json([
                 'status' => $status,], 201); 
+            }else{
+                $status = "Your e-mail is already verified. You can now login.";
+                return response()->json([
+                'status' => $status,], 201); 
+            }
+        }
+               
             } 
 
 //----------------------- Logging Out ----------------------------------------------
@@ -137,15 +133,6 @@ class ApiController extends Controller
             ]);
     }
 
-//    public function getAuthUser(Request $request)
-//    {
-//        $this->validate($request, [
-//            'token' => 'required'
-//        ]);
-//        $user = JWTAuth::authenticate($request->token);
-//
-//        return response()->json(['trainees' => $user]);
-//    }
 //----------------------- Get Auth User ---------------------------------------------
 
     public function getAuthUser(Request $request)
@@ -168,6 +155,10 @@ class ApiController extends Controller
         }
         $input = $request->only('name', 'image','password','password_confirmation','gender','date_of_birth');
         $updated = $trainee->fill($input)->save();
+        if ($request->hasFile("image")) {
+            $path = Storage::putFile('public/trainees', $request->file('image'));
+
+        }
         if ($updated) {
             return response()->json([
                 'success' => true
