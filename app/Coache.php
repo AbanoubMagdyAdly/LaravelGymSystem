@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Coache extends Model
 {
+    public $timestamps = false;
     protected $fillable = [
     	'name',
     	'email',
