@@ -24,20 +24,7 @@
        <label style="color: red;">coache date of birth: </label>
         <br>
        <label > {{$coache->date_of_birth}} </label>
-       <br>
-       <label style="color: red;">coache status ban or not: </label>
-        <br>
-        @if ($bann ==1)
-       <label > is ban  </label>
-       <br>
-      @endif
-      @if ($unban ==1)
-       <label > is unban  </label>
-       <br>
-      @endif
-        <label style="color:red;">coache Added to the System at: </label>
-        <br>
-        <label > {{$coache->created_at -> format('l js \of F Y h:i:s A')}} </label>
-      </div>
+     
+  
 </body>
     @endsection

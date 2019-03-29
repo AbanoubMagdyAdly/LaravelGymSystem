@@ -28,7 +28,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">date of birth</label>
-                        <input type="number" name="date_of_birth" class="form-control" id="exampleInputEmail1" placeholder="Enter date_of_birth">
+                        <input type="date" name="date_of_birth" class="form-control" id="exampleInputEmail1" placeholder="Enter date_of_birth">
                         @if ($errors->has('name')) <label class="alert alert-danger">{{ $errors->first('name') }}</label> @endif
                 </div>
 

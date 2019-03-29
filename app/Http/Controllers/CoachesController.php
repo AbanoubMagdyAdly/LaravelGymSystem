@@ -17,7 +17,7 @@ class CoachesController extends Controller
 
     public function index()
     {
-        return datatables()->of(Coache::query()->role("coache"))->toJson();
+        return datatables()->of(Coache::query())->toJson();
     }
 
     public function index_view()
@@ -37,7 +37,7 @@ class CoachesController extends Controller
      */
     public function create()
     {
-        return view('/coache/Create');
+        return view('/coache/create');
     }
 
     /**
@@ -70,29 +70,29 @@ class CoachesController extends Controller
     public function show($id)
     {
         $coache = Coache::findorfail($id);
-        $ban=$coache->isBanned();
-        $unban=$coache->isNotBanned();
-        return view("coache/Show", [
+        // $ban=$coache->isBanned();
+        // $unban=$coache->isNotBanned();
+        return view("coache/show", [
             'coache'=>$coache,
-            'bann'=>$ban,
-            'unban'=>$unban
+            // 'bann'=>$ban,
+            // 'unban'=>$unban
         ]);
     }
-    public function ban($id)
-    {
-        $coache = Coache::findorfail($id)->ban([
-            'comment' => 'Enjoy your ban!',
-        ]);
-        // $sban=$coache->ban();
-        // User::create([ 'banned_at'=>$sban ]);
-        return redirect()->route('coaches.index_view');
-    }
-    public function unban($id)
-    {
-        $coache = Coache::findorfail($id);
-        $coache->unban();
-        return redirect()->route('coaches.index_view');
-    }
+    // public function ban($id)
+    // {
+    //     $coache = Coache::findorfail($id)->ban([
+    //         'comment' => 'Enjoy your ban!',
+    //     ]);
+    //     // $sban=$coache->ban();
+    //     // User::create([ 'banned_at'=>$sban ]);
+    //     return redirect()->route('coaches.index_view');
+    // }
+    // public function unban($id)
+    // {
+    //     $coache = Coache::findorfail($id);
+    //     $coache->unban();
+    //     return redirect()->route('coaches.index_view');
+    // }
 
 
     /**
@@ -104,6 +104,7 @@ class CoachesController extends Controller
     public function edit($id)
     {
         $coache = Coache::find($id);
+        // dd($coache);
         return view('/coache/edit', [
                 'coache'=>$coache
         ]);
@@ -138,7 +139,7 @@ class CoachesController extends Controller
     public function destroy($id)
     {
         Coache::where('id', $id)->delete();
-        return view('admin/admin');
+        return view('admin/coache');
     }
 
 }

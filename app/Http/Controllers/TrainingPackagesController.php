@@ -105,18 +105,8 @@ class TrainingPackagesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-<<<<<<< HEAD
-    {   
-
-=======
     {
-        // 'title' => 'required|min:3|unique:posts,title,'.$this->post['id'],
-        // $request->validate([
-        //     'name' => 'required',
-        //     'price' => 'required|number',
-        //     'capacity' => 'required|number',
-        // ]);
->>>>>>> 0367f6f7c7669b538254ca7f54d943a9a2d614fc
+
         $package=TrainingPackage::findorfail($id);
         $package->update([
             'name' => $request['name'],
