@@ -371,7 +371,7 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="../../index3.html" class="nav-link">
+                    <a href="/coaches/create" class="nav-link">
                         <i class="fa fa-plus-circle nav-icon"></i>
                         <p>Create</p>
                     </a>
@@ -415,7 +415,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                  <a href="../../index.html" class="nav-link">
+                  <a href="../../revenue/data" class="nav-link">
                     <i class="fa fa-eye nav-icon"></i>
                     <p>Show All</p>
                 </a>

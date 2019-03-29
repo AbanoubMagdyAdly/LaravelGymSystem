@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 use App\Coache;
 
+use App\CoachesSession;
+use App\Gym;
+use App\TrainingSession;
 use Illuminate\Http\Request;
 use App\Http\Requests\Coache\StoreCoacheRequest;
 use App\Http\Requests\Coache\UpdateCoacheRequest;
@@ -37,7 +40,13 @@ class CoachesController extends Controller
      */
     public function create()
     {
-        return view('/coache/create');
+        $gyms=Gym::all();
+        $trainingSessions=TrainingSession::all();
+//        dd($gyms);
+        return view('/coache/create',[
+            'gyms'=>$gyms,
+            'trainingSessions'=>$trainingSessions,
+        ]);
     }
 
     /**
@@ -48,14 +57,22 @@ class CoachesController extends Controller
      */
     public function store(StoreCoacheRequest $request)
     {
-        Coache::create([
-            'name' => $request['name'],
-            'gender' => $request['gender'],
-            'email' => $request['email'],
-            'date_of_birth' => $request['date_of_birth'],
+//        dd($request->name);
+        $coache=Coache::create([
+            'name' => $request->name,
+            'gender' => $request->gender,
+            'email' => $request->email,
+            'date_of_birth' => $request->date_of_birth,
 
             ]);
-        $User->assignRole('coache');
+
+        CoachesSession::create([
+            'gym_id'=>$request->gym_id,
+            'session_id'=>$request->training_session,
+            'coach_id'=> $coache->id,
+        ]);
+
+//        $User->assignRole('coache');
         return redirect()->route('Coaches.store')->with('message', 'Created Successfully!');
     }
 

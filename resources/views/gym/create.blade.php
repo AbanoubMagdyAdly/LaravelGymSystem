@@ -20,18 +20,15 @@
                 </div>
                  <div class="form-group">
                   <label for="image">Upload Photo</label>
-                  <div class="input-group">
+                  <div class="label-group">
                     <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="image">
+                      <input type="file" class="custom-file-label" id="image">
                       <label class="custom-file-label" for="image">Choose file</label>
-                    </div>
-                    <div class="input-group-append">
-                      <span class="input-group-text" id="image">Upload</span>
                     </div>
                   </div>
                 </div>
                 <div class="form-group">
-                    <label for="created_at">Creted At</label>
+                    <label for="created_at">Created At</label>
                     <input type="date" name="created_at" class="form-control" id="created_at" placeholder="Enter Name">
                     @if ($errors->has('created_at')) <label class="alert alert-danger">{{ $errors->first('created_at') }}</label> @endif
                 </div>
