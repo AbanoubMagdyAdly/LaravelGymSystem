@@ -2,9 +2,7 @@
 
 @section('content')
 <body >
- <img src="{{URL::asset('app/storage/public/avatar_image/$manager->avatar_image')}}">
- asset('storage/avatar_image/{{$manager->avatar_image}}');
-
+<img src="{{ asset('storage/avatar_image/'.$manager->avatar_image) }}" style="width:300px;height:200px;border-radius: 15px;">
       <div class="bg-light text-dark back-" style="font-size:25px; margin-left:300px;width: 600px;height:350px;opacity: 0.9;text-align:center;border-radius: 15px;font-family: Nunito;">
 
         <h1  style= "border-radius:15px;size: 560px;"class="badge-secondary"> Manager Information </h1>
