@@ -47,7 +47,6 @@ class MailNotifier extends Notification
                     ->greeting('Hello '.$this->trainee->name. ',,, ')
                     ->line('We are miss YOU  in our Gym for 30 days ')
                     ->line('When you want to give up, remember why you started')
-                    ->action('WorkOut Now', url(''))
                     ->line('See you soon!');
     }
 
