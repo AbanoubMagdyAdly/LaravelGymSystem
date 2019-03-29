@@ -284,12 +284,6 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="../../index3.html" class="nav-link">
-                        <i class="fa fa-plus-circle nav-icon"></i>
-                        <p>Create</p>
-                    </a>
-                </li>
-                <li class="nav-item">
                   <a href="/users/data" class="nav-link">
                     <i class="fa fa-eye nav-icon"></i>
                     <p>Show All</p>
