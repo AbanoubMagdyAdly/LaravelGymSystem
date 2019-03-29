@@ -13,7 +13,7 @@ class CreateTrainingPackagePurchasesTable extends Migration
      */
     public function up()
     {
-        Schema::create('training_packages_purchase', function (Blueprint $table) {
+        Schema::create('training_package_purchases', function (Blueprint $table) {
             $table->bigIncrements('id')->unique();
 
             $table->date('created_at');
