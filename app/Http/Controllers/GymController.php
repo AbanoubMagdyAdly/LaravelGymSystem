@@ -26,10 +26,17 @@ class GymController extends Controller
         return view('gym.data');
     }
     public function create()
-    {
-        $gyms = Gym::all();
-        $managers = User::role("gym_manager");
-        $cities = City::all();
+    {       
+        if (auth()->user()->getRoleNames()[0]=='city_manager') {
+            $cities=[];
+            $cities [] = City::find(auth()->user()->city_id);
+            $gyms = Gym::where('city_id','=',$cities[0]->city_id);
+        } else {
+            $cities = City::all();
+            $gyms = Gym::all(); 
+        }
+        $managers = User::role("gym_manager")->get();
+        
         //        dd($gyms[1]['id']);
         return view('gym.create', [
             'gyms' => $gyms,
