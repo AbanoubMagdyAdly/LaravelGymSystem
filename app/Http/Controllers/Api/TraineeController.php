@@ -24,8 +24,7 @@ class TraineeController extends Controller
     public function index()
     {
 
-        return TraineeResource::collection(Trainee::all());//see all posts
-        // return TraineeResource::collection($trainees);//select only 3
+        return TraineeResource::collection(Trainee::all());
 
     }
 

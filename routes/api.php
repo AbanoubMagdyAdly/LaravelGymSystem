@@ -25,13 +25,6 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::get('/me/show' ,'Api\TraineeController@show');
     Route::get('/me/show/history' ,'Api\TraineeController@showHistory');
 
-	// Route::group(['middleware' => 'auth.jwt'], function () {
-    // Route::get('logout', 'ApiController@logout');
-    // Route::put('trainees/update', 'ApiController@update');
-
-
-
-//    Route::post('login', 'ApiController@login')->middleware('verified');
 });
 
 Route::group(['middleware' => 'auth:api'], function () {

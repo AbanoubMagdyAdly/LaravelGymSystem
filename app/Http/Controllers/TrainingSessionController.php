@@ -9,6 +9,15 @@ use App\AttendanceUser;
 
 class TrainingSessionController extends Controller
 {
+    public function checkOverLap($trainingSession, $start, $end)
+    {
+        foreach ($trainingSession as $session) {
+            if ($session->start_time > $start && $session->start_time < $end 
+                || $session->start_time < $start && $session->finish_time > $start)
+                return true;
+        }
+        return false;
+    }
     public function index()
     {
         return datatables()->of(TrainingSession::query())->toJson();
@@ -30,16 +39,31 @@ class TrainingSessionController extends Controller
 
     public function store(Request $request)
     {
-        TrainingSession::create([
-            'id' => $request['id'],
-            'name' => $request['name'],
-            'start_time' => $request['start_time'],
-            'finish_time' => $request['finish_time'],
-            'date_of_session' => $request['date_of_session'],
-            'gym_id' => $request['gym_id'],
-
-        ]);
-        return view('trainingsession.data');
+        $trainingSessionExist = TrainingSession::where('date_of_session', '=', $request['date_of_session'])->exists();
+        $trainingSession = TrainingSession::where('date_of_session', '=', $request['date_of_session']);
+        if (!$trainingSessionExist) {
+            TrainingSession::create([
+                'id' => $request['id'],
+                'name' => $request['name'],
+                'start_time' => $request['start_time'],
+                'finish_time' => $request['finish_time'],
+                'date_of_session' => $request['date_of_session'],
+                'gym_id' => $request['gym_id'],
+            ]);
+            return view('trainingsession.data');
+        } elseif ($this->checkOverLap($trainingSession, $request['start_time'], $request['finish_time'])) {
+            return back()->with('Error', 'Session can not be created!');
+        } else {
+            TrainingSession::create([
+                'id' => $request['id'],
+                'name' => $request['name'],
+                'start_time' => $request['start_time'],
+                'finish_time' => $request['finish_time'],
+                'date_of_session' => $request['date_of_session'],
+                'gym_id' => $request['gym_id'],
+            ]);
+            return view('trainingsession.data');
+        }
     }
 
     public function show($id)

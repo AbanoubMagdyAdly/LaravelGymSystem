@@ -173,8 +173,7 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Create icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+
               @can('CRUD_city_managers')
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
@@ -227,8 +226,7 @@
                     </ul>
                 </li>
                 @endcan
-                <!-- Create icons to the links using the .nav-icon class
-                    with font-awesome or any other icon font library -->
+
                     @can('CRUD_gyms')
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">

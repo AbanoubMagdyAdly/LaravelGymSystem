@@ -10,14 +10,11 @@ class UsersController extends Controller
 {
     public function index()
     {
-        // die();
-        return UserResource::collection(User::all());//see all posts
-        // return UserResource::collection($user);//select only 3
+        return UserResource::collection(User::all());
      
     } 
     public function show($user)
     {
-        // dd($user);
         $user=User::findOrFail($user);
         return new UserResource($user);
     }

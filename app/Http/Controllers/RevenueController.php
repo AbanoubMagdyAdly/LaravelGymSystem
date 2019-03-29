@@ -18,22 +18,11 @@ class RevenueController extends Controller
 
     public function index_view()
     {
-        // dd(TrainingPackagePurchase::with(['gym','trainee','trainingpackage','city']));
         return view(
             'admin/revenue'
         );
     }
-    // public function index()
-    
-    // {
-    //     $revenue=TrainingPackagePurchase::with(['gym','trainee','trainingpackage','city']);
-    //     return view( 'admin/revenue',[
-    //             'revenue'=>$revenue,
-    //     ]
-    //     );
 
-    //     // return datatables()->of(TrainingPackagePurchase::all()->toJson();
-    // }
 
   
     public function create()
@@ -58,18 +47,7 @@ class RevenueController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        // dd($request);
-        // \Stripe\Stripe::setApiKey("sk_test_ah8BPqY1IotKT7B8bfbOmQSX00I0BoDobX");
-        // $data=$request->all();
-        // $token = $data['stripeToken'];
-        // $charge = \Stripe\Stripe\Charge::create([
-        //     'amount' =>$request['price'] ,
-        //     'currency' => 'usd',
-        //     'description' => 'Example charge',
-        //     'source' => $token,
-        // ]);
-        
+    {       
    
         TrainingPackagePurchase::create([
             'created_at'=> now(),
@@ -81,7 +59,6 @@ class RevenueController extends Controller
 
             ]);
        
-        // return redirect()->route('revenue.store')->with('message', 'Created Successfully!');
         return view ('admin/admin');
     }
 

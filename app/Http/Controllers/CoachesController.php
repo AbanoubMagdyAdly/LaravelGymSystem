@@ -25,8 +25,7 @@ class CoachesController extends Controller
 
     public function index_view()
     {
-//        $data=datatables()->of(User::query())->toJson();
-//        return $data;
+
         return view(
             'admin/coache'
         );
@@ -42,7 +41,6 @@ class CoachesController extends Controller
     {
         $gyms=Gym::all();
         $trainingSessions=TrainingSession::all();
-//        dd($gyms);
         return view('/coache/create',[
             'gyms'=>$gyms,
             'trainingSessions'=>$trainingSessions,
@@ -57,7 +55,6 @@ class CoachesController extends Controller
      */
     public function store(StoreCoacheRequest $request)
     {
-//        dd($request->name);
         $coache=Coache::create([
             'name' => $request->name,
             'gender' => $request->gender,
@@ -72,7 +69,6 @@ class CoachesController extends Controller
             'coach_id'=> $coache->id,
         ]);
 
-//        $User->assignRole('coache');
         return redirect()->route('Coaches.store')->with('message', 'Created Successfully!');
     }
 
@@ -121,7 +117,6 @@ class CoachesController extends Controller
     public function edit($id)
     {
         $coache = Coache::find($id);
-        // dd($coache);
         return view('/coache/edit', [
                 'coache'=>$coache
         ]);

@@ -37,7 +37,6 @@ class GymController extends Controller
         }
         $managers = User::role("gym_manager")->get();
         
-        //        dd($gyms[1]['id']);
         return view('gym.create', [
             'gyms' => $gyms,
             'managers' => $managers,
@@ -70,7 +69,6 @@ class GymController extends Controller
     {
         $city = City::all();
         $managers = User::role("gym_manager")->get();
-        // dd($managers);
         $gym = Gym::find($id);
         return view('gym.edit', [
             'gym' => $gym,

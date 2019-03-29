@@ -110,9 +110,7 @@ class CityManagerController extends Controller
         $city_manager = User::findorfail($id);
         
         $sban=$city_manager->ban();
-        // dd($sban);
-        // $sban=$city_manager->ban();
-        // User::create([ 'banned_at'=>$sban ]);
+
         return redirect()->route('CityManager.index_view');
     }
     public function unban($id)

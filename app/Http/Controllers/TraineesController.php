@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 use App\Trainee;
 use Illuminate\Http\Request;
-// use Tymon\JWTAuth\Contracts\JWTSubject;
 
 class TraineesController extends Controller
 {
@@ -14,7 +13,6 @@ class TraineesController extends Controller
 
     public function index_view()
     {
-        // dd((Trainee::all()));
         return view(
             'admin/trainees'
         );
@@ -23,7 +21,6 @@ class TraineesController extends Controller
     {
         Trainee::where('id', $id)->delete();
      
-        // return view('admin/admin');
         return redirect()->route('TraineesController.index_view');
     }
     public function edit($id)

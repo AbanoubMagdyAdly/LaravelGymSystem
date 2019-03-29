@@ -14,16 +14,12 @@ class TrainingPackagesController extends Controller
     
     {
 
-    //    $train=TrainingPackage::all();
-    //    dd($train);
         return datatables()->of(TrainingPackage::all())->toJson();
     }
 
     public function index_view()
     {
 
-        // dd(TrainingPackage::find(price));
-        // dd(datatables()->of(TrainingPackage::all('price')));
         return view(
             'admin/package'
         );
@@ -48,11 +44,6 @@ class TrainingPackagesController extends Controller
      */
     public function store(StorePackageRequest $request)
     {
-        // $request->validate([
-        //     'name' => 'require',
-        //     'price' => 'required|number',
-        //     'capacity' => 'required|number',
-        // ]);
 
         TrainingPackage::create([
             'name' => $request['name'],
@@ -125,8 +116,7 @@ class TrainingPackagesController extends Controller
     public function destroy($id)
     {
         TrainingPackage::where('id', $id)->delete();
-        // $package->delete();
-        // return redirect()->route('packade/TrainingPackagesController.index_view');
+    
         return redirect()->route('TrainingPackagesController.index_view');
     }
 }
