@@ -38,6 +38,10 @@ class AddForeignKeys extends Migration
             $table->foreign('gym_id')->references('id')->on('gyms');
             $table->foreign('city_id')->references('id')->on('cities');
         });
+        Schema::table('users',function(Blueprint $table){
+            $table->foreign('gym_id')->references('id')->on('gyms');
+            $table->foreign('city_id')->references('id')->on('cities');
+        });
 
 
     }
