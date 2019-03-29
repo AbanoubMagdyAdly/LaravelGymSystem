@@ -23,7 +23,6 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->unsignedInteger('city_id')->nullable();
             $table->unsignedInteger('gym_id')->nullable();
-
         });
     }
 

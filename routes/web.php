@@ -116,7 +116,21 @@ Route::prefix('coaches')->middleware('auth')->group(function () {
     Route::get('/{id}/edit', 'CoachesController@edit')->name('Coaches.edit');
     Route::put('/{id}', 'CoachesController@update')->name('Coaches.update');
     Route::get('/show/{id}', 'CoachesController@show')->name('Coaches.show');
-    Route::get('/ban/{id}', 'CoachesController@ban')->name('Coaches.ban');
-    Route::get('/unban/{id}', 'CoachesController@unban')->name('Coaches.unban');
+    // Route::get('/ban/{id}', 'CoachesController@ban')->name('Coaches.ban');
+    // Route::get('/unban/{id}', 'CoachesController@unban')->name('Coaches.unban');
     Route::get('/{id}', 'CoachesController@destroy')->name('Coaches.destroy');
+});
+
+
+Route::prefix('revenue')->middleware('auth')->group(function () {
+    Route::get('/dataAjax', 'RevenueController@index')->name('revenue.index');
+    Route::get('/data', 'RevenueController@index_view')->name('revenue.index_view');
+    Route::get('/create', 'RevenueController@create')->name('revenue.create');
+    Route::post('/data', 'RevenueController@store')->name('revenue.store');
+    Route::get('/{id}/edit', 'RevenueController@edit')->name('revenue.edit');
+    Route::put('/{id}', 'RevenueController@update')->name('revenue.update');
+    Route::get('/show/{id}', 'RevenueController@show')->name('revenue.show');
+    // Route::get('/ban/{id}', 'RevenueController@ban')->name('revenue.ban');
+    // Route::get('/unban/{id}', 'RevenueController@unban')->name('revenue.unban');
+    Route::get('/{id}', 'RevenueController@destroy')->name('revenue.destroy');
 });

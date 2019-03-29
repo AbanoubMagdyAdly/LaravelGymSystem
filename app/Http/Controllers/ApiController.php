@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\RegisterAuthRequest;
+use App\Http\Requests\Trainee\RegisterAuthRequest;
+use App\Http\Requests\Trainee\UpdateTraineeRequest;
 use App\Trainee;
 use Carbon\Carbon;
+use App\VerifyUser;
 use Illuminate\Http\Request;
 use JWTAuth;
 use Illuminate\Support\Facades\Hash;
@@ -12,12 +14,16 @@ use Tymon\JWTAuth\Exceptions\JWTException;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\LaraMail;
+use App\Mail\VerifyMail;
 
 class ApiController extends Controller
 {
     public $loginAfterSignUp = true;
+
+//------------------ Registering User ------------------------------------------
+
     public function register(RegisterAuthRequest $request)
-    {
+    { 
         $user = new Trainee();
         $user->name = $request->name;
         $user->email = $request->email;
@@ -30,17 +36,17 @@ class ApiController extends Controller
             $user->image = $path;
 
             $user->save();
-        }
-
+            $verifyUser = VerifyUser::create([
+            'user_id' => $user->id,
+            'token' => str_random(40)]); }
         $email = $user->email;
-        Mail::to($email)->send(new LaraMail());
+         Mail::to($email)->send(new VerifyMail($user,$verifyUser));
         return response()->json([
             'success' => true,
-            'data' => $user
-        ], 200);
+            'data' => $user], 200);
     }
 
-
+// -------------------------- Logging In ------------------------------------
 
     public function login(Request $request)
 {
@@ -52,6 +58,23 @@ class ApiController extends Controller
         $user = auth('api')->user();
         $user->last_login = Carbon::now();
         $jwt_token = auth('api')->attempt($input);
+    {   $input = $request->only('email', 'password');
+        if (auth('api')->attempt([
+            'email'=>$request->input('email'),
+            'password'=>$request->input('password')
+        ])) {
+             $user=auth('api')->user();
+             if (!$user->confirmed) {
+             auth()->logout();
+            return response()->json([
+                    'message'=>'You need to confirm your account. We have sent you an activation code, please check your email.',]);}
+            $user->last_login=Carbon::now();
+            $jwt_token=auth('api')->attempt($input);
+            $user->save();
+            return response()->json([
+                    'success'=>true,
+                    'user'=>$user,
+                    'token'=>$jwt_token,]); }
 
         $user->save();
         return response()->json([
@@ -68,6 +91,36 @@ class ApiController extends Controller
         ], 401);
     }
 }
+}
+
+//------------------------- Verify User -----------------------------------------
+
+    public function verifyUser($token)
+    {
+        $verifyUser = VerifyUser::where('token', $token)->first();
+        //dd($verifyUser);
+        if(isset($verifyUser) ){
+            $user = $verifyUser->user;
+            if(!$user->confirmed) {
+                $verifyUser->user->confirmed = 1;
+                $verifyUser->user->save();
+                $status = "Your e-mail is verified. You can now login.";
+            }else{
+                $status = "Your e-mail is already verified. You can now login.";
+            }
+        }else{
+            
+             if (!$jwt_token = auth('api')->attempt($input)) {
+                 return response()->json([
+                'success' => false,
+                'message' => 'Sorry your email cannot be identified'], 401); }      
+             }
+
+                return response()->json([
+                'status' => $status,], 201); 
+            } 
+
+//----------------------- Logging Out ----------------------------------------------
 
     public function logout(Request $request)
     {
@@ -76,8 +129,7 @@ class ApiController extends Controller
         } catch (JWTException $exception) {
             return response()->json([
                 'success' => false,
-                'message' => 'Sorry, the user cannot be logged out'
-            ], 500);
+                'message' => 'Sorry, the user cannot be logged out' ], 500);
         }
         return response()->json([
                 'success' => true,
@@ -94,16 +146,27 @@ class ApiController extends Controller
 //
 //        return response()->json(['trainees' => $user]);
 //    }
+//----------------------- Get Auth User ---------------------------------------------
 
-    public function update(Request $request)
+    public function getAuthUser(Request $request)
     {
+        $this->validate($request, [
+            'token' => 'required'
+        ]);
+        $user = JWTAuth::authenticate($request->token);
+}
+
+
+//----------------- Update User Data ------------------------------------------------------
+
+    public function update(UpdateTraineeRequest $request){
         $trainee = auth('api')->user();
         if (!$trainee) {
             return response()->json([
                 'success' => false,
                 'message' => 'Your Data Cannot be Updated'], 400);
         }
-        $input = $request->only('name', 'image');
+        $input = $request->only('name', 'image','password','password_confirmation','gender','date_of_birth');
         $updated = $trainee->fill($input)->save();
         if ($updated) {
             return response()->json([
