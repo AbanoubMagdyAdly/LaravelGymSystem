@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Trainee;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RegisterAuthRequest extends FormRequest
+class UpdateTraineeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,13 +24,9 @@ class RegisterAuthRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string',
-            'email' => 'required|email|unique:trainees',
-            'password' => 'required|string|min:6|max:10',
-            'password_confirmation' => 'required',
-            'image' => 'required',
-            'gender' => 'required',
-            'date_of_birth'=> 'required'
+            'name' => 'string',
+            'password' => 'string|min:6|max:10|same:password_confirmation',
+            'password_confirmation' => 'same:password',
         ];
     }
 }
