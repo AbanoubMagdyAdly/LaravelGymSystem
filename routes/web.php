@@ -34,7 +34,7 @@ Route::prefix('citymanager')->middleware('auth')->group(function () {
     Route::get('/show/{id}', 'CityManagerController@show')->name('CityManager.show')->middleware('permission:CRUD_city_managers');
     Route::get('/ban/{id}', 'CityManagerController@ban')->name('CityManager.ban')->middleware('permission:CRUD_city_managers');
     Route::get('/unban/{id}', 'CityManagerController@unban')->name('CityManager.unban')->middleware('permission:CRUD_city_managers');
-    Route::get('/{id}', 'CityManagerController@destroy')->name('CityManager.destroy')->middleware('permission:CRUD_city_managers');
+    Route::delete('/{id}', 'CityManagerController@destroy')->name('CityManager.destroy')->middleware('permission:CRUD_city_managers');
 });
 
 Route::prefix('gymmanager')->middleware('auth')->group(function () {
@@ -44,7 +44,7 @@ Route::prefix('gymmanager')->middleware('auth')->group(function () {
     Route::get('/create', 'GymManagerController@create')->name('GymManager.create')->middleware('permission:CRUD_city_gyms_manager');
     Route::post('/data', 'GymManagerController@store')->name('GymManager.store')->middleware('permission:CRUD_city_gyms_manager');
     Route::get('/{id}/edit', 'GymManagerController@edit')->name('GymManager.edit')->middleware('permission:CRUD_city_gyms_manager');
-    Route::get('/{id}', 'GymManagerController@destroy')->name('GymManager.destroy')->middleware('permission:CRUD_city_gyms_manager');
+    Route::delete('/{id}', 'GymManagerController@destroy')->name('GymManager.destroy')->middleware('permission:CRUD_city_gyms_manager');
     Route::put('/{id}', 'GymManagerController@update')->name('GymManager.update')->middleware('permission:CRUD_city_gyms_manager');
     Route::get('/ban/{id}', 'GymManagerController@ban')->name('GymManager.ban')->middleware('permission:CRUD_city_gyms_manager');
     Route::get('/unban/{id}', 'GymManagerController@unban')->name('GymManager.unban')->middleware('permission:CRUD_city_gyms_manager');
