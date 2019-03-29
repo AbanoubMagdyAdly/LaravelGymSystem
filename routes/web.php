@@ -100,17 +100,18 @@ Route::prefix('trainingsession')->middleware('auth')->group(function () {
 
 
 
+
 Route::prefix('coaches')->middleware('auth')->group(function () {
-    Route::get('/dataAjax', 'CoachesController@index')->name('Coaches.index')->middleware('role:admin|city_manager|gym_manager');
-    Route::get('/data', 'CoachesController@index_view')->name('Coaches.index_view')->middleware('role:admin|city_manager|gym_manager');
-    Route::get('/create', 'CoachesController@create')->name('Coaches.create')->middleware('role:admin|city_manager|gym_manager');
-    Route::post('/data', 'CoachesController@store')->name('Coaches.store')->middleware('role:admin|city_manager|gym_manager');
-    Route::get('/{id}/edit', 'CoachesController@edit')->name('Coaches.edit')->middleware('role:admin|city_manager|gym_manager');
-    Route::put('/{id}', 'CoachesController@update')->name('Coaches.update')->middleware('role:admin|city_manager|gym_manager');
-    Route::get('/show/{id}', 'CoachesController@show')->name('Coaches.show')->middleware('role:admin|city_manager|gym_manager');
+    Route::get('/dataAjax', 'CoachesController@index')->name('Coaches.index')->middleware('permission:assign_coaches_to_sessions');
+    Route::get('/data', 'CoachesController@index_view')->name('Coaches.index_view')->middleware('permission:assign_coaches_to_sessions');
+    Route::get('/create', 'CoachesController@create')->name('Coaches.create')->middleware(' permission:assign_coaches_to_sessions');
+    Route::post('/data', 'CoachesController@store')->name('Coaches.store')->middleware('permission:assign_coaches_to_sessions');
+    Route::get('/{id}/edit', 'CoachesController@edit')->name('Coaches.edit')->middleware('permission:assign_coaches_to_sessions');
+    Route::put('/{id}', 'CoachesController@update')->name('Coaches.update')->middleware('permission:assign_coaches_to_sessions');
+    Route::get('/show/{id}', 'CoachesController@show')->name('Coaches.show')->middleware('permission:assign_coaches_to_sessions');
     // Route::get('/ban/{id}', 'CoachesController@ban')->name('Coaches.ban');
     // Route::get('/unban/{id}', 'CoachesController@unban')->name('Coaches.unban');
-    Route::get('/{id}', 'CoachesController@destroy')->name('Coaches.destroy')->middleware('role:admin|city_manager|gym_manager');
+    Route::get('/{id}', 'CoachesController@destroy')->name('Coaches.destroy')->middleware('permission:assign_coaches_to_sessions');
 });
 
 
