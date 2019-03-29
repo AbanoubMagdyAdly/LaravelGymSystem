@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\TrainingSession;
 use App\Gym;
+use App\AttendanceUser;
 
 class TrainingSessionController extends Controller
 {
@@ -72,7 +73,11 @@ class TrainingSessionController extends Controller
 
     public function destroy($id)
     {
-        TrainingSession::where('id', $id)->delete();
-        return redirect()->route('trainingsession.index_view');
+        if (!AttendanceUser::where('session_id', '=', $id)->exists()) {
+            TrainingSession::find($id)->delete();
+            return redirect()->route('trainingsession.index_view');
+        } else {
+            return back()->with('error', 'Session has attendants!');
+        };
     }
 }

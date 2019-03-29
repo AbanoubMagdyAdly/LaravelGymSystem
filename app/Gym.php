@@ -8,22 +8,23 @@ class Gym extends Model
 {
 
     public $timestamps = false;
-    protected $fillable=[
+    protected $fillable = [
         'name',
         'created_at',
         'manager_id',
         'city_id'
     ];
-    public function User(){
+    public function User()
+    {
         return $this->belongsTo(User::class, 'id');
-
     }
-    public function TrainingSession() {
+    public function TrainingSession()
+    {
 
         return $this->hasMany('TrainingSession');
-    
-            }
-//    public function City(){
-//        return $this->belongsTo()
-//    }
+    }
+    public function city()
+    {
+        return $this->belongsTo('App\City');
+    }
 }

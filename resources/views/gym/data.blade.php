@@ -48,8 +48,8 @@
                         { "data": "id" },
                         { "data": "name" },
                         { "data": "created_at" },
-                        { "data": "manager_id" },
-                        { "data": "city_id" },
+                        { "data": "user.name" },
+                        { "data": "city.name" },
 
                         {"mRender": function(data, type, row) {
                                 return '<a class="btn btn-info btn-sm" href=/'+pathArray[1]+'/show/' + row.id + '>' + 'Show' + '</a>';}

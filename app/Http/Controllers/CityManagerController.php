@@ -8,6 +8,8 @@ use App\User;
 use App\Http\Requests\CityManager\StoreCityManagerRequest;
 use App\Http\Requests\CityManager\UpdateCityManagerRequest;
 use Illuminate\Support\Facades\Storage;
+use App\City;
+
 
 class CityManagerController extends Controller
 {
@@ -39,7 +41,8 @@ class CityManagerController extends Controller
      */
     public function create()
     {
-        return view('/managers/CityManagerCreate');
+        $cities = City::all();
+        return view('/managers/CityManagerCreate',['cities' => $cities,]);
     }
 
     /**
@@ -57,12 +60,14 @@ class CityManagerController extends Controller
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
             'avatar_image'=>basename($path),
+            'city_id'=>$request['city_id'],
             ]);
         } elseif (! $request->hasFile("avatar_image")) {
             $User=User::create([
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
+            'city_id'=>$request['city_id'],
              ]);
         }
         $User->assignRole('city_manager');
@@ -94,7 +99,9 @@ class CityManagerController extends Controller
         return view("managers/ManagerShow", [
             'manager'=>$city_manager,
             'bann'=>$ban,
-            'unban'=>$unban
+            'unban'=>$unban,
+            'city'=>$city_manager->city_id,
+            
         ]);
     }
     public function ban($id)
@@ -147,12 +154,14 @@ class CityManagerController extends Controller
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
             'avatar_image'=>basename($path),
+            'city_id'=>$request['city_id'],
             ]);
         } elseif (! $request->hasFile("avatar_image")) {
             $city_manager->update([
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
+            'city_id'=>$request['city_id'],
              ]);
         }
         return redirect()->route('CityManager.index_view')->with('message', 'Updated Successfully!');

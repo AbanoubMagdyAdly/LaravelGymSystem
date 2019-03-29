@@ -240,12 +240,6 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="../../index3.html" class="nav-link">
-                                    <i class="fa fa-plus-circle nav-icon"></i>
-                                    <p>Create</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
                                 <a href="/cities/data" class="nav-link">
                                     <i class="fa fa-eye nav-icon"></i>
                                     <p>Show All</p>
@@ -357,7 +351,7 @@
         @endcan
         @can('buy_sessions_to_users')
         <li class="nav-item has-treeview">
-            <a href="/admin/buypackage" class="nav-link">
+            <a href="/revenue/create" class="nav-link">
                 <i class="nav-icon fa fa-plus"></i>
                 <p>
                     Buy Package For User
@@ -421,7 +415,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                  <a href="../../index.html" class="nav-link">
+                  <a href="../../revenue/data" class="nav-link">
                     <i class="fa fa-eye nav-icon"></i>
                     <p>Show All</p>
                 </a>

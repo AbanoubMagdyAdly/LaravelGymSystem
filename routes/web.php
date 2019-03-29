@@ -122,6 +122,8 @@ Route::prefix('revenue')->middleware('auth')->group(function () {
     Route::get('/{id}/edit', 'RevenueController@edit')->name('revenue.edit')->middleware('permission:revenue');
     Route::put('/{id}', 'RevenueController@update')->name('revenue.update')->middleware('permission:revenue');
     Route::get('/show/{id}', 'RevenueController@show')->name('revenue.show')->middleware('permission:revenue');
+    Route::post('/buy', 'RevenueController@buy')->name('revenue.buy')->middleware('permission:revenue');
+
     // Route::get('/ban/{id}', 'RevenueController@ban')->name('revenue.ban');
     // Route::get('/unban/{id}', 'RevenueController@unban')->name('revenue.unban');
     Route::get('/{id}', 'RevenueController@destroy')->name('revenue.destroy')->middleware('permission:revenue');

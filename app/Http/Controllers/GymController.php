@@ -7,12 +7,18 @@ use Illuminate\Http\Request;
 use App\User;
 use App\City;
 use Illuminate\Queue\Capsule\Manager;
+
 class GymController extends Controller
 {
 
     public function index()
     {
-        return datatables()->of(Gym::query())->toJson();
+        if (auth()->user()->hasRole('city_manager')) {
+            $city_manager = Manager::where('id', '=', auth()->user()->id);
+            return datatables()->of(Gym::where('city_id', '=', $city_manager->city_id)->with(['city', 'User']))->toJson();
+        } else {
+            return datatables()->of(Gym::with(['city', 'User']))->toJson();
+        }
     }
 
     public function index_view()
@@ -20,15 +26,22 @@ class GymController extends Controller
         return view('gym.data');
     }
     public function create()
-    {
-        $gyms = Gym::all();
-        $managers = User::role("gym_manager");
-        $cities = City::all();
+    {       
+        if (auth()->user()->getRoleNames()[0]=='city_manager') {
+            $cities=[];
+            $cities [] = City::find(auth()->user()->city_id);
+            $gyms = Gym::where('city_id','=',$cities[0]->city_id);
+        } else {
+            $cities = City::all();
+            $gyms = Gym::all(); 
+        }
+        $managers = User::role("gym_manager")->get();
+        
         //        dd($gyms[1]['id']);
         return view('gym.create', [
             'gyms' => $gyms,
-            'managers'=> $managers,
-            'cities'=> $cities,
+            'managers' => $managers,
+            'cities' => $cities,
         ]);
     }
 
@@ -55,8 +68,8 @@ class GymController extends Controller
     }
     public function edit($id)
     {
-        $city= City::all();
-        $managers= User::role("gym_manager")->get();
+        $city = City::all();
+        $managers = User::role("gym_manager")->get();
         // dd($managers);
         $gym = Gym::find($id);
         return view('gym.edit', [
