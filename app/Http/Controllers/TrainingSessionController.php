@@ -77,9 +77,11 @@ class TrainingSessionController extends Controller
     {
         $trainingsessions = TrainingSession::all();
         $trainingsession = TrainingSession::find($id);
+        $gyms=Gym::all();
         return view('trainingsession.edit', [
             'trainingsession' => $trainingsession,
-            'trainingsessions' => $trainingsessions
+            'trainingsessions' => $trainingsessions,
+            'gyms'=>$gyms
 
         ]);
     }
@@ -92,14 +94,14 @@ class TrainingSessionController extends Controller
             'manager_id' => $request['manager_id'],
             'city_id' => $request['city_id'],
         ]);
-        return redirect()->route('trainingsession.index_view');
+        return view('trainingsession.data');
     }
 
     public function destroy($id)
     {
         if (!AttendanceUser::where('session_id', '=', $id)->exists()) {
             TrainingSession::find($id)->delete();
-            return redirect()->route('trainingsession.index_view');
+            return view('trainingsession.data');
         } else {
             return back()->with('error', 'Session has attendants!');
         };

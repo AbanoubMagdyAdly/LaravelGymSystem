@@ -252,26 +252,6 @@
                         </ul>
                     </li>
                     @endcan
-                    @can('CRUD_users')
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fa fa-user"></i>
-                            <p>
-                  Users
-                  <i class="right fa fa-angle-left"></i>
-                </p>
-            </a>
-            <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="/users/data" class="nav-link">
-                    <i class="fa fa-eye nav-icon"></i>
-                    <p>Show All</p>
-                </a>
-                </li>
-            </li>
-        </ul>
-    </li>
-    @endcan
     @can('CRUD_trainingPackage')
     <li class="nav-item has-treeview">
         <a href="#" class="nav-link">
