@@ -13,4 +13,17 @@ class Revenue extends Model
         'city_id',
         'price',
     ];
+
+    public function gym(){
+        return $this->belongsTo('App\Gym');
+    }
+    public function trainee(){
+        return $this->belongsTo('App\Trainee');
+    }
+    public function trainingpackage(){
+        return $this->belongsTo('App\TrainingPackage');
+    }
+    public function city(){
+        return $this->belongsTo('App\City');
+    }
 }

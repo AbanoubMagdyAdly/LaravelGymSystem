@@ -130,7 +130,9 @@ Route::prefix('revenue')->middleware('auth')->group(function () {
     Route::get('/{id}/edit', 'RevenueController@edit')->name('revenue.edit');
     Route::put('/{id}', 'RevenueController@update')->name('revenue.update');
     Route::get('/show/{id}', 'RevenueController@show')->name('revenue.show');
+    Route::post('/buy', 'RevenueController@buy')->name('revenue.buy');
+
     // Route::get('/ban/{id}', 'RevenueController@ban')->name('revenue.ban');
     // Route::get('/unban/{id}', 'RevenueController@unban')->name('revenue.unban');
-    Route::get('/{id}', 'RevenueController@destroy')->name('revenue.destroy');
+    // Route::get('/{id}', 'RevenueController@destroy')->name('revenue.destroy');
 });

@@ -4,11 +4,11 @@
     <!-- general form elements -->
     <div class="card card-primary">
         <div class="card-header">
-            <h3 class="card-title">Create Gym</h3>
+            <h3 class="card-title">Buy package</h3>
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form role="form"   action="{{route('revenue.store')}}" method="POST">
+        <form role="form"   action="{{route('revenue.buy')}}" method="POST">
             @csrf
             <div class="card-body">
 
@@ -24,11 +24,11 @@
                     @if ($errors->has('manager_id')) <label class="alert alert-danger">{{ $errors->first('manager_id') }}</label> @endif
                 </div>
                 <div class="form-group">
-                    <label for="trainee_id">trainees</label>
-                    <select  name="trainee_id" class="form-control" id="trainee_id">
-                        @foreach($trainees as $trainee)
-                            <option value="{{$trainee->id}}">
-                                {{$trainee->name}}
+                    <label for="gym_id">gym</label>
+                    <select  name="gym_id" class="form-control" id="gym_id">
+                        @foreach($gyms as $gym)
+                            <option value="{{$gym->id}}">
+                                {{$gym->name}}
                             </option>
                         @endforeach
                     </select>
@@ -52,22 +52,15 @@
                             <option value="{{$package->id}}">
                                 {{$package->name}}    price     {{$package->price/100}}
                             </option>
-                        @endforeach
+                             @endforeach
+                         
                     </select>
+                    
+               
+
                     @if ($errors->has('manager_id')) <label class="alert alert-danger">{{ $errors->first('manager_id') }}</label> @endif
-                                        <form action="{{route('revenue.store')}}" method="POST">
-                        <script
-                        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                        data-key="pk_test_wivGVUY4vBGCTN6KidhFwTj200umuNEDXx"
-                        data-amount="{{$package->price}}"
-                        data-name="Stripe.com"
-                        data-description="Example charge"
-                        data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                        data-locale="auto"
-                        data-zip-code="true">
-                        </script>
-                        <input name="price" type="hidden">
-                    </form>
+                      
+                       
                 </div>
              
                 <div class="card-footer">
