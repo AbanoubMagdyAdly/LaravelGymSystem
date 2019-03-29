@@ -4,13 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Coache extends Model
+class CoachesSession extends Model
 {
     public $timestamps = false;
     protected $fillable = [
-    	'name',
-    	'email',
-        'date_of_birth',
-        'gender',
+        'gym_id',
+        'session_id',
+        'coach_id',
     ];
+
 }
