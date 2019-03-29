@@ -50,23 +50,25 @@ class HomeController extends Controller
         // $role1->givePermissionTo($permission);
         // $permission = Permission::create(['name' => 'CRUD_city_managers']);
         // $role->givePermissionTo($permission);
+<<<<<<< HEAD
         // auth()->user()->assignRole('admin');
 
+=======
+>>>>>>> 29fdda5731033bc06c1d1fb14eb348fabcf6597a
         // $permission = Permission::create(['name' => 'CRUD_cities']);
-        // $role = Role::findByName('admin');
-        // $role->givePermissionTo('CRUD_training_sessions');
-        // $role->givePermissionTo('assign_coaches_to_sessions');
-        // $role->givePermissionTo('buy_sessions_to_users');
-        // $role->givePermissionTo('show_city_gyms');
-        // $role->givePermissionTo('CRUD_gyms');
-        // $role->givePermissionTo('CRUD_city_gyms_manager');
-        // $role->givePermissionTo('CRUD_city_managers');
-        // $role->givePermissionTo('CRUD_cities');
-        // $user=auth()->user();
+        // $role->givePermissionTo($permission);
         // $permission = Permission::create(['name' => 'attendance']);
-        // $user->givePermissionTo('CRUD_city_managers');
+        // $role->givePermissionTo($permission);
         // $permission = Permission::create(['name' => 'revenue']);
-        // $user->givePermissionTo($permission);
+        // $role->givePermissionTo($permission);
+        // $permission = Permission::create(['name' => 'CRUD_trainingPackage']);
+        // $role->givePermissionTo($permission);
+        // $permission = Permission::create(['name' => 'CRUD_users']);
+        // $role->givePermissionTo($permission);
+        
+        // $user=auth()->user();
+        // $user->assignRole('admin');
+        // $user->givePermissionTo('CRUD_users');
         // $user->givePermissionTo('assign_coaches_to_sessions');
         // $user->givePermissionTo('buy_sessions_to_users');
         // $user->givePermissionTo('show_city_gyms');
@@ -74,6 +76,11 @@ class HomeController extends Controller
         // $user->givePermissionTo('CRUD_city_gyms_manager');
         // $user->givePermissionTo('CRUD_city_managers');
         // $user->givePermissionTo('CRUD_cities');
+        // $user->givePermissionTo('revenue');
+        // $user->givePermissionTo('attendance');
+        // $user->givePermissionTo('CRUD_trainingPackage');
+        // $user->givePermissionTo('CRUD_training_sessions');
+
 
 
 

@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Console\Commands;
-
 use Illuminate\Console\Command;
 use App\Trainee;
 use Carbon\Carbon;
@@ -40,14 +38,27 @@ class InactiveUsers extends Command
      */
     public function handle()
     {
+        // $traniees =  Trinee::all();
+        // $time_now = Carbon::now()->$table->timestamp;
+        // foreach ($traniees as $trainees) {
+        //     $last_login = $trainees->last_login;
+        //     $time_difference = $time_now -$last_login;
+        //     $time_in_days = $time_difference /(24*60*60);
+        //     if ($time_in_days >30) {
+        //         //do some logic to send mail notification here
+        //     }
+        // }
+        $traniees =  Trinee::all();
+        $time_now = Carbon::now()->timestamp;
         $traniees =  Trainee::all();
+        $trainees =  Trainee::all();
         $time_now = Carbon::now();
-        foreach ($traniees as $trainee) {
+        foreach ($trainees as $trainee) {
             $last_login_from_db = $trainee->last_login;
             $last_login = Carbon::parse($last_login_from_db);
             $days = $last_login->diffInDays($time_now);
             if ($days >30) {
-                $trainee->notify(new MailNotifier());
+                $trainee->notify(new MailNotifier($trainee));
             }
         }
     }

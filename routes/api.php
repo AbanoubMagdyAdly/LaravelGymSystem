@@ -13,18 +13,29 @@ use Illuminate\Http\Request;
 |
 // */    
 
-Route::post('login', 'ApiController@login')->middleware('verified');
-Route::post('register', 'ApiController@register');
 
-	Route::group(['middleware' => 'auth.jwt'], function () {
+Route::post('login', 'ApiController@login');//->middleware('verified');
+Route::post('register', 'ApiController@register');
+Route::get('/user/verify/{token}', 'ApiController@verifyUser');
+
+Route::group(['middleware' => 'auth:api'], function () {
+    Route::put('/me/update', 'ApiController@update');
+    Route::get('/me/logout', 'ApiController@logout');
+    Route::post('me/create/{id}', 'Api\TraineeController@create');
+    Route::get('/me/show' ,'Api\TraineeController@show');
+    Route::get('/me/show/history' ,'Api\TraineeController@showHistory');
+
+	// Route::group(['middleware' => 'auth.jwt'], function () {
     // Route::get('logout', 'ApiController@logout');
     // Route::put('trainees/update', 'ApiController@update');
 
-    Route::get('user', 'ApiController@getAuthUser');
+
+
+//    Route::post('login', 'ApiController@login')->middleware('verified');
 });
 
 Route::group(['middleware' => 'auth:api'], function () {
     	    Route::put('trainees/update', 'ApiController@update');
-    	        Route::get('logout', 'ApiController@logout');
+    	    Route::get('logout', 'ApiController@logout');
 
-	});
+});

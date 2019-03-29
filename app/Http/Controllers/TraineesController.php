@@ -16,7 +16,7 @@ class TraineesController extends Controller
     {
         // dd((Trainee::all()));
         return view(
-            'admin/trainee'
+            'admin/trainees'
         );
     }
     public function destroy($id)

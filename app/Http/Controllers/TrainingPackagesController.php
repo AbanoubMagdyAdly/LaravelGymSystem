@@ -106,7 +106,6 @@ class TrainingPackagesController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $package=TrainingPackage::findorfail($id);
         $package->update([
             'name' => $request['name'],

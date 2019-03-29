@@ -302,7 +302,6 @@
                 </a>
                 </li>
             </li>
-
         </ul>
     </li>
     @endcan
