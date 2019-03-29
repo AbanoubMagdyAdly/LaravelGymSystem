@@ -37,5 +37,4 @@ class Trainee extends Authenticatable implements JWTSubject
     {
         return $this->hasOne('App\VerifyUser');
     }
-    
 }

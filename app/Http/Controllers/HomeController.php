@@ -24,61 +24,61 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // $role = Role:: create(['name'=>'admin']);
-        // $role1 = Role:: create(['name'=>'city_manager']);
-        // $role2 =  Role:: create(['name'=>'gym_manager']);
-        // $permission = Permission::create(['name' => 'CRUD_training_sessions']);
-        // $role->givePermissionTo($permission);
-        // $role1->givePermissionTo($permission);
-        // $role2->givePermissionTo($permission);
-        // $permission = Permission::create(['name' => 'assign_coaches_to_sessions']);
-        // $role2->givePermissionTo($permission);
-        // $role1->givePermissionTo($permission);
-        // $role->givePermissionTo($permission);
-        // $permission = Permission::create(['name' => 'buy_sessions_to_users']);
-        // $role->givePermissionTo($permission);
-        // $role1->givePermissionTo($permission);
-        // $role2->givePermissionTo($permission);
-        // $permission = Permission::create(['name' => 'show_city_gyms']);
-        // $role->givePermissionTo($permission);
-        // $role1->givePermissionTo($permission);
-        // $permission = Permission::create(['name' => 'CRUD_gyms']);
-        // $role->givePermissionTo($permission);
-        // $role1->givePermissionTo($permission);
-        // $permission = Permission::create(['name' => 'CRUD_city_gyms_manager']);
-        // $role->givePermissionTo($permission);
-        // $role1->givePermissionTo($permission);
-        // $permission = Permission::create(['name' => 'CRUD_city_managers']);
-        // $role->givePermissionTo($permission);
-        // $permission = Permission::create(['name' => 'CRUD_cities']);
-        // $role->givePermissionTo($permission);
-        // $permission = Permission::create(['name' => 'attendance']);
-        // $role->givePermissionTo($permission);
-        // $permission = Permission::create(['name' => 'revenue']);
-        // $role->givePermissionTo($permission);
-        // $permission = Permission::create(['name' => 'CRUD_trainingPackage']);
-        // $role->givePermissionTo($permission);
-        // $permission = Permission::create(['name' => 'CRUD_users']);
-        // $role->givePermissionTo($permission);
-        
-        // $user=auth()->user();
-        // $user->assignRole('admin');
-        // $user->givePermissionTo('CRUD_users');
-        // $user->givePermissionTo('assign_coaches_to_sessions');
-        // $user->givePermissionTo('buy_sessions_to_users');
-        // $user->givePermissionTo('show_city_gyms');
-        // $user->givePermissionTo('CRUD_gyms');
-        // $user->givePermissionTo('CRUD_city_gyms_manager');
-        // $user->givePermissionTo('CRUD_city_managers');
-        // $user->givePermissionTo('CRUD_cities');
-        // $user->givePermissionTo('revenue');
-        // $user->givePermissionTo('attendance');
-        // $user->givePermissionTo('CRUD_trainingPackage');
-        // $user->givePermissionTo('CRUD_training_sessions');
-
-
-
-
+//         $role = Role:: create(['name'=>'admin']);
+//         $role1 = Role:: create(['name'=>'city_manager']);
+//         $role2 =  Role:: create(['name'=>'gym_manager']);
+//         $permission = Permission::create(['name' => 'CRUD_training_sessions']);
+//         $role->givePermissionTo($permission);
+//         $role1->givePermissionTo($permission);
+//         $role2->givePermissionTo($permission);
+//         $permission = Permission::create(['name' => 'assign_coaches_to_sessions']);
+//         $role2->givePermissionTo($permission);
+//         $role1->givePermissionTo($permission);
+//         $role->givePermissionTo($permission);
+//         $permission = Permission::create(['name' => 'buy_sessions_to_users']);
+//         $role->givePermissionTo($permission);
+//         $role1->givePermissionTo($permission);
+//         $role2->givePermissionTo($permission);
+//         $permission = Permission::create(['name' => 'show_city_gyms']);
+//         $role->givePermissionTo($permission);
+//         $role1->givePermissionTo($permission);
+//         $permission = Permission::create(['name' => 'CRUD_gyms']);
+//         $role->givePermissionTo($permission);
+//         $role1->givePermissionTo($permission);
+//         $permission = Permission::create(['name' => 'CRUD_city_gyms_manager']);
+//         $role->givePermissionTo($permission);
+//         $role1->givePermissionTo($permission);
+//         $permission = Permission::create(['name' => 'CRUD_city_managers']);
+//         $role->givePermissionTo($permission);
+//         $permission = Permission::create(['name' => 'CRUD_cities']);
+//         $role->givePermissionTo($permission);
+//         $permission = Permission::create(['name' => 'attendance']);
+//         $role->givePermissionTo($permission);
+//         $permission = Permission::create(['name' => 'revenue']);
+//         $role->givePermissionTo($permission);
+//         $permission = Permission::create(['name' => 'CRUD_trainingPackage']);
+//         $role->givePermissionTo($permission);
+//         $permission = Permission::create(['name' => 'CRUD_users']);
+//         $role->givePermissionTo($permission);
+//
+//         $user=auth()->user();
+//         $user->assignRole('admin');
+//         $user->givePermissionTo('CRUD_users');
+//         $user->givePermissionTo('assign_coaches_to_sessions');
+//         $user->givePermissionTo('buy_sessions_to_users');
+//         $user->givePermissionTo('show_city_gyms');
+//         $user->givePermissionTo('CRUD_gyms');
+//         $user->givePermissionTo('CRUD_city_gyms_manager');
+//         $user->givePermissionTo('CRUD_city_managers');
+//         $user->givePermissionTo('CRUD_cities');
+//         $user->givePermissionTo('revenue');
+//         $user->givePermissionTo('attendance');
+//         $user->givePermissionTo('CRUD_trainingPackage');
+//         $user->givePermissionTo('CRUD_training_sessions');
+//
+//
+//
+//
 
 
 
