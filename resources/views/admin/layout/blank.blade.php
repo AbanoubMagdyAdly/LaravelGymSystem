@@ -357,7 +357,7 @@
         @endcan
         @can('buy_sessions_to_users')
         <li class="nav-item has-treeview">
-            <a href="/admin/buypackage" class="nav-link">
+            <a href="/revenue/create" class="nav-link">
                 <i class="nav-icon fa fa-plus"></i>
                 <p>
                     Buy Package For User
