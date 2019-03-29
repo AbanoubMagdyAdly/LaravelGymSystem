@@ -50,11 +50,6 @@ class HomeController extends Controller
         // $role1->givePermissionTo($permission);
         // $permission = Permission::create(['name' => 'CRUD_city_managers']);
         // $role->givePermissionTo($permission);
-<<<<<<< HEAD
-        // auth()->user()->assignRole('admin');
-
-=======
->>>>>>> 29fdda5731033bc06c1d1fb14eb348fabcf6597a
         // $permission = Permission::create(['name' => 'CRUD_cities']);
         // $role->givePermissionTo($permission);
         // $permission = Permission::create(['name' => 'attendance']);
