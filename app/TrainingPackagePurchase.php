@@ -14,6 +14,7 @@ class TrainingPackagePurchase extends Model
         'gym_id',
         'city_id',
         'price',
+        'created_at'
     ];
     public function gym(){
         return $this->belongsTo('App\Gym');

@@ -229,25 +229,6 @@
                 @endcan
                 <!-- Create icons to the links using the .nav-icon class
                     with font-awesome or any other icon font library -->
-                    @can('CRUD_cities')
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fa fa-edit"></i>
-                            <p>
-                                Cities
-                                <i class="right fa fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="/cities/data" class="nav-link">
-                                    <i class="fa fa-eye nav-icon"></i>
-                                    <p>Show All</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    @endcan
                     @can('CRUD_gyms')
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">

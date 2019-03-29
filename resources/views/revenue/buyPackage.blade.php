@@ -26,24 +26,24 @@
        <br>
         <label style="color:red;">city : </label>
         <label > {{$city->name}} </label>
-        <form role="form"   action="{{route('revenue.store')}}" method="POST">
-                </div>
+        <form  action="{{route('revenue.store')}}" method="POST">
                 <div style="display: none;">
-                <input name="trainee_id" value={{$trainee->id}} >
-                <input name="city_id" value={{$city->id}} >
-                <input name="gym_id" value={{$gym->id}} >
-                <input name="package_id" value={{$package->id}} >
-                <input name="price" value={{$package->price}} >
+                    @csrf
+                <input name="trainee_id" value="{{$trainee->id}}" >
+                <input name="city_id" value="{{$city->id}}" >
+                <input name="gym_id" value="{{$gym->id}}" >
+                <input name="package_id" value="{{$package->id}}" >
+                <input name="price" value="{{$package->price}}" >
                 </div>
-        <script
-                        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                        data-key="pk_test_wivGVUY4vBGCTN6KidhFwTj200umuNEDXx"
-                        data-amount="{{$package->price}}"
-                        data-name="Stripe.com"
-                        data-description="Example charge"
-                        data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                        data-locale="auto"
-                        data-zip-code="true">
+                        <script
+                                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                data-key="pk_test_wivGVUY4vBGCTN6KidhFwTj200umuNEDXx"
+                                data-amount="{{$package->price}}"
+                                data-name="Stripe.com"
+                                data-description="Example charge"
+                                data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                                data-locale="auto"
+                                data-zip-code="true">
                         </script>
         </form>
  

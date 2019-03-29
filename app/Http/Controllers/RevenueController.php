@@ -59,7 +59,7 @@ class RevenueController extends Controller
      */
     public function store(Request $request)
     {
-
+        // dd($request);
         // \Stripe\Stripe::setApiKey("sk_test_ah8BPqY1IotKT7B8bfbOmQSX00I0BoDobX");
         // $data=$request->all();
         // $token = $data['stripeToken'];
@@ -69,15 +69,15 @@ class RevenueController extends Controller
         //     'description' => 'Example charge',
         //     'source' => $token,
         // ]);
-//   dd($request->trainee_id);
+        
    
         TrainingPackagePurchase::create([
+            'created_at'=> now(),
             'trainee_id' => $request->trainee_id,
             'package_id' => $request->package_id,
             'gym_id' => $request->gym_id,
             'city_id' =>$request->city_id ,
             'price' => $request->price,
-
 
             ]);
        
