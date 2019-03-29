@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9387cb1-7659-47ee-be22-3246f0205223" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/AttendanceUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AttendanceUser.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/TraineeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/TraineeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2019_03_21_133726_create_attendance_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_03_21_133726_create_attendance_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_03_21_133952_create_training_packages_purchase_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_03_21_133952_create_training_package_purchases_table.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,11 +22,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/TraineeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="133" column="46" selection-start-line="133" selection-start-column="46" selection-end-line="133" selection-end-column="46" />
+            <state relative-caret-position="-165">
+              <caret line="65" column="1" selection-start-line="65" selection-start-column="1" selection-end-line="65" selection-end-column="1" />
               <folding>
                 <element signature="e#43#66#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2019_03_21_133726_create_attendance_users_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -92,7 +103,6 @@
         <option value="$PROJECT_DIR$/resources/views/gym/create.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/GymController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_03_21_134918_add_foreign_keys.php" />
-        <option value="$PROJECT_DIR$/app/AttendanceUser.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_03_26_200747_add_packages_and_attended_sessions_to_trainees_table.php" />
         <option value="$PROJECT_DIR$/app/Listeners/LogSuccessfulLogin.php" />
         <option value="$PROJECT_DIR$/app/Trainee.php" />
@@ -108,6 +118,7 @@
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ApiController.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
+        <option value="$PROJECT_DIR$/app/AttendanceUser.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_03_21_133726_create_attendance_users_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/TraineeController.php" />
       </list>
@@ -308,12 +319,12 @@
       <workItem from="1553434876459" duration="14680000" />
       <workItem from="1553594708411" duration="11963000" />
       <workItem from="1553691485094" duration="4982000" />
-      <workItem from="1553699414075" duration="13468000" />
+      <workItem from="1553699414075" duration="16388000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86787000" />
+    <option name="totallyTimeSpent" value="89707000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="730" extended-state="6" />
@@ -334,7 +345,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32890365" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5007576" side_tool="true" weight="0.32890365" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49924242" visible="true" weight="0.16445182" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49924242" visible="true" weight="0.08471761" />
       <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -471,13 +482,6 @@
     <entry file="file://$PROJECT_DIR$/config/filesystems.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/AttendanceUser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/auth.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -569,7 +573,7 @@
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_03_21_134016_create_coaches_table.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_03_21_133952_create_training_packages_purchase_table.php">
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_03_21_133952_create_training_package_purchases_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="23" selection-start-line="23" selection-end-line="23" />
@@ -670,17 +674,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/AttendanceUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-26">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_03_21_133726_create_attendance_users_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="24" column="44" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="44" />
+        <state relative-caret-position="210">
+          <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/TraineeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="133" column="46" selection-start-line="133" selection-start-column="46" selection-end-line="133" selection-end-column="46" />
+        <state relative-caret-position="-165">
+          <caret line="65" column="1" selection-start-line="65" selection-start-column="1" selection-end-line="65" selection-end-column="1" />
           <folding>
             <element signature="e#43#66#0#PHP" expanded="true" />
           </folding>

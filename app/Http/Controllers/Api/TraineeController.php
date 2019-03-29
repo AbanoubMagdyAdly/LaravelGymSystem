@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers\Api;
 use App\AttendanceUser;
+use App\City;
 use App\Gym;
 use App\PackagePurchase;
 use App\Trainee;
 use App\TrainingPackage;
 use App\TrainingPackagePurchase;
 use App\TrainingSession;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\TraineeResource;
 use Illuminate\Support\Facades\Hash;
+use phpDocumentor\Reflection\Types\Null_;
 use Tymon\JWTAuth\Contracts\Providers\Auth;
 use Carbon\Carbon;
 
@@ -60,38 +63,42 @@ class TraineeController extends Controller
         ]);
     }
 
-    public function update(Request $request, trainee $trainee)
-    {
-        $trainee->name = $request->name;
 
-        $trainee->update(['name' => $request->name, 'gender' => $request->gender, 'date_of_birth' => $request->date_of_birth, 'image' => $request->image]);
-
-        // $trainees->update($request->all());
-        return $trainee;
-        // return response()->json([
-        //     'message' => 'up Successfully'
-        // ]);
-    }
 
     public function create(Request $request, $id)
     {
         $dateNow = Carbon::today();
-//        dd(auth()->user()->id);
-        $package=TrainingPackagePurchase::where('trainee_id',auth()->user()->id)->get();
-        dd($package->original);
-        if (TrainingSession::find($id)  ) {
-            if (TrainingSession::find($id)->date_of_session < $dateNow) {
-                $attendance = new AttendanceUser();
-                $attendance->name = TrainingSession::find($id)->name;
-                $attendance->user_id = 1;
-                $attendance->session_id = $id;
-                $attendance->gym_id = TrainingSession::find($id)->gym_id;
-                $attendance->city_id = 1;
-                $attendance->save();
-                return response()->json([
-                        'message' => 'Session  Successfully'
+        $trainee=\auth()->user();
+        $session=TrainingSession::find($id);
+        if ($session)  {
+            if (Carbon::parse(TrainingSession::find($id)->date_of_session)->eq($dateNow)) {
+                $gym=Gym::where('id',$session->id)->first();
+                $city=City::where('id',$gym->city_id)->first();
+                if(TrainingPackagePurchase::where('trainee_id',$trainee->id)->first()){
+                    $purchasedPackage=TrainingPackagePurchase::where('trainee_id',$trainee->id)->first();
+                    $packageCapacity=TrainingPackage::where('id',$purchasedPackage->package_id)->first()->capacity;
+                    $remainingSessions=$packageCapacity-$trainee->attended_sessions;
+                }else{ $purchasedPackage=null ;}
+                if( $purchasedPackage && $remainingSessions >0 ){
+                    $attendance = new AttendanceUser();
+                    $attendance->user_id = $trainee->id;
+                    $attendance->session_id = $id;
+                    $attendance->gym_id = $gym->id;
+                    $attendance->city_id = $city->id;
+                    $attendance->attendance_date=1;
+                    $attendance->attendance_time=2;
+                    $trainee->attended_sessions+=1;
+                    $trainee->save();
+                    $attendance->save();
+                    return response()->json([
+                        'message' => 'Session  Created Successfully'
                     ]);
-            } else {
+                }else {
+                    return response()->json([
+                        'message' => 'You have to buy package'
+                    ]);
+                }
+            }else {
                 return response()->json(['message' => 'You have to buy earlier']);
             }
         } else {

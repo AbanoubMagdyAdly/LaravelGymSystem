@@ -4,6 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property  city_id
+ */
 class AttendanceUser extends Model
 {
     public $timestamps = false;
