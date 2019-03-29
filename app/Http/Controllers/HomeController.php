@@ -54,13 +54,14 @@ class HomeController extends Controller
         // $role->givePermissionTo($permission);
         // $permission = Permission::create(['name' => 'attendance']);
         // $role->givePermissionTo($permission);
+        // $role1->givePermissionTo($permission);
         // $permission = Permission::create(['name' => 'revenue']);
         // $role->givePermissionTo($permission);
         // $permission = Permission::create(['name' => 'CRUD_trainingPackage']);
         // $role->givePermissionTo($permission);
         // $permission = Permission::create(['name' => 'CRUD_users']);
         // $role->givePermissionTo($permission);
-        
+
         // $user=auth()->user();
         // $user->assignRole('admin');
         // $user->givePermissionTo('CRUD_users');
