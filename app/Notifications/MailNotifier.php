@@ -45,7 +45,7 @@ class MailNotifier extends Notification
         return (new MailMessage)
                     ->subject('Grab Your Dumbbells Again!')
                     ->greeting('Hello '.$this->trainee->name. ',,, ')
-                    ->line('We are miss YOU  in our Gym for 30 days ')
+                    ->line('We miss YOU  in our Gym for 30 days ')
                     ->line('When you want to give up, remember why you started')
                     ->line('See you soon!');
     }
