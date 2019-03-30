@@ -14,7 +14,7 @@ class AddPriceToTrainingPackagesPurchase extends Migration
     public function up()
     {
 
-        Schema::table('training_packages_purchase', function (Blueprint $table) {
+        Schema::table('training_package_purchases', function (Blueprint $table) {
         
             $table->unsignedBigInteger('price');
      
