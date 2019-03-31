@@ -4,7 +4,7 @@ Gym Management System
 
 ## Getting Started
 
-Let's Start .......
+Let's Start ....
 
 ### Prerequisites
 First You must have Composer Installed 
